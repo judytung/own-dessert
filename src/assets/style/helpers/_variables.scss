@@ -67,7 +67,7 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       #ada8a0!default;// $blue !default;
+$primary:       $white!default;// $blue !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
@@ -375,11 +375,24 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
+  xs: $spacer * .125, //2
+  s: $spacer * .25,   //4
+  ms: $spacer * .375, //6
+  m: $spacer * .625,  //10
+  ml: $spacer * 1.75, //28
+  1: $spacer * .5,    //8
+  2: $spacer,         //16 
+  3: $spacer * 1.5,   //24
+  4: $spacer * 2,     //32
+  5: $spacer * 2.5,   //40
+  5\.5: $spacer * 2.75,//44
+  6: $spacer * 3,     //48
+  7: $spacer * 3.5,   //56
+  8: $spacer * 4,     //64
+  9: $spacer * 4.5,   //72
+  10: $spacer * 5,    //80
+  11: $spacer * 5.5,  //88
+  13: $spacer * 6.5,  //104
 ) !default;
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
@@ -442,7 +455,7 @@ $utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg") !defau
 //
 // Style anchor elements.
 
-$link-color:                              $primary !default;
+$link-color:                              $dark;// $primary !default;
 $link-decoration:                         underline !default;
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
@@ -609,12 +622,16 @@ $h6-font-size:                $font-size-base !default;
 
 // scss-docs-start font-sizes
 $font-sizes: (
-  1: $h1-font-size,
-  2: $h2-font-size,
-  3: $h3-font-size,
-  4: $h4-font-size,
-  5: $h5-font-size,
-  6: $h6-font-size
+  1: $font-size-base * 2.25,  //36
+  2: $font-size-base * 1.75,  //28
+  3: $font-size-base * 1.5,   //24
+  4: $font-size-base * 1.25,  //20
+  5: $font-size-base * .875,  //14
+  6: $h6-font-size ,          //16
+  m: $font-size-base * 2,     //32
+  ml: $font-size-base * 2.5,  //40
+  lg: $font-size-base * 2.75, //44
+  xl: $font-size-base * 3,    //48
 ) !default;
 // scss-docs-end font-sizes
 
@@ -1639,3 +1656,10 @@ $kbd-color:                         $white !default;
 $kbd-bg:                            $gray-900 !default;
 
 $pre-color:                         null !default;
+
+
+// transform
+$transform:  (
+  "y-50": translateY(-50%),
+  "x-50": translateX(-50%)
+);
