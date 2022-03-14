@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container overflow-hidden">
     <header class="d-flex justify-content-between align-items-end pos-relative">
       <div class="d-none d-lg-block">
         <ul class="d-flex">
@@ -41,18 +41,18 @@
         <i class="bi bi-list fs-4"></i>
       </a>
     </header>
-    <div class="nav-collapse collapse d-lg-none z-index-5 pos-absolute start-0 w-100 bg-primary" id="collapseExample">
-      <ul class="d-flex row text-center m-1">
-        <li class="col-6 mb-1">
+    <div class="nav-collapse collapse d-lg-none z-index-5 pos-absolute start-0 w-100 bg-primary overflow-hidden" id="collapseExample">
+      <ul class=" row text-center m-s justify-content-between g-1">
+        <li class="col-6 p-s border border-dark border-2 w-49">
           <router-link class="border border-dark py-2" to="/products">甜點</router-link>
         </li>
-        <li class="col-6">
+        <li class="col-6 p-s border border-dark border-2 w-49">
           <router-link class="border border-dark py-2" to="/about">關於我們</router-link>
         </li>
-        <li class="col-6 mb-1">
+        <li class="col-6 p-s border border-dark border-2 w-49">
           <router-link class="border border-dark py-2" to="/contact">聯絡我們</router-link>
         </li>
-        <li class="col-6">
+        <li class="col-6 p-s border border-dark border-2 w-49">
           <router-link class="border border-dark py-2" to="/shoppingnotice">購物說明</router-link>
         </li>
       </ul>
