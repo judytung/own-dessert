@@ -112,23 +112,23 @@
       id="collapseExample"
     >
       <ul class="row text-center m-s justify-content-between g-1">
-        <li class="col-6 p-s border border-dark border-2 w-49">
-          <router-link class="border border-dark py-2" to="/products"
+        <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
+          <router-link class="border border-dark py-2 hover-bg-white" to="/products"
             >甜點</router-link
           >
         </li>
-        <li class="col-6 p-s border border-dark border-2 w-49">
-          <router-link class="border border-dark py-2" to="/about"
+        <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
+          <router-link class="border border-dark py-2 hover-bg-white" to="/about"
             >關於我們</router-link
           >
         </li>
-        <li class="col-6 p-s border border-dark border-2 w-49">
-          <router-link class="border border-dark py-2" to="/contact"
+        <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
+          <router-link class="border border-dark py-2 hover-bg-white" to="/contact"
             >聯絡我們</router-link
           >
         </li>
-        <li class="col-6 p-s border border-dark border-2 w-49">
-          <router-link class="border border-dark py-2" to="/shoppingnotice"
+        <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
+          <router-link class="border border-dark py-2 hover-bg-white" to="/shoppingnotice"
             >購物說明</router-link
           >
         </li>
