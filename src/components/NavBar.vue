@@ -91,6 +91,7 @@
             aria-expanded="false"
             aria-controls="collapseExample"
             class="d-block"
+            @click="isShow = true"
           >
             <i class="bi bi-list fs-4"></i>
           </a>
@@ -109,6 +110,8 @@
         bg-primary
         overflow-hidden
       "
+      @click="isShow = false"
+      :class="{show:isShow}"
       id="collapseExample"
     >
       <ul class="row text-center m-s justify-content-between g-1">
@@ -139,13 +142,14 @@
 
 <script>
 import emitter from '@/libs/emitter'
-
+// import Collapse from 'bootstrap/js/dist/collapse.js'
 export default {
   data () {
     return {
       cartData: {
         carts: []
-      }
+      },
+      isShow: false
     }
   },
   methods: {
@@ -167,4 +171,5 @@ export default {
     })
   }
 }
+
 </script>
