@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header class="d-flex justify-content-between align-items-end">
+    <header class="d-flex justify-content-between align-items-end pos-relative">
       <div class="d-none d-lg-block">
         <ul class="d-flex">
           <li class="px-4">
@@ -20,7 +20,7 @@
         </h1>
       </div>
       <div class="d-none d-lg-block">
-        <ul class="d-flex">
+        <ul class="d-flex align-items-end">
           <li class="px-4">
             <router-link class="" to="/shoppingnotice">購物說明</router-link>
           </li>
@@ -41,12 +41,20 @@
         <i class="bi bi-list fs-4"></i>
       </a>
     </header>
-    <div class="collapse d-lg-none" id="collapseExample">
-      <ul class="d-flex row text-center">
-        <li class="border border-dark py-2 m-1 col-6">甜點</li>
-        <li class="border border-dark py-2 m-1 col-6">關於我們</li>
-        <li class="border border-dark py-2 m-1 col-6">聯絡我們</li>
-        <li class="border border-dark py-2 m-1 col-6">購物說明</li>
+    <div class="nav-collapse collapse d-lg-none z-index-5 pos-absolute start-0 w-100 bg-primary" id="collapseExample">
+      <ul class="d-flex row text-center m-1">
+        <li class="col-6 mb-1">
+          <router-link class="border border-dark py-2" to="/products">甜點</router-link>
+        </li>
+        <li class="col-6">
+          <router-link class="border border-dark py-2" to="/about">關於我們</router-link>
+        </li>
+        <li class="col-6 mb-1">
+          <router-link class="border border-dark py-2" to="/contact">聯絡我們</router-link>
+        </li>
+        <li class="col-6">
+          <router-link class="border border-dark py-2" to="/shoppingnotice">購物說明</router-link>
+        </li>
       </ul>
     </div>
   </div>
