@@ -114,7 +114,7 @@
       :class="{show:isShow}"
       id="collapseExample"
     >
-      <ul class="row text-center m-s justify-content-between g-1">
+      <ul class="row text-center m-s justify-content-between g-1 pb-5">
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
           <router-link class="border border-dark py-2 hover-bg-white" to="/products"
             >甜點</router-link
