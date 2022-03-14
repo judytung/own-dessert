@@ -49,5 +49,16 @@ $utilities:map-merge(
         auto: auto
       )
     ),
+    "opacity": (
+      property: opacity,
+      values: (
+        0: 0,
+        25: .25,
+        50: .5,
+        75: .75,
+        90: .90,
+        100: 1,
+      )
+    ),
   )
 )

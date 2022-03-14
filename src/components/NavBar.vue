@@ -4,13 +4,13 @@
       <div class="d-none d-lg-block">
         <ul class="d-flex">
           <li class="px-4">
-            <router-link class="" to="/products">甜點</router-link>
+            <router-link class="nav-hover" to="/products">甜點</router-link>
           </li>
           <li class="px-4">
-            <router-link class="" to="/about">關於我們</router-link>
+            <router-link class="nav-hover" to="/about">關於我們</router-link>
           </li>
           <li class="px-4">
-            <router-link class="" to="/contact">聯絡我們</router-link>
+            <router-link class="nav-hover" to="/contact">聯絡我們</router-link>
           </li>
         </ul>
       </div>
@@ -22,17 +22,17 @@
       <div class="d-none d-lg-block">
         <ul class="d-flex align-items-end">
           <li class="px-4">
-            <router-link class="" to="/shoppingnotice">購物說明</router-link>
+            <router-link class="nav-hover" to="/shoppingnotice">購物說明</router-link>
           </li>
           <li class="px-4">
-            <router-link class="pos-relative  border-0" @click="changeCart" to="/cart">
+            <router-link class="pos-relative border-0 hvr-bob" @click="changeCart" to="/cart">
               <i class="bi bi-cart2 fs-3"></i>
-              <span class="badge rounded-pill bg-danger pos-absolute start-50 ">{{  }}</span>
+              <span class="badge rounded-pill bg-secondary pos-absolute start-50 opacity-90">{{ cartData.carts.length }}</span>
             </router-link>
           </li>
           <li class="px-4">
             <router-link to="/admin/products">
-              <i class="bi bi-person-fill fs-3"></i>
+              <i class="bi bi-person-fill fs-3 nav-hover"></i>
             </router-link>
           </li>
         </ul>
@@ -59,3 +59,36 @@
     </div>
   </div>
 </template>
+
+<script>
+import emitter from '@/libs/emitter'
+
+export default {
+  data () {
+    return {
+      cartData: {
+        carts: []
+      }
+    }
+  },
+  methods: {
+    // 取得購物車
+    getCart () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.get(url)
+        .then(res => {
+          this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+        })
+    },
+    changeCart () {
+      this.$router.push('/cart')
+    }
+  },
+  mounted () {
+    this.getCart()
+    emitter.on('get-cart', () => {
+      this.getCart()
+    })
+  }
+}
+</script>
