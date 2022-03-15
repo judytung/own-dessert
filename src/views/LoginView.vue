@@ -2,8 +2,8 @@
   <div class="container py-6 py-lg-7">
     <h2 class="text-center">後台登入</h2>
     <div class="row">
-      <div class="login col-lg-6 offset-lg-3 p-6 mt-3">
-        <div class="border border-primary p-s ">
+      <div class="login col-lg-6 offset-lg-3 p-6 mt-3 d-flex align-items-center">
+        <div class="border border-primary p-s w-100 ">
           <form class="bg-light p-5 clearfix ">
             <div class="form-floating">
               <input type="email" id="account" class="form-control" placeholder="email address">
