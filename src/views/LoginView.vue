@@ -4,18 +4,18 @@
     <div class="row">
       <div class="login col-lg-6 offset-lg-3 p-6 mt-3 d-flex align-items-center">
         <div class="border border-primary p-s w-100 ">
-          <form class="bg-light p-5 clearfix ">
+          <form @submit.prevent="logIn" class="bg-light p-5 clearfix">
             <div class="form-floating">
-              <input type="email" id="account" class="form-control" placeholder="email address">
+              <input type="email" id="account" class="form-control" placeholder="email address" v-model="user.username">
               <label for="account">email address</label>
             </div>
             <div class="form-floating mt-2">
-              <input type="password" id="password" class="form-control" placeholder="password">
+              <input type="password" id="password" class="form-control" placeholder="password" v-model="user.password">
               <label for="password">password</label>
             </div>
             <div class="mt-9 float-end">
               <router-link class="btn btn-outline-secondary d-inline-block me-1" to="/">返回前台</router-link>
-              <button type="button" class="btn btn-secondary">登入</button>
+              <button type="button" class="btn btn-secondary" @click="logIn">登入</button>
             </div>
           </form>
         </div>
@@ -32,6 +32,20 @@ export default {
         username: '',
         password: ''
       }
+    }
+  },
+  methods: {
+    logIn () {
+      const url = `${process.env.VUE_APP_API}/admin/signin/`
+      this.$http.post(url, this.user)
+        .then((res) => {
+          const { token, expired } = res.data
+          document.cookie = `hexToken=${token}; expires=${new Date(expired)}`
+          this.$router.push('/admin/products')
+        })
+        .catch(err => {
+          alert(err.response.data.message)
+        })
     }
   }
 }

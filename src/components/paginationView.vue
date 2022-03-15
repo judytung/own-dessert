@@ -1,0 +1,25 @@
+<template>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" :class="{ disabled: !pages.has_pre }">
+        <a class="page-link" href="#" aria-label="Previous" @click.prevent="$emit('get-product', pages.current_page - 1)">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item" :class="{ active: page === pages.current_page }"
+      v-for="page in pages.total_pages" :key="page + 'page' ">
+          <a class="page-link" href="#" @click.prevent="$emit('get-product', page)">{{ page }}</a></li>
+      <li class="page-item" :class="{ disabled: !pages.has_next }">
+        <a class="page-link" href="#" aria-label="Next" @click.prevent="$emit('get-product', pages.current_page + 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<script>
+export default {
+  props: ['pages'] // 外層取得的 pagination 用 props 的 pages 接收
+}
+</script>

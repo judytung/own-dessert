@@ -67,14 +67,15 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       $white!default;// $blue !default;
-$secondary:     #736357;// $gray-600 !default;
+$primary:       $white!default; // $blue !default;
+$secondary:     #99918C; // $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
+$accent:        #736357;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -1244,7 +1245,7 @@ $pagination-hover-bg:               $gray-200 !default;
 $pagination-hover-border-color:     $gray-300 !default;
 
 $pagination-active-color:           $component-active-color !default;
-$pagination-active-bg:              $component-active-bg !default;
+$pagination-active-bg:              $accent;// $component-active-bg !default;
 $pagination-active-border-color:    $pagination-active-bg !default;
 
 $pagination-disabled-color:         $gray-600 !default;
