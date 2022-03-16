@@ -26,7 +26,7 @@
             <div class="col-sm-4">
               <div class="mb-3">
                 <label for="mainImage" class="form-label">主圖網址</label>
-                <input type="text" class="from-control w-100" id="mainImage" />
+                <input type="text" class="from-control w-100" id="mainImage" v-model="tempProduct.imageUrl"/>
                 <img src="" alt="" class="img-fluid" />
               </div>
               <!--多圖-->
@@ -72,7 +72,6 @@
                   placeholder="請輸入標題"
                 />
               </div>
-
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label for="category" class="form-label">分類</label>
@@ -116,7 +115,7 @@
                   />
                 </div>
               </div>
-              <hr />
+              <hr/>
 
               <div class="mb-3">
                 <label for="description" class="form-label">產品描述</label>
@@ -173,10 +172,29 @@
 <script>
 import Modal from 'bootstrap/js/dist/modal.js'
 export default {
-  props: ['isNew'],
+  props: {
+    isNew: {
+      type: Boolean,
+      default: false
+    },
+    product: {
+      type: Object,
+      default () { return {} }
+    }
+
+  },
+  emits: ['update-product'],
+  watch: {
+    product () {
+      this.tempProduct = this.product
+    }
+  },
   data () {
     return {
-      modal: ''
+      modal: '',
+      tempProduct: {
+        imagesUrl: []
+      }
     }
   },
   methods: {

@@ -3,8 +3,8 @@
     <!--AdminModal-->
     <AdminModal
     ref="AdminModal"
-    :temp-product="tempProducts"
-    @get-products="getProducts"
+    :product="tempProduct"
+    @update-product="updateProduct"
     :is-new="isNew"
     :pagination="pagination.current_page"
     ></AdminModal>
@@ -12,7 +12,7 @@
     <!--RemoveModal-->
     <RemoveModal
     ref="removemodal"
-    :temp-products="tempProducts"
+    :temp-product="tempProduct"
     @get-products="getProducts"
     :pagination="pagination.current_page"
     ></RemoveModal>
@@ -86,9 +86,7 @@ export default {
   data () {
     return {
       products: [],
-      tempProducts: {
-        imagesUrl: [] // 新增多圖使用，使用陣列
-      },
+      tempProduct: {},
       isNew: false,
       pagination: {} // 先定義一個分頁物件
     }
@@ -110,26 +108,42 @@ export default {
           this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
-    openModal (status, productItem) {
+    openModal (status, item) {
       const modalcomponent = this.$refs.AdminModal
       const removemodal = this.$refs.removemodal
       if (status === 'isNew') {
-        this.tempProducts = {
+        this.tempProduct = {
           imagesUrl: []
         }
         modalcomponent.openModal()
         this.isNew = true
       } else if (status === 'edit') {
-        this.tempProducts = JSON.parse(JSON.stringify(productItem))
-        if (!this.tempProducts.imagesUrl) {
-          this.tempProducts.imagesUrl = []
+        this.tempProduct = { ...item }
+        if (!this.tempProduct.imagesUrl) {
+          this.tempProduct.imagesUrl = []
         }
         modalcomponent.openModal()
         this.isNew = false
       } else if (status === 'remove') {
         removemodal.openRemoveModal()
-        this.tempProducts = { ...productItem }
+        this.tempProduct = { ...item }
       }
+    },
+    updateProduct (item) {
+      this.tempProduct = item
+      let http = 'post'
+      let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product`
+      if (!this.isNew) {
+        http = 'put'
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product${item.id}`
+      }
+      const modalcomponent = this.$refs.AdminModal
+      this.$http[http](url, { data: this.tempProduct })
+        .then(res => {
+          alert(res.data.message)
+          this.$emit('get-products', http === 'put' ? this.pagination : 1)
+          modalcomponent.hide()
+        })
     }
   },
   mounted () {

@@ -59,7 +59,7 @@ export default {
             this.checkSuccess = true
           })
           .catch((err) => {
-            alert(err.data.message)
+            this.$httpMessageState(err.response)
             this.$router.push('/login')
           })
       } else {
