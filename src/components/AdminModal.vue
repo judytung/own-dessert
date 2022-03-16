@@ -16,7 +16,7 @@
           </h5>
           <button
             type="button"
-            class="btn-close"
+            class="btn-close bg-primary"
             data-bs-dismiss="modal"
             aria-label="Close"
           ></button>
@@ -27,7 +27,7 @@
               <div class="mb-3">
                 <label for="mainImage" class="form-label">主圖網址</label>
                 <input type="text" class="from-control w-100" id="mainImage" v-model="tempProduct.imageUrl"/>
-                <img src="" alt="" class="img-fluid" />
+                <img :src="tempProduct.imageUrl" :alt="tempProduct.content" class="img-fluid" />
               </div>
               <!--多圖-->
               <div class="mb-3">
@@ -70,6 +70,7 @@
                   type="text"
                   class="form-control"
                   placeholder="請輸入標題"
+                  v-model="tempProduct.title"
                 />
               </div>
               <div class="row">
@@ -80,6 +81,7 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入分類"
+                    v-model="tempProduct.category"
                   />
                 </div>
                 <div class="mb-3 col-md-6">
@@ -89,6 +91,7 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入單位"
+                    v-model="tempProduct.unit"
                   />
                 </div>
               </div>
@@ -102,6 +105,7 @@
                     min="0"
                     class="form-control"
                     placeholder="請輸入原價"
+                    v-model="tempProduct.origin_price"
                   />
                 </div>
                 <div class="mb-3 col-md-6">
@@ -112,6 +116,7 @@
                     min="0"
                     class="form-control"
                     placeholder="請輸入售價"
+                    v-model="tempProduct.price"
                   />
                 </div>
               </div>
@@ -124,6 +129,7 @@
                   type="text"
                   class="form-control"
                   placeholder="請輸入產品描述"
+                  v-model="tempProduct.description"
                 >
                 </textarea>
               </div>
@@ -134,6 +140,7 @@
                   type="text"
                   class="form-control"
                   placeholder="請輸入說明內容"
+                  v-model="tempProduct.content"
                 >
                 </textarea>
               </div>
@@ -143,6 +150,7 @@
                     id="is_enabled"
                     class="form-check-input"
                     type="checkbox"
+                    v-model="tempProduct.is_enabled"
                     :true-value="1"
                     :false-value="0"
                   />
@@ -162,7 +170,9 @@
           >
             取消
           </button>
-          <button type="button" class="btn btn-primary">確認</button>
+          <button type="button" class="btn btn-primary"
+          @click="$emit('update-product', tempProduct)"
+          >確認</button>
         </div>
       </div>
     </div>
@@ -183,7 +193,7 @@ export default {
     }
 
   },
-  emits: ['update-product'],
+  emits: ['updateProduct'],
   watch: {
     product () {
       this.tempProduct = this.product

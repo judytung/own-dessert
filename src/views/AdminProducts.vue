@@ -135,14 +135,14 @@ export default {
       let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product`
       if (!this.isNew) {
         http = 'put'
-        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product${item.id}`
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`
       }
       const modalcomponent = this.$refs.AdminModal
       this.$http[http](url, { data: this.tempProduct })
         .then(res => {
           alert(res.data.message)
           this.$emit('get-products', http === 'put' ? this.pagination : 1)
-          modalcomponent.hide()
+          modalcomponent.closeModal()
         })
     }
   },

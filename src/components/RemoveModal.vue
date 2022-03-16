@@ -47,6 +47,7 @@ export default {
       this.$http.delete(url)
         .then(res => {
           this.removeModal.hide()
+          this.$emit('get-products', this.pagination)
         })
         .catch(err => {
           this.$httpMessageState(err.response, '錯誤訊息')
