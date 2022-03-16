@@ -39,7 +39,7 @@
                 class="
                   badge
                   rounded-pill
-                  bg-secondary
+                  bg-accent
                   pos-absolute
                   start-50
                   opacity-90
