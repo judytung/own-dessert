@@ -17,13 +17,13 @@
           </div>
           <div class="modal-body">
             是否刪除
-            <strong class="text-danger">{{ tempProduct.title }}</strong> 商品(刪除後將無法恢復)。
+            <strong class="text-danger">{{ item.title }}</strong> (刪除後將無法恢復)。
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
               取消
             </button>
-            <button type="button" class="btn btn-danger" @click="removeProduct">
+            <button type="button" class="btn btn-danger" @click="$emit('del-item')">
               確認刪除
             </button>
           </div>
@@ -35,23 +35,11 @@
 <script>
 import modalMixin from '../mixins/modalMixin'
 export default {
-  props: ['tempProduct'],
+  props: { item: {} },
+  emits: ['del-item'],
   data () {
     return {
       removeModal: ''
-    }
-  },
-  methods: {
-    removeProduct () {
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`
-      this.$http.delete(url)
-        .then(res => {
-          this.removeModal.hide()
-          this.$emit('get-products', this.pagination)
-        })
-        .catch(err => {
-          this.$httpMessageState(err.response, '錯誤訊息')
-        })
     }
   },
   mixins: [modalMixin]

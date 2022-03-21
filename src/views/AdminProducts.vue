@@ -12,8 +12,8 @@
     <!--RemoveModal-->
     <RemoveModal
     ref="removemodal"
-    :temp-product="tempProduct"
-    @get-products="getProducts"
+    :item="tempProduct"
+    @del-item="removeProduct"
     :pagination="pagination.current_page"
     ></RemoveModal>
     <!---->
@@ -144,6 +144,18 @@ export default {
           this.getProducts()
           // this.$emit('get-products', http === 'put' ? this.pagination : 1)
           modalcomponent.hideModal()
+        })
+    },
+    removeProduct () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`
+      const removemodal = this.$refs.removemodal
+      this.$http.delete(url)
+        .then(res => {
+          removemodal.hideModal()
+          this.getProducts(this.pagination)
+        })
+        .catch(err => {
+          alert(err.response.data.message)
         })
     }
   },

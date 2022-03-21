@@ -27,7 +27,7 @@
           <td>
             <div class="btn-group">
               <button class="btn btn-sm btn-outline-accent" @click="openCouponModal('edit',item)">編輯</button>
-              <button class="btn btn-sm btn-outline-danger">刪除</button>
+              <button class="btn btn-sm btn-outline-danger" @click="openCouponModal('remove', item)">刪除</button>
             </div>
           </td>
         </tr>
@@ -39,11 +39,13 @@
     @update-coupon="updateCoupon"
     :is-new="isNew"
     ></CouponModal>
+    <RemoveModal ref="removeModal" :item="tempCoupon" @del-item="removeCoupon"></RemoveModal>
   </div>
 </template>
 
 <script>
 import CouponModal from '@/components/CouponModal.vue'
+import RemoveModal from '@/components/RemoveModal.vue'
 export default {
   data () {
     return {
@@ -58,14 +60,14 @@ export default {
     }
   },
   components: {
-    CouponModal
+    CouponModal,
+    RemoveModal
   },
   methods: {
     getCoupons () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupons`
       this.$http.get(url)
         .then(res => {
-          console.log(res.data.coupons)
           this.coupons = res.data.coupons
         }).catch(err => {
           alert(err.response.data.message)
@@ -76,12 +78,27 @@ export default {
         this.tempCoupon = {
           due_date: new Date().getTime() / 1000
         }
+        this.$refs.couponModal.showModal()
         this.isNew = true
       } else if (status === 'edit') {
         this.tempCoupon = { ...item }
+        this.$refs.couponModal.showModal()
         this.isNew = false
+      } else if (status === 'remove') {
+        this.tempCoupon = { ...item }
+        this.$refs.removeModal.showModal()
       }
-      this.$refs.couponModal.showModal()
+    },
+    removeCoupon () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon/${this.tempCoupon.id}`
+      this.$http.delete(url)
+        .then(res => {
+          this.$refs.removeModal.hideModal()
+          this.getCoupons()
+        })
+        .catch(err => {
+          alert(err.response.data.message)
+        })
     },
     updateCoupon (item) {
       let data = item
