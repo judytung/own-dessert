@@ -30,7 +30,7 @@
           <div class="mb-3">
             <label for="price">折扣百分比</label>
             <input type="number" class="form-control" id="price"
-            min="0" v-model="tempCoupon.percent"
+            min="0" max="100" v-model="tempCoupon.percent"
                    placeholder="請輸入折扣百分比">
           </div>
           <div class="mb-3">

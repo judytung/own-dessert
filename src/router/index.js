@@ -49,7 +49,7 @@ const routes = [
       },
       {
         path: 'orders',
-        component: () => import('../views/AdminOrder.vue')
+        component: () => import('../views/AdminOrders.vue')
       },
       {
         path: 'coupons',
