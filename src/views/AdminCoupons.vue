@@ -40,12 +40,14 @@
     :is-new="isNew"
     ></CouponModal>
     <RemoveModal ref="removeModal" :item="tempCoupon" @del-item="removeCoupon"></RemoveModal>
+    <pagination :pages="pagination" @emit-pages="getCoupons"></pagination>
   </div>
 </template>
 
 <script>
 import CouponModal from '@/components/CouponModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
+import pagination from '@/components/paginationView.vue'
 export default {
   data () {
     return {
@@ -56,19 +58,22 @@ export default {
         percent: 100,
         code: ''
       },
-      isNew: false
+      isNew: false,
+      pagination: {}
     }
   },
   components: {
     CouponModal,
-    RemoveModal
+    RemoveModal,
+    pagination
   },
   methods: {
-    getCoupons () {
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupons`
+    getCoupons (page = 1) {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupons/?page=${page}`
       this.$http.get(url)
         .then(res => {
           this.coupons = res.data.coupons
+          this.pagination = res.data.pagination
         }).catch(err => {
           alert(err.response.data.message)
         })
@@ -112,7 +117,7 @@ export default {
       this.$http[http](url, { data })
         .then(res => {
           alert(res.data.message)
-          this.getCoupons()
+          this.getCoupons(this.pagination)
           this.$refs.couponModal.hideModal()
         })
     }

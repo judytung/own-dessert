@@ -105,7 +105,7 @@ export default {
           this.pagination = res.data.pagination
         })
         .catch((err) => {
-          this.$httpMessageState(err.response, '錯誤訊息')
+          alert(err.response.data.message)
         })
     },
     openModal (status, item) {
