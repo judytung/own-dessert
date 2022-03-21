@@ -1665,3 +1665,19 @@ $transform:  (
   "y-50": translateY(-50%),
   "x-50": translateX(-50%)
 );
+
+//imgheight
+$base : 16;
+$imgSizes :(
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+  auto: auto,
+  3: calc(48/$base) * $spacer,
+  4\.25: calc(68/$base) * $spacer,
+  6: calc(96/$base) * $spacer,
+  7\.25: calc(116/$base) * $spacer,
+  10: calc(160/$base) * $spacer,
+  36\.25: calc(580/$base) * $spacer
+)

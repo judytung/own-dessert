@@ -1,7 +1,7 @@
 <template>
   <div
   id="removeAdmintModal"
-  ref="removeAdmintModal"
+  ref="modal"
   class="modal fade"
   tabindex="-1"
   aria-labelledby="removeAdminModalLabel"
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Modal from 'bootstrap/js/dist/modal.js'
+import modalMixin from '../mixins/modalMixin'
 export default {
   props: ['tempProduct'],
   data () {
@@ -52,16 +52,8 @@ export default {
         .catch(err => {
           this.$httpMessageState(err.response, '錯誤訊息')
         })
-    },
-    openRemoveModal () {
-      this.removeModal.show()
-    },
-    closeRemoveModal () {
-      this.removeModal.hide()
     }
   },
-  mounted () {
-    this.removeModal = new Modal(this.$refs.removeAdmintModal)
-  }
+  mixins: [modalMixin]
 }
 </script>

@@ -26,6 +26,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/admin/orders">訂單</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/admin/coupons">優惠券</router-link>
+          </li>
         </ul>
         <a
           href="#"
@@ -59,7 +62,7 @@ export default {
             this.checkSuccess = true
           })
           .catch((err) => {
-            this.$httpMessageState(err.response)
+            alert(err.data.message)
             this.$router.push('/login')
           })
       } else {

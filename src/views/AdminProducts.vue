@@ -73,7 +73,7 @@
       </tbody>
     </table>
     <!--分頁元件-->
-    <pagination :pages="pagination" @get-product="getProducts"></pagination>
+    <pagination :pages="pagination" @emit-pages="getProducts"></pagination>
   </div>
 </template>
 
@@ -115,17 +115,17 @@ export default {
         this.tempProduct = {
           imagesUrl: []
         }
-        modalcomponent.openModal()
+        modalcomponent.showModal()
         this.isNew = true
       } else if (status === 'edit') {
-        this.tempProduct = { ...item }
+        this.tempProduct = JSON.parse(JSON.stringify(item))
         if (!this.tempProduct.imagesUrl) {
           this.tempProduct.imagesUrl = []
         }
-        modalcomponent.openModal()
+        modalcomponent.showModal()
         this.isNew = false
       } else if (status === 'remove') {
-        removemodal.openRemoveModal()
+        removemodal.showModal()
         this.tempProduct = { ...item }
       }
     },
@@ -141,8 +141,9 @@ export default {
       this.$http[http](url, { data: this.tempProduct })
         .then(res => {
           alert(res.data.message)
-          this.$emit('get-products', http === 'put' ? this.pagination : 1)
-          modalcomponent.closeModal()
+          this.getProducts()
+          // this.$emit('get-products', http === 'put' ? this.pagination : 1)
+          modalcomponent.hideModal()
         })
     }
   },

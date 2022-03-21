@@ -1,7 +1,7 @@
 <template>
   <div
       id="adminModal"
-      ref="adminModal"
+      ref="modal"
       class="modal fade"
       tabindex="-1"
       aria-labelledby="adminModalLabel"
@@ -25,31 +25,36 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="mb-3">
-                <label for="mainImage" class="form-label">主圖網址</label>
-                <input type="text" class="from-control w-100" id="mainImage" v-model="tempProduct.imageUrl"/>
-                <img :src="tempProduct.imageUrl" :alt="tempProduct.content" class="img-fluid" />
+                <label for="uploadImage" class="form-label">上傳檔案</label>
+                <input type="file" name="image-upload" class="from-control w-100" id="uploadImage" ref="uploadImage" @change="uploadImage">
               </div>
+              <div class="mb-3">
+                <label for="mainImage" class="form-label">或輸入圖片網址</label>
+                <input type="text" class="from-control w-100" id="mainImage" v-model="tempProduct.imageUrl"/>
+              </div>
+              <img :src="tempProduct.imageUrl" :alt="tempProduct.content" class="img-fluid" />
               <!--多圖-->
               <div class="mb-3">
                 <h3>新增多個圖片</h3>
                 <!--首先要判斷是不是一個陣列-->
-                <div>
+                <div v-if="Array.isArray(tempProduct.imagesUrl)">
                   <!--判斷陣列的方式-->
-                  <template>
+                  <template v-for="(img, key) in tempProduct.imagesUrl" :key="key + 456">
                     <!--v-for 跟 v-if 不能放在一起-->
-                    <input type="text" class="form-control" id="imagesUrl" />
-                    <img alt="" class="img-fluid" />
+                    <input type="text" class="form-control mt-2" id="imagesUrl" v-model="tempProduct.imagesUrl[key]"/>
+                    <img :src="tempProduct.imagesUrl[key]" alt="" class="img-fluid mt-2" />
                     <!--這邊必須加入 key 值-->
                   </template>
                   <!--這邊使用 v-if 判斷，首先當陣列裡面長度為 0 時，要出現新增按鈕，還有最後一格欄位是否有文字，有文字時才會再出現按鈕-->
                   <!--|| 邏輯運算子的使用，當左邊為真值時就會直接回傳，否則就回傳右邊，所以當陣列長度不為 0 時，就會判斷最後一格欄位是否有文字-->
-                  <button type="button" class="btn btn-primary w-100">
+                  <button v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]" @click="tempProduct.imagesUrl.push('')" type="button" class="btn btn-accent w-100 mt-2">
                     新增
                   </button>
                   <!--點擊新增按鈕會觸發方法使用 push 新增到陣列裡，且為字串形式-->
                   <button
                     type="button"
                     class="btn btn-outline-danger w-100 mt-2"
+                    @click="tempProduct.imagesUrl.pop()"
                   >
                     刪除
                   </button>
@@ -170,7 +175,7 @@
           >
             取消
           </button>
-          <button type="button" class="btn btn-primary"
+          <button type="button" class="btn btn-accent"
           @click="$emit('update-product', tempProduct)"
           >確認</button>
         </div>
@@ -180,7 +185,7 @@
 </template>
 
 <script>
-import Modal from 'bootstrap/js/dist/modal.js'
+import modalMixin from '../mixins/modalMixin'
 export default {
   props: {
     isNew: {
@@ -208,15 +213,34 @@ export default {
     }
   },
   methods: {
-    openModal () {
-      this.modal.show()
-    },
-    closeModal () {
-      this.modal.hide()
+    // openModal () {
+    //   this.modal.show()
+    // },
+    // closeModal () {
+    //   this.modal.hide()
+    // },
+    uploadImage () {
+      // 把上傳的檔案取出來
+      const uploadImage = this.$refs.uploadImage.files[0]
+      // formData 格式，JS 用來產生表單格式
+      const formData = new FormData()
+      formData.append('image-upload', uploadImage)
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/upload`
+      this.$http.post(url, formData)
+        .then(res => {
+          if (res.data.success) {
+            console.log(res)
+            this.tempProduct.imageUrl = res.data.imageUrl
+          }
+        })
+        .catch(err => {
+          alert(err.response.data.message)
+        })
     }
   },
-  mounted () {
-    this.modal = new Modal(this.$refs.adminModal)
-  }
+  // mounted () {
+  //   this.modal = new Modal(this.$refs.adminModal)
+  // }
+  mixins: [modalMixin]
 }
 </script>
