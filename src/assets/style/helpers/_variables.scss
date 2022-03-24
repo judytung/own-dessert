@@ -407,6 +407,7 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) 
 // scss-docs-start position-map
 $position-values: (
   0: 0,
+  45: 45%,
   50: 50%,
   100: 100%
 ) !default;
@@ -990,7 +991,7 @@ $form-select-feedback-icon-position:    center right $form-select-indicator-padd
 $form-select-feedback-icon-size:        $input-height-inner-half $input-height-inner-half !default;
 
 $form-select-border-width:        $input-border-width !default;
-$form-select-border-color:        $input-border-color !default;
+$form-select-border-color:        $dark;// $input-border-color !default;
 $form-select-border-radius:       $input-border-radius !default;
 $form-select-box-shadow:          $box-shadow-inset !default;
 
@@ -1274,7 +1275,7 @@ $card-spacer-y:                     $spacer !default;
 $card-spacer-x:                     $spacer !default;
 $card-title-spacer-y:               $spacer * .5 !default;
 $card-border-width:                 $border-width !default;
-$card-border-color:                 rgba($black, .125) !default;
+$card-border-color:                 none;// rgba($black, .125) !default;
 $card-border-radius:                $border-radius !default;
 $card-box-shadow:                   null !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
@@ -1678,7 +1679,10 @@ $imgSizes :(
   6: calc(96/$base) * $spacer,
   6\.25: calc(100/$base) * $spacer,
   7\.25: calc(116/$base) * $spacer,
+  9: calc(144/$base) * $spacer,
   10: calc(160/$base) * $spacer,
+  13: calc(216/$base) * $spacer,
+  17: calc(272/$base) * $spacer,
   18\.75: calc(300/$base) * $spacer,
   25: calc(400/$base) * $spacer,
   36\.25: calc(580/$base) * $spacer
