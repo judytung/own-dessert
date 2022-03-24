@@ -32,7 +32,7 @@
                 <label for="mainImage" class="form-label">或輸入圖片網址</label>
                 <input type="text" class="from-control w-100" id="mainImage" v-model="tempProduct.imageUrl"/>
               </div>
-              <img :src="tempProduct.imageUrl" :alt="tempProduct.content" class="img-fluid" />
+              <img :src="tempProduct.imageUrl" :alt="tempProduct.description" class="img-fluid" />
               <!--多圖-->
               <div class="mb-3">
                 <h3>新增多個圖片</h3>
@@ -234,7 +234,8 @@ export default {
           }
         })
         .catch(err => {
-          alert(err.response.data.message)
+          console.dir(err)
+          // alert(err.response.data.message)
         })
     }
   },

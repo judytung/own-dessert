@@ -15,7 +15,17 @@ const routes = [
       },
       {
         path: 'products',
-        component: () => import('../views/ProductsView.vue')
+        component: () => import('../views/ProductsView.vue'),
+        children: [
+          {
+            path: 'madeleine',
+            component: () => import('../views/MadeleineProducts.vue')
+          },
+          {
+            path: 'poundcake',
+            component: () => import('../views/PoundCake.vue')
+          }
+        ]
       },
       {
         path: 'product/:id',
@@ -61,6 +71,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
+  linkActiveClass: 'active',
   routes
 })
 

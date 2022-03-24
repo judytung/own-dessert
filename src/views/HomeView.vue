@@ -1,8 +1,8 @@
 <template>
   <main>
-    <section class="banner mt-4">
-      <!--banner-->
-    </section>
+    <!--banner-->
+    <section class="banner mt-4"></section>
+    <!---->
   </main>
 </template>
 <script>

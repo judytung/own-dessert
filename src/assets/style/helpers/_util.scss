@@ -9,15 +9,70 @@ $utilities:map-merge(
     "position": map-merge(
       map-get($utilities,"position"),
       (
-        responsive: true,
         class: pos
       )
+    ),
+    "color": map-merge(
+      map-get($utilities,"color"),
+      (
+        responsive: true,
+      )
+    ),
+    "border-color": map-merge(
+      map-get($utilities,"border-color"),
+      (
+        responsive: true,
+      )
+    ),
+    "top": (
+      property: top,
+      responsive: true,
+      values: $position-values
+    ),
+    "bottom": (
+      property: bottom,
+      responsive: true,
+      values: $position-values
+    ),
+    "start": (
+      property: left,
+      class: start,
+      responsive: true,
+      values: $position-values
+    ),
+    "end": (
+      property: right,
+      class: end,
+      responsive: true,
+      values: $position-values
     ),
     "transform": (
       property: transform,
       responsive: true,
       values: (
         $transform
+      )
+    ),
+    "object-fit": (
+      property: object-fit,
+      responsive: true,
+      values: (
+        cover: cover
+      )
+    ),
+    "background-size": (
+      property: background-size,
+      responsive: true,
+      values: (
+        cover: cover,
+        contain: contain
+      )
+    ),
+    "background-position": (
+      property: background-position,
+      responsive: true,
+      values: (
+        center: center
       )
     ),
     "z-index": (
@@ -65,11 +120,13 @@ $utilities:map-merge(
     ),
     "opacity": (
       property: opacity,
+      responsive: true,
       values: (
         0: 0,
         25: .25,
         50: .5,
         75: .75,
+        65: .65,
         90: .90,
         100: 1,
       )

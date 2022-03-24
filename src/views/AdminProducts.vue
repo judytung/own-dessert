@@ -20,11 +20,11 @@
     <div class="mt-3 text-end">
       <button type="button" class="btn btn-accent" @click="openModal('isNew')">新增產品</button>
     </div>
-    <table class="table table-hover mt-3">
+    <table class="table table-hover mt-3 align-middle">
       <thead>
         <tr>
           <th>
-            編號
+            圖片
           </th>
           <th>
             分類
@@ -44,8 +44,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in products" :key="item.id">
-          <td>{{ index + 1 }}</td>
+        <tr v-for="item in products" :key="item.id">
+          <td>
+            <div :style="{ backgroundImage: `url(${item.imageUrl})` }" class="h-6.25 background-size-cover background-position-center">
+
+            </div>
+          </td>
           <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
           <td>
