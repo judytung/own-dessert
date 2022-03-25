@@ -6,13 +6,13 @@
         <div class="footer-body row justify-content-md-between ">
           <ul class="col-6 footer-item d-md-flex justify-content-center">
             <li class="px-ms">
-              <router-link to="/products">商品列表</router-link>
+              <router-link to="/products" class="nav-hover">商品列表</router-link>
             </li>
             <li class="px-ms">
-              <router-link to="/contact">聯絡我們</router-link>
+              <router-link to="/contact" class="nav-hover">聯絡我們</router-link>
             </li>
             <li class="px-ms">
-              <router-link to="/cart">購物車</router-link>
+              <router-link to="/cart" class="nav-hover">購物車</router-link>
             </li>
           </ul>
           <ul class="col-6 footer-item d-md-flex justify-content-center">

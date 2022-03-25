@@ -1,9 +1,9 @@
 <template>
   <main>
     <BannerView></BannerView>
-      <section class="py-5 pos-relative h-11.25 bg-secondary opacity-50">
+      <section class="py-3 py-md-5 pos-relative h-9 h-md-11.25 bg-secondary opacity-50">
         <p class="fs-3 fs-md-m pos-absolute start-md-33 start-16">讓甜點變成你的日常</p>
-        <p class="fs-3 fs-md-m pos-absolute top-50 start-md-50 start-33">是我們的初衷 ── </p>
+        <p class="fs-3 fs-md-m pos-absolute top-45 top-md-50 start-md-50 start-33">是我們的初衷 ── </p>
       </section>
     <section class="pt-4">
     </section>
