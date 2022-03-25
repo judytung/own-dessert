@@ -68,7 +68,7 @@ $colors: (
 
 // scss-docs-start theme-color-variables
 $primary:       $white!default; // $blue !default;
-$secondary:     #c5c9c0; // #99918C; // $gray-600 !default;
+$secondary:     #dadada; // #99918C; // $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -407,6 +407,11 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) 
 // scss-docs-start position-map
 $position-values: (
   0: 0,
+  16: 16%,
+  30: 30%,
+  33: 33%,
+  38: 38%,
+  43: 43%,
   45: 45%,
   50: 50%,
   100: 100%
@@ -590,7 +595,7 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif:      'Open Sans', system-ui, -apple-system, "Segoe UI","Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
 $font-family-base:            var(--#{$variable-prefix}font-sans-serif) !default;
@@ -1681,9 +1686,11 @@ $imgSizes :(
   7\.25: calc(116/$base) * $spacer,
   9: calc(144/$base) * $spacer,
   10: calc(160/$base) * $spacer,
+  11\.25: calc(180/$base) * $spacer,
   13: calc(216/$base) * $spacer,
   17: calc(272/$base) * $spacer,
   18\.75: calc(300/$base) * $spacer,
   25: calc(400/$base) * $spacer,
+  31\.25: calc(500/$base) * $spacer,
   36\.25: calc(580/$base) * $spacer
 )

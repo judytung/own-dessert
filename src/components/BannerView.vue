@@ -9,16 +9,16 @@
     :pagination="{ clickable: true }"
     >
       <swiper-slide>
-        <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""  class="h-36.25 img-fluid object-fit-cover w-100">
+        <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""  class="h-31.25 h-md-36.25 img-fluid object-fit-cover w-100">
       </swiper-slide>
       <swiper-slide>
-        <img src="https://images.unsplash.com/photo-1612201142855-7873bc1661b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-36.25 img-fluid object-fit-cover w-100">
+        <img src="https://images.unsplash.com/photo-1612201142855-7873bc1661b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-31.25 h-md-36.25 img-fluid object-fit-cover w-100">
       </swiper-slide>
       <swiper-slide>
-        <img src="https://images.unsplash.com/photo-1612886621865-47cd0e961fac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" alt="" class="h-36.25 img-fluid object-fit-cover w-100">
+        <img src="https://images.unsplash.com/photo-1612886621865-47cd0e961fac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" alt="" class="h-31.25 h-md-36.25 img-fluid object-fit-cover w-100">
       </swiper-slide>
       <swiper-slide>
-        <img src="https://images.unsplash.com/photo-1498588747262-0f2241707d13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-36.25 img-fluid object-fit-cover w-100">
+        <img src="https://images.unsplash.com/photo-1498588747262-0f2241707d13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-31.25 h-md-36.25 img-fluid object-fit-cover w-100">
       </swiper-slide>
     </Swiper>
   </div>

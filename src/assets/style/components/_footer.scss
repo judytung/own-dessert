@@ -1,0 +1,25 @@
+footer:before,footer:after {
+  content: "";
+  position: absolute;
+  top:-35px;
+  width: 25%;
+  height: 1.5px;
+  background-color: #212529;
+  @include media-breakpoint-up(md) {
+    width: 35%;
+  }
+}
+
+footer:after {
+  right: 0;
+}
+
+.footer-title {
+  top: -70px
+}
+
+.footer-item {
+  @include media-breakpoint-up(md) {
+    flex:1;
+  }
+}
