@@ -6,29 +6,50 @@
       </div>
       <div class="col-8 col-md-12">
         <div class="card-body p-md-0  h-100 d-flex flex-column justify-content-between">
-          <h3 class="card-title fs-4 fw-normal mt-2 mt-md-ms">{{ product.title }}</h3>
-          <div class="button-group d-flex justify-content-between">
-            <select class="form-select rounded-0 w-33 me-2">
+          <div class="d-flex mt-2 mt-md-1 align-items-center">
+            <h3 class="card-title fs-4 fw-normal me-2">{{ product.title }}</h3>
+            <p class="">{{product.price}} / {{product.unit}}</p>
+          </div>
+          <div class="button-group d-flex justify-content-between mt-md-2">
+            <select class="form-select rounded-0 w-33 me-2" v-model="qty">
               <option v-for="num in 30" :key="`${num}-${product.id}`">{{ num }}</option>
             </select>
-            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50">加入購物車</button>
+            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50" @click="addToCart(product.id)">加入購物車</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="card d-flex">
-    <img :src="product.imageUrl" class="card-img-top h-lg-17 h-md-13" :alt="product.title">
-    <div class="card-body">
-      <h5 class="card-title">{{ product.title }}</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div> -->
 </template>
 
 <script>
+import emitter from '@/libs/emitter'
 export default {
-  props: ['product']
+  props: ['product'],
+  data () {
+    return {
+      qty: 1
+    }
+  },
+  methods: {
+    addToCart (id, qty = 1) {
+      const data = {
+        product_id: id,
+        qty
+      }
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.post(url, { data })
+        .then(res => {
+          alert(res.data.message)
+        })
+        .catch(err => {
+          console.dir(err)
+          alert(err.response.data.message)
+        })
+    }
+  },
+  mounted () {
+    emitter.on('get-cart')
+  }
 }
 </script>

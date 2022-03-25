@@ -158,6 +158,7 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url).then((res) => {
         this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+        emitter.emit('get-cart')
       })
     },
     changeCart () {
@@ -166,9 +167,6 @@ export default {
   },
   mounted () {
     this.getCart()
-    emitter.on('get-cart', () => {
-      this.getCart()
-    })
   }
 }
 

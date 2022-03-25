@@ -27,17 +27,16 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb fs-5">
         <li class="breadcrumb-item" active-calss="active" aria-current="page">
-          <router-link to="/products">全部商品</router-link>
+          <router-link to="/products" @click="getProducts()">全部商品</router-link>
         </li>
         <li class="breadcrumb-item">
-          <router-link class="ps-2 pe-1" to="/products/madeleine"
-            >瑪德蓮</router-link
-          >
+          <a type="button" class="ps-2 pe-1" @click="getProducts('madeleine')">瑪德蓮</a>
         </li>
         <li class="breadcrumb-item">
-          <router-link class="ps-2 pe-1" to="/products/poundcake"
-            >磅蛋糕</router-link
-          >
+          <a type="button" class="ps-2 pe-1" @click="getProducts('pound-cake')">磅蛋糕</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a type="button" class="ps-2 pe-1" @click="getProducts('others')">其他</a>
         </li>
       </ol>
     </nav>
@@ -45,7 +44,7 @@
   <router-view></router-view>
   <div class="container mt-1">
     <ul class="row">
-      <li class="col-md-4 p-lg-11 p-md-2" v-for="product in products" :key="product.id">
+      <li class="col-md-4 px-lg-11 p-md-2" v-for="product in products" :key="product.id">
         <CardView :product="product"></CardView>
       </li>
     </ul>
@@ -64,8 +63,11 @@ export default {
     }
   },
   methods: {
-    getProducts () {
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
+    getProducts (category) {
+      let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
+      if (category) {
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products?category=${category}`
+      }
       this.$http.get(url)
         .then(res => {
           this.products = res.data.products
