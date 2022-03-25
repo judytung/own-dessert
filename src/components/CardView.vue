@@ -1,14 +1,14 @@
 <template>
   <div class="card mb-3">
     <div class="row g-0">
-      <div class="col-4 col-md-12">
+      <div class="col-4 col-md-12 pos-relative">
         <img :src="product.imageUrl" class="img-fluid h-lg-17 h-md-13 h-9" :alt="product.title">
       </div>
       <div class="col-8 col-md-12">
         <div class="card-body p-md-0  h-100 d-flex flex-column justify-content-between">
-          <div class="d-flex mt-2 mt-md-1 align-items-center">
-            <h3 class="card-title fs-4 fw-normal me-2">{{ product.title }}</h3>
-            <p class="">{{product.price}} / {{product.unit}}</p>
+          <div class="d-lg-flex mt-2 mt-md-1 align-items-center">
+            <h3 class="card-title fs-4 fw-normal me-2 ">{{ product.title }}</h3>
+            <p class="w-33">{{product.price}} / {{product.unit}}</p>
           </div>
           <div class="button-group d-flex justify-content-between mt-md-2">
             <select class="form-select rounded-0 w-33 me-2" v-model="qty">

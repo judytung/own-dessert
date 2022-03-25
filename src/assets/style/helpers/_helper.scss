@@ -10,3 +10,7 @@
 .hover-bg-white:hover {
   background-color: $white;
 }
+
+.breadcrumb-item a:active,.breadcrumb-item a:hover {
+  color:$gray-600 ;
+}
