@@ -31,7 +31,3 @@
     </div>
   </div>
 </template>
-
-.btn {
-  -webkit-appearance:none;
-}
