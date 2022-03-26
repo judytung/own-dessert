@@ -2,7 +2,7 @@
   <div class="container">
     <div class="my-13">
       <footer class="pos-relative ">
-        <h2 class="footer-title pos-absolute end-lg-43 end-md-38 end-30">Own Dessert</h2>
+        <h2 class="footer-title pos-absolute end-lg-43 end-md-38 end-32">Own Dessert</h2>
         <div class="footer-body row justify-content-md-between ">
           <ul class="col-6 footer-item d-md-flex justify-content-center">
             <li class="px-ms">
@@ -24,10 +24,14 @@
             </li>
           </ul>
           <div class="col-6 footer-item d-md-flex justify-content-center">
-            <p class="fs-5">Copyright © 2022</p>
+            <p class="fs-5 mt-2 mt-md-0">Copyright © 2022</p>
           </div>
         </div>
       </footer>
     </div>
   </div>
 </template>
+
+.btn {
+  -webkit-appearance:none;
+}

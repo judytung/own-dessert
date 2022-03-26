@@ -1,13 +1,5 @@
-.banner {
-  height: 550px;
-  background: url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)center center/cover;
-  @include media-breakpoint-up(sm) {
-    height: 500px;
-  }
+.shopping-banner {
+  background: url(https://images.unsplash.com/photo-1574085733277-851d9d856a3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80)center center/cover;
+  height: 400px;
 }
 
-.product-banner {
-  height: 600px;
-  background: url(https://upload.cc/i1/2022/03/24/X1pQUr.png)center center/cover;
-  opacity: 0.75;
-}

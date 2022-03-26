@@ -49,13 +49,16 @@
       </li>
     </ul>
   </div>
+  <FooterView></FooterView>
 </template>
 
 <script>
 import CardView from '@/components/CardView.vue'
+import FooterView from '@/components/FooterView.vue'
 export default {
   components: {
-    CardView
+    CardView,
+    FooterView
   },
   data () {
     return {
