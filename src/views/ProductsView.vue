@@ -14,7 +14,7 @@
             class="
               fs-m
               border border-light border-lg-dark border-3
-              text-center text-light text-lg-dark
+              text-center text-light text-lg-dark fw-light
             "
           >
             甜點
@@ -55,6 +55,7 @@
 <script>
 import CardView from '@/components/CardView.vue'
 import FooterView from '@/components/FooterView.vue'
+import emitter from '@/libs/emitter'
 export default {
   components: {
     CardView,
@@ -68,12 +69,14 @@ export default {
   methods: {
     getProducts (category) {
       let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
-      if (category) {
-        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products?category=${category}`
+      if (category || this.$route.query.category) {
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products?category=${category || this.$route.query.category}`
       }
       this.$http.get(url)
         .then(res => {
           this.products = res.data.products
+          emitter.on('get-cart')
+          console.log(this.$route.query.category)
         })
         .catch((err) => {
           alert(err.response.data.message)

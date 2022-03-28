@@ -24,6 +24,23 @@ $utilities:map-merge(
         responsive: true,
       )
     ),
+    "list-style-type": (
+      property:list-style-type,
+      class: list-style,
+      responsive: true,
+      values: (
+        square: square,
+        disc: disc
+      )
+    ),
+    "list-style-position": (
+      property:list-style-position,
+      class: list-style-pos,
+      responsive: true,
+      values: (
+        inside: inside
+      )
+    ),
     "top": (
       property: top,
       responsive: true,
@@ -77,6 +94,17 @@ $utilities:map-merge(
     ),
     "z-index": (
       property: z-index,
+      values: (
+          5: 5,
+          4: 4,
+          3: 3,
+          2: 2,
+          1: 1,
+      )
+    ),
+    "order": (
+      property: order,
+      responsive: true,
       values: (
           5: 5,
           4: 4,

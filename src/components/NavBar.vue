@@ -31,7 +31,6 @@
           <li class="px-4">
             <router-link
               class="pos-relative border-0 hvr-bob"
-              @click="changeCart"
               to="/cart"
             >
               <i class="bi bi-cart2 fs-3"></i>
@@ -61,7 +60,6 @@
             <li class="px-2">
               <router-link
                 class="pos-relative border-0 hvr-bob"
-                @click="changeCart"
                 to="/cart"
               >
                 <i class="bi bi-cart2 fs-3"></i>
@@ -132,7 +130,7 @@
         </li>
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
           <router-link class="border border-dark py-2 hover-bg-white" to="/shoppingnotice"
-            >購物說明</router-link
+            >購物說明{{cartData}}</router-link
           >
         </li>
       </ul>
@@ -141,7 +139,7 @@
 </template>
 
 <script>
-import emitter from '@/libs/emitter'
+// import emitter from '@/libs/emitter'
 // import Collapse from 'bootstrap/js/dist/collapse.js'
 export default {
   data () {
@@ -153,16 +151,20 @@ export default {
     }
   },
   methods: {
-    // 取得購物車
     getCart () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
-      this.$http.get(url).then((res) => {
-        this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-        emitter.emit('get-cart')
-      })
-    },
-    changeCart () {
-      this.$router.push('/cart')
+      this.$http.get(url)
+        .then(res => {
+          this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
+    }
+  },
+  watch: {
+    cartData () {
+      this.getCart()
     }
   },
   mounted () {
