@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-          <template v-if="cartData.carts">
+          <template v-if="cartData.carts?.length !== 0">
               <tr v-for="item in cartData.carts" :key="item.id">
                 <td>
                   <button type="button" class="btn btn-outline-danger btn-sm" @click="removeCartItem(item.id)">
@@ -37,6 +37,10 @@
                 </td>
               </tr>
             </template>
+            <div v-else class="d-flex justify-content-center mt-2">
+              <p class="text-danger">購物車是空的</p>
+              <router-link to="/products" type="button" class="btn btn-outline-dark hvr-sweep-to-right">快來選購</router-link>
+            </div>
         </tbody>
       </table>
      </div>

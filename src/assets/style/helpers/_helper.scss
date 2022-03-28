@@ -14,3 +14,10 @@
 .breadcrumb-item a:active,.breadcrumb-item a:hover {
   color:$gray-600 ;
 }
+
+.hvr-sweep-to-right {
+  transition-duration: 1s;
+    &:before {
+      background: $dark;
+    }
+}
