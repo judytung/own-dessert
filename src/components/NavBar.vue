@@ -130,7 +130,7 @@
         </li>
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
           <router-link class="border border-dark py-2 hover-bg-white" to="/shoppingnotice"
-            >購物說明{{cartData}}</router-link
+            >購物說明</router-link
           >
         </li>
       </ul>
