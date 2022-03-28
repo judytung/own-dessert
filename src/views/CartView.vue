@@ -184,7 +184,6 @@ export default {
   },
   mounted () {
     this.getCart()
-    console.log(this.couponCode)
   }
 }
 </script>
