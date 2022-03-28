@@ -38,12 +38,6 @@
               </tr>
             </template>
         </tbody>
-        <!-- <tfoot>
-            <tr>
-              <td colspan="3" class="text-end pt-4">總計</td>
-              <td class="text-end pt-4">{{ cartData.total }} 元</td>
-            </tr>
-          </tfoot> -->
       </table>
      </div>
      <div class="col-md-5 mt-md-9 mt-5">
@@ -68,17 +62,18 @@
           <tr>
             <th>折扣金額</th>
             <td class="text-end" v-if="Boolean(cartData.total - Math.round(total.final_total))">{{  cartData.total -  Math.round(total.final_total) }}</td>
-            <td class="text-end" v-else>{{ 0 }}</td>
+            <td class="text-end" v-else-if="cartData.carts?.length === 0 || true">{{ 0 }}</td>
           </tr>
           <tr>
             <th>總計</th>
-            <td class="text-end" v-if="cartData.total === cartData.final_total">{{ cartData.total }}元</td>
-            <td class="text-end" v-else-if="Boolean(cartData.total)">{{ cartData.total }}元</td>
-            <td class="text-end" v-else> {{ Math.round(total.final_total) }}元</td>
+            <td class="text-end" v-if="cartData.total === cartData.final_total || couponCode === '' ||  Math.round(total.final_total) === NaN">{{ cartData.total }}元</td>
+            <!-- <td class="text-end" v-else-if="couponCode === ''">{{ cartData.total }}元</td> -->
+            <td class="text-end" v-else>{{ Math.round(total.final_total)}}元</td>
           </tr>
          </tbody>
        </table>
        <button type="button" class="btn btn-accent rounded-0 float-end px-3 clearfix">結帳去</button>
+       {{couponCode}}
      </div>
    </div>
   </div>
@@ -109,9 +104,8 @@ export default {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
           emitter.emit('get-cart')
         })
-        .catch((err) => {
-          // alert(err.response.data.message)
-          console.dir(err)
+        .catch(function (err) {
+          alert(err.response.data.message)
         })
     },
     removeCartItem (id) {
@@ -120,11 +114,24 @@ export default {
       this.$http.delete(url)
         .then(res => {
           alert(res.data.message)
+          if (this.cartData.carts.length === 0) {
+            this.cartData.total = ''
+            this.total.final_total = ''
+            this.couponCode = ''
+          }
           this.getCart()
-          this.isLoadingItem = ''
         })
         .catch((err) => {
           alert(err.response.data.message)
+        })
+      const couponUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`
+      const data = {
+        code: this.couponCode
+      }
+      this.$http.post(couponUrl, { data })
+        .then(res => {
+          this.total = res.data.data
+          this.getCart()
         })
     },
     updateCart (item) {
@@ -164,6 +171,8 @@ export default {
           this.total = res.data.data
           alert(res.data.message)
           this.getCart()
+          console.log(this.total.final_total, this.cartData.final_total)
+          // this.total.final_total = this.cartData.final_total
         })
         .catch(err => {
           alert(err.response.data.message)
@@ -172,6 +181,7 @@ export default {
   },
   mounted () {
     this.getCart()
+    console.log(this.couponCode)
   }
 }
 </script>
