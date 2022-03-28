@@ -163,11 +163,6 @@ export default {
         })
     }
   },
-  watch: {
-    cartData () {
-      this.getCart()
-    }
-  },
   mounted () {
     this.getCart()
     emitter.on('get-cart-nav', () => {
