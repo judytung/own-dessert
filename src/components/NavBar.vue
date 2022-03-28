@@ -139,7 +139,7 @@
 </template>
 
 <script>
-// import emitter from '@/libs/emitter'
+import emitter from '@/libs/emitter'
 // import Collapse from 'bootstrap/js/dist/collapse.js'
 export default {
   data () {
@@ -156,6 +156,7 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+          emitter.emit('get-cart-nav')
         })
         .catch((err) => {
           alert(err.response.data.message)
@@ -169,6 +170,9 @@ export default {
   },
   mounted () {
     this.getCart()
+    emitter.on('get-cart-nav', () => {
+      this.getCart()
+    })
   }
 }
 
