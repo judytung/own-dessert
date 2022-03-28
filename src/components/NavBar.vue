@@ -156,16 +156,16 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          emitter.emit('get-cart-nav')
+          emitter.emit('get-cart', this.cartData)
         })
-        .catch((err) => {
+        .catch(function (err) {
           alert(err.response.data.message)
         })
     }
   },
   mounted () {
     this.getCart()
-    emitter.on('get-cart-nav', () => {
+    emitter.on('get-cart', () => {
       this.getCart()
     })
   }

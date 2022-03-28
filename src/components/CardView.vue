@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import emitter from '@/libs/emitter'
+// import emitter from '@/libs/emitter'
 export default {
   props: ['product'],
   data () {
@@ -41,7 +41,6 @@ export default {
       this.$http.post(url, { data })
         .then(res => {
           alert(res.data.message)
-          emitter.on('get-cart')
           this.qty = 1
         })
         .catch(err => {

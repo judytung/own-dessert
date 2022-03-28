@@ -55,7 +55,7 @@
 <script>
 import CardView from '@/components/CardView.vue'
 import FooterView from '@/components/FooterView.vue'
-import emitter from '@/libs/emitter'
+// import emitter from '@/libs/emitter'
 export default {
   components: {
     CardView,
@@ -75,7 +75,6 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.products = res.data.products
-          emitter.on('get-cart')
           console.log(this.$route.query.category)
         })
         .catch((err) => {
