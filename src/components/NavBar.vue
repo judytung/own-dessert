@@ -156,8 +156,8 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          // console.log(this.cartData)
           emitter.emit('get-cart', this.cartData)
+          // console.log(this.cartData)
         })
         .catch(function (err) {
           alert(err.response.data.message)
@@ -166,12 +166,15 @@ export default {
   },
   mounted () {
     this.getCart()
+    // emitter.on('get-cart', (data) => {
+    //   console.log(data)
+    //   this.cartData = data
+    // })
   },
-  // created () {
-  // },
   created () {
-    emitter.on('get-cart', () => {
-      this.getCart()
+    emitter.on('get-cart', (data) => {
+      console.log(data)
+      // this.cartData = data
     })
   }
 }
