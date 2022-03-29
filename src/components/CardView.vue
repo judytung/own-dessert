@@ -2,7 +2,10 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-4 col-md-12 pos-relative">
-        <img :src="product.imageUrl" class="img-fluid h-lg-17 h-md-13 h-9" :alt="product.title">
+        <div class="card-img-text-hover card__img__hover__scale overflow-hidden">
+          <img :src="product.imageUrl" class="img-fluid h-lg-17 h-md-13 h-9 " :alt="product.title">
+          <a class="stretched-link z-index-4" type="button" @click="getProduct(product.id)"></a>
+        </div>
       </div>
       <div class="col-8 col-md-12">
         <div class="card-body p-md-0  h-100 d-flex flex-column justify-content-between">
@@ -19,7 +22,6 @@
         </div>
       </div>
     </div>
-    <a class="stretched-link btn" type="button" @click="getProduct(product.id)">查看更多</a>
   </div>
 </template>
 
