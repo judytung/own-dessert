@@ -70,7 +70,7 @@
           </tr>
           <tr>
             <th>總計</th>
-            <td class="text-end" v-if="cartData.total === cartData.final_total || couponCode === '' ||  Math.round(total.final_total) === NaN">{{ cartData.total }}元</td>
+            <td class="text-end" v-if="cartData.total === cartData.final_total || couponCode === ''">{{ cartData.total }}元</td>
             <!-- <td class="text-end" v-else-if="couponCode === ''">{{ cartData.total }}元</td> -->
             <td class="text-end" v-else>{{ Math.round(total.final_total)}}元</td>
           </tr>
@@ -78,6 +78,8 @@
        </table>
        <button type="button" class="btn btn-accent rounded-0 float-end px-3 clearfix">結帳去</button>
        {{couponCode}}
+       {{ cartData.total}}
+       {{cartData.final_total}}
      </div>
    </div>
   </div>
@@ -127,15 +129,17 @@ export default {
         .catch((err) => {
           alert(err.response.data.message)
         })
-      const couponUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`
-      const data = {
-        code: this.couponCode
+      if (this.couponCode === true) {
+        const couponUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`
+        const data = {
+          code: this.couponCode
+        }
+        this.$http.post(couponUrl, { data })
+          .then(res => {
+            this.total = res.data.data
+            this.getCart()
+          })
       }
-      this.$http.post(couponUrl, { data })
-        .then(res => {
-          this.total = res.data.data
-          this.getCart()
-        })
     },
     updateCart (item) {
       // 根據 api 資料格式建構
