@@ -40,8 +40,8 @@
               <router-link to="/products" type="button" class="btn btn-outline-dark hvr-sweep-to-right">快來選購</router-link>
             </div>
         </tbody>
-        <button type="button" class="btn btn-sm btn-outline-dark rounded-0 mt-2 border-top border-dark" v-if="cartData.carts?.length !== 0" @click="delCarts">清空購物車</button>
       </table>
+      <button type="button" class="btn btn-sm btn-outline-dark rounded-0 mt-2  border-top border-dark" v-if="cartData.carts?.length !== 0" @click="delCarts">清空購物車</button>
      </div>
      <div class="col-md-5 mt-md-9 mt-5">
        <table class="table">

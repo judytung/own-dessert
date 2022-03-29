@@ -19,6 +19,7 @@
         </div>
       </div>
     </div>
+    <a class="stretched-link btn" type="button" @click="getProduct(product.id)">查看更多</a>
   </div>
 </template>
 
@@ -47,6 +48,9 @@ export default {
           console.dir(err)
           alert(err.response.data.message)
         })
+    },
+    getProduct (id) {
+      this.$router.push(`/product/${id}`)
     }
   },
   mounted () {
