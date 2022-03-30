@@ -148,6 +148,16 @@ export default {
     }
   },
   methods: {
+    getCart () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.get(url)
+        .then(res => {
+          this.cartNum = res.data.data.carts.length
+        })
+        .catch(function (err) {
+          alert(err.response.data.message)
+        })
+    }
   },
   mounted () {
     this.$emitter.on('push-cart-num', (num) => {
@@ -156,6 +166,10 @@ export default {
     this.$emitter.on('push-num', (num) => {
       this.cartNum = num
     })
+    this.$emitter.on('push-product-num', (num) => {
+      this.cartNum = num
+    })
+    this.getCart()
   }
 }
 

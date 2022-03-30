@@ -27,7 +27,7 @@
               </ul>
             </td>
             <td>
-              {{ item.total }}
+              {{ Math.round(item.total) }}
             </td>
             <td>
               <div class="form-check form-switch">

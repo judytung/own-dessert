@@ -56,10 +56,23 @@ export default {
       this.$http.post(url, { data })
         .then(res => {
           alert(res.data.message)
+          this.getCart()
           this.qty = 1
         })
         .catch(err => {
           console.dir(err)
+          alert(err.response.data.message)
+        })
+    },
+    getCart () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.get(url)
+        .then(res => {
+          // this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+          console.log(res.data.data.carts.length)
+          this.$emitter.emit('push-product-num', res.data.data.carts.length)
+        })
+        .catch(function (err) {
           alert(err.response.data.message)
         })
     }
