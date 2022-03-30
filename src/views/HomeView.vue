@@ -1,10 +1,6 @@
 <template>
   <main>
     <BannerView></BannerView>
-      <!-- <section class="py-3 py-md-5 pos-relative h-9 h-md-11.25 bg-secondary opacity-50">
-        <p class="fs-3 fs-md-m pos-absolute start-md-33 start-16">讓甜點變成你的日常</p>
-        <p class="fs-3 fs-md-m pos-absolute top-45 top-md-50 start-md-50 start-33">是我們的初衷 ── </p>
-      </section> -->
     <div class="container px-lg-4">
       <section class="pt-9 row">
         <h2 class="mb-4 lh-sm">Products ></h2>
@@ -52,6 +48,31 @@
           </ul>
         </div>
       </section>
+      <section class="py-3 py-md-5 pos-relative h-9 h-md-11.25">
+        <p class="fs-4 fs-md-2 pos-absolute start-md-33 start-16">讓甜點變成你的日常</p>
+        <p class="fs-4 fs-md-2 pos-absolute top-45 top-md-50 start-md-50 start-33">是我們的初衷 ── </p>
+      </section>
+      <section class="row mt-2 pb-4 mt-md-4">
+        <h2 class="mb-4 lh-sm">最新商品 ></h2>
+        <Swiper
+        :breakpoints="swiperOptions.breakpoints"
+         :space-between="10"
+         :modules="modules"
+         loop
+         :autoplay="{ delay: 3000 }"
+         class="h-18.75 pt-2">
+        <SwiperSlide v-for="img in APIData" :key="img.id">
+          <div class="pos-relative">
+            <div class="card hvr-bob">
+              <img :src="img.imageUrl" :alt="img.title" class="h-12.5">
+              <h3 class="fs-6 fw-normal text-center mt-1">{{ img.title }}</h3>
+              <a class="stretched-link" @click="routerPush(img.id)"></a>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        </Swiper>
+      </section>
     </div>
     <FooterView></FooterView>
   </main>
@@ -60,11 +81,57 @@
 <script>
 import BannerView from '@/components/BannerView.vue'
 import FooterView from '@/components/FooterView.vue'
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue'
+import { Pagination, Autoplay } from 'swiper'
+// Import Swiper styles
+import 'swiper/swiper.scss'
+import 'swiper/modules/navigation/navigation.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
 // import emitter from '@/libs/emitter'
 export default {
+  data () {
+    return {
+      modules: [Pagination, Autoplay],
+      APIData: [],
+      swiperOptions: {
+        breakpoints: {
+          367: {
+            slidesPerView: 2,
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 10
+          }
+        }
+      }
+    }
+  },
   components: {
     BannerView,
-    FooterView
+    FooterView,
+    Swiper,
+    SwiperSlide
+  },
+  methods: {
+    getProducts () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
+      this.$http.get(url)
+        .then(res => {
+          this.APIData = res.data.products.slice(0, 4)
+          console.log(this.APIData)
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
+    },
+    routerPush (id) {
+      this.$router.push(`/product/${id}`)
+    }
+  },
+  mounted () {
+    this.getProducts()
   }
 }
 </script>
