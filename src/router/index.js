@@ -18,7 +18,7 @@ const routes = [
         component: () => import('../views/UserCheckout.vue')
       },
       {
-        path: '',
+        path: 'payfinished',
         component: () => import('../views/PayFinished.vue')
       },
       {
