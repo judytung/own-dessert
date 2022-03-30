@@ -5,6 +5,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
 import router from './router'
+import emitter from '@/libs/emitter'
 import { date, currency } from './methods/filters'
 
 const app = createApp(App)
@@ -12,6 +13,7 @@ app.config.globalProperties.$filters = {
   date,
   currency
 }
+app.config.globalProperties.$emitter = emitter
 app.use(router)
 app.use(VueAxios, axios) // 順序不能顛倒
 app.mount('#app')

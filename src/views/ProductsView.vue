@@ -45,7 +45,7 @@
   <div class="container mt-1">
     <ul class="row">
       <li class="col-md-4 px-lg-11 p-md-2" v-for="product in products" :key="product.id">
-        <CardView :product="product"></CardView>
+        <CardView :product="product" ref="card"></CardView>
       </li>
     </ul>
   </div>
@@ -55,7 +55,6 @@
 <script>
 import CardView from '@/components/CardView.vue'
 import FooterView from '@/components/FooterView.vue'
-// import emitter from '@/libs/emitter'
 export default {
   components: {
     CardView,

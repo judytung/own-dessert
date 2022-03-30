@@ -131,7 +131,6 @@
 </template>
 
 <script>
-// import emitter from '@/libs/emitter'
 import FooterView from '@/components/FooterView.vue'
 import { defineRule, Form, Field, ErrorMessage, configure } from 'vee-validate'
 import { required, email } from '@vee-validate/rules'
@@ -146,6 +145,7 @@ export default {
   data () {
     return {
       cartData: {},
+      cartLength: 0,
       total: {},
       form: {
         user: {
@@ -171,6 +171,9 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+          this.cartLength = res.data.data.carts.length
+          console.log(this.cartLength)
+          this.$emitter.emit('push-cart-num', this.cartLength)
         })
         .catch(function (err) {
           alert(err.response.data.message)

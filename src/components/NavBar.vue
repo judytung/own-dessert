@@ -43,7 +43,7 @@
                   start-50
                   opacity-90
                 "
-                >{{ cartData.carts.length }}</span
+                >{{ cartNum }}</span
               >
             </router-link>
           </li>
@@ -72,7 +72,7 @@
                     start-50
                     opacity-90
                   "
-                  >{{ cartData.carts.length }}</span
+                  >{{ cartNum }}</span
                 >
               </router-link>
             </li>
@@ -139,36 +139,23 @@
 </template>
 
 <script>
-import emitter from '@/libs/emitter'
 // import Collapse from 'bootstrap/js/dist/collapse.js'
 export default {
   data () {
     return {
-      cartData: {
-        carts: []
-      },
+      cartNum: 0,
       isShow: false
     }
   },
   methods: {
-    getCart () {
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
-      this.$http.get(url)
-        .then(res => {
-          this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          emitter.emit('get-cart')
-          // console.log(this.cartData)
-        })
-        .catch(function (err) {
-          alert(err.response.data.message)
-        })
-    }
   },
   mounted () {
-    this.getCart()
-  //   emitter.on('get-cart', () => {
-  //     this.getCart()
-  //   })
+    this.$emitter.on('push-cart-num', (num) => {
+      this.cartNum = num
+    })
+    this.$emitter.on('push-num', (num) => {
+      this.cartNum = num
+    })
   }
 }
 
