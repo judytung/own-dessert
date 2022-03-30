@@ -11,6 +11,10 @@
   background-color: $white;
 }
 
+.link-hover-accent:hover {
+  color: $accent;
+}
+
 .breadcrumb-item a:active,.breadcrumb-item a:hover {
   color:$gray-600 ;
 }

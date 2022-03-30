@@ -9,6 +9,7 @@ $utilities:map-merge(
     "position": map-merge(
       map-get($utilities,"position"),
       (
+        responsive: true,
         class: pos
       )
     ),
@@ -129,6 +130,8 @@ $utilities:map-merge(
         80: 80%,
         95: 95%,
         100: 100%,
+        200p: 200px,
+        300p: 300px,
         auto: auto
       )
     ),
