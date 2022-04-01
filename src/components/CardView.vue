@@ -31,6 +31,9 @@ export default {
   props: ['product'],
   data () {
     return {
+      cartData: {
+        carts: []
+      },
       qty: 1
     }
   },
@@ -40,6 +43,17 @@ export default {
         product_id: id,
         qty: this.qty
       }
+      const productNow = this.cartData.carts.filter(p => {
+        console.log(p)
+        return p.product_id === id
+      })
+      console.log(productNow[0])
+      console.log(this.qty)
+      if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
+        alert('最多只能購買30個喔！')
+        this.qty = 30
+      }
+      console.log(this.qty)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.post(url, { data })
         .then(res => {
@@ -56,8 +70,8 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
         .then(res => {
-          // this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          this.$emitter.emit('push-num', res.data.data.carts.length)
+          this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+          this.$emitter.emit('push-num', this.cartData.carts.length)
         })
         .catch(function (err) {
           alert(err.response.data.message)
@@ -68,6 +82,7 @@ export default {
     }
   },
   mounted () {
+    this.getCart()
   }
 }
 </script>

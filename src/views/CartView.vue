@@ -25,7 +25,7 @@
                 <td>
                   <div class="input-group">
                           <select  id="" class="form-select border-secondary py-xs" v-model="item.qty"  @change="updateCart(item)">
-                            <option :value="num" v-for="num in 50" :key="`${num}-${item.id}`">{{ num }}</option>
+                            <option :value="num" v-for="num in 30" :key="`${num}-${item.id}`">{{ num }}</option>
                           </select>
                     <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
                   </div>
@@ -171,8 +171,14 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+          this.cartData.carts.filter(i => {
+            if (i.qty > 30) {
+              i.qty = 30
+              return i.qty
+            }
+          })
           this.cartLength = res.data.data.carts.length
-          console.log(this.cartLength)
+          console.log(this.cartData.carts)
           this.$emitter.emit('push-cart-num', this.cartLength)
         })
         .catch(function (err) {

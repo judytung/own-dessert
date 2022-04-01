@@ -120,7 +120,6 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.APIData = res.data.products.slice(0, 4)
-          console.log(this.APIData)
         })
         .catch((err) => {
           alert(err.response.data.message)
