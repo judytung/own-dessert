@@ -6,9 +6,11 @@
       </div>
       <div class="col-md-6 mt-3 mt-md-0 px-2 px-md-0">
         <h2 class="mb-2">{{ product.title }}</h2>
-        <div class="fs-4" v-if="!product.price">{{ product.origin_price }} 元</div>
-        <del class="fs-5" v-if="product.price">原價 {{ product.origin_price }} 元</del>
-        <div class="fs-4" v-if="product.price">現在只要 {{ product.price }} 元</div>
+        <div class="fs-4" v-if="product.origin_price === product.price">{{ product.origin_price }} 元 / {{ product.unit }} </div>
+        <div v-else>
+          <del class="fs-5">原價 {{ product.origin_price }} 元</del>
+          <div class="fs-4">現在只要 {{ product.price }} 元</div>
+        </div>
         <div class="mt-2 mt-md-4 ">
           {{ product.description}}
         </div>
