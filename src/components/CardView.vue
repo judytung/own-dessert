@@ -3,7 +3,7 @@
     <div class="row g-0">
       <div class="col-4 col-md-12 pos-relative">
         <div class="card-img-text-hover card__img__hover__scale overflow-hidden">
-          <img :src="product.imageUrl" class="img-fluid h-lg-17 h-md-13 h-9 " :alt="product.title">
+          <img :src="product.imageUrl" class="img-fluid h-lg-17 h-md-13 h-9 ratio ratio-1x1" :alt="product.title">
           <a class="stretched-link z-index-4" type="button" @click="getProduct(product.id)"></a>
         </div>
       </div>
