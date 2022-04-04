@@ -144,7 +144,9 @@ configure({ // 用來做一些設定
 export default {
   data () {
     return {
-      cartData: {},
+      cartData: {
+        carts: []
+      },
       cartLength: 0,
       total: {},
       form: {
@@ -170,15 +172,10 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
         .then(res => {
+          console.log(res.data.data)
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          this.cartData.carts.filter(i => {
-            if (i.qty > 30) {
-              i.qty = 30
-              return i.qty
-            }
-          })
           this.cartLength = res.data.data.carts.length
-          console.log(this.cartData.carts)
+
           this.$emitter.emit('push-cart-num', this.cartLength)
         })
         .catch(function (err) {

@@ -51,7 +51,7 @@ export default {
       console.log(this.qty)
       if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
         alert('最多只能購買30個喔！')
-        this.qty = 30
+        data.qty = 30 - productNow[0].qty
       }
       console.log(this.qty)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
