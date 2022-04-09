@@ -43,21 +43,21 @@
             </td>
             <td>
               <div class="btn-group">
-              <button
-                class="btn btn-accent btn-sm"
-                type="button"
-                @click="openOrderModal('edit', item)"
-              >
-                檢視
-              </button>
-              <button
-                class="btn btn-outline-danger btn-sm"
-                type="button"
-                @click="openOrderModal('remove', item)"
-              >
-                刪除
-              </button>
-            </div>
+                <button
+                  class="btn btn-accent btn-sm"
+                  type="button"
+                  @click="openOrderModal('edit', item)"
+                >
+                  檢視
+                </button>
+                <button
+                  class="btn btn-outline-danger btn-sm"
+                  type="button"
+                  @click="openOrderModal('remove', item)"
+                >
+                  刪除
+                </button>
+              </div>
             </td>
           </tr>
         </template>

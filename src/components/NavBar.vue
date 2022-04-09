@@ -139,7 +139,8 @@
 </template>
 
 <script>
-// import Collapse from 'bootstrap/js/dist/collapse.js'
+import emitter from '@/libs/emitter'
+
 export default {
   data () {
     return {
@@ -160,13 +161,13 @@ export default {
     }
   },
   mounted () {
-    this.$emitter.on('push-cart-num', (num) => {
+    emitter.on('push-cart-num', (num) => {
       this.cartNum = num
     })
-    this.$emitter.on('push-num', (num) => {
+    emitter.on('push-num', (num) => {
       this.cartNum = num
     })
-    this.$emitter.on('push-product-num', (num) => {
+    emitter.on('push-product-num', (num) => {
       this.cartNum = num
     })
     this.getCart()

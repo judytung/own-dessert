@@ -4,7 +4,7 @@
       <div class="col-md-6 order-md-2">
         <div class="pos-relative">
           <div class="h-31.25 bg-secondary w-lg-300p d-none d-lg-block"></div>
-          <img src="https://images.unsplash.com/photo-1601205741712-b261aff33a7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=682&q=80" class="h-31.25 pos-lg-absolute end-lg-33 top-lg-16 d-none d-md-block " alt="">
+          <img src="https://images.unsplash.com/photo-1601205741712-b261aff33a7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=682&q=80" class="h-31.25 pos-lg-absolute end-lg-33 top-lg-16 d-none d-md-block " alt="a dessert shop">
         </div>
       </div>
       <div class="col-md-6 order-lg-2">
@@ -31,14 +31,4 @@
       </div>
     </div>
   </div>
-  <FooterView></FooterView>
 </template>
-
-<script>
-import FooterView from '@/components/FooterView.vue'
-export default {
-  components: {
-    FooterView
-  }
-}
-</script>

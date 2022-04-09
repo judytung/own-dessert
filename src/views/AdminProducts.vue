@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Loading :active="isLoading" :z-index="1060"></Loading>
     <!--AdminModal-->
     <AdminModal
     ref="AdminModal"
@@ -67,10 +68,10 @@
             <div class="btn-group">
               <button type="button" class="btn btn-accent btn-sm" @click="openModal('edit', item)"> <!--需帶入當前點擊的欄位 item-->
                   編輯
-                </button>
-                <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('remove', item)">
-                  刪除
-                </button>
+              </button>
+              <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('remove', item)">
+                刪除
+              </button>
             </div>
           </td>
         </tr>
@@ -82,7 +83,6 @@
 </template>
 
 <script>
-// import emitter from '@/libs/emitter'
 import pagination from '@/components/paginationView.vue'
 import AdminModal from '@/components/AdminModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
@@ -92,6 +92,7 @@ export default {
       products: [],
       tempProduct: {},
       isNew: false,
+      isLoading: false,
       pagination: {} // 先定義一個分頁物件
     }
   },
@@ -146,7 +147,6 @@ export default {
         .then(res => {
           alert(res.data.message)
           this.getProducts()
-          // this.$emit('get-products', http === 'put' ? this.pagination : 1)
           modalcomponent.hideModal()
         })
     },

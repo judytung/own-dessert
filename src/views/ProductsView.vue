@@ -4,7 +4,7 @@
       <div class="col-lg-6 d-inline-block">
         <img
           src="https://upload.cc/i1/2022/03/23/tXEN1L.png"
-          alt=""
+          alt="a slice of pound cake"
           class="h-lg-25 h-18.75 opacity-lg-100 opacity-65 w-100"
         />
       </div>
@@ -49,16 +49,14 @@
       </li>
     </ul>
   </div>
-  <FooterView></FooterView>
 </template>
 
 <script>
 import CardView from '@/components/CardView.vue'
-import FooterView from '@/components/FooterView.vue'
+
 export default {
   components: {
-    CardView,
-    FooterView
+    CardView
   },
   data () {
     return {
@@ -74,7 +72,6 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.products = res.data.products
-          console.log(this.$route.query.category)
         })
         .catch((err) => {
           alert(err.response.data.message)

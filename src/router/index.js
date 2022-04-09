@@ -64,6 +64,10 @@ const routes = [
         component: () => import('../views/AdminCoupons.vue')
       }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
   }
 ]
 

@@ -23,15 +23,12 @@
       </div>
     </div>
   </div>
-  <FooterView></FooterView>
 </template>
 
 <script>
-import FooterView from '@/components/FooterView.vue'
+import emitter from '@/libs/emitter'
+
 export default {
-  components: {
-    FooterView
-  },
   data () {
     return {
       cartData: {
@@ -57,9 +54,8 @@ export default {
         product_id: id,
         qty: this.qty
       }
-      const productNow = this.cartData.carts.filter(p => {
-        console.log(p)
-        return p.product_id === id
+      const productNow = this.cartData.carts.filter(item => {
+        return item.product_id === id
       })
       console.log(productNow[0])
       if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
@@ -70,13 +66,11 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.post(url, { data })
         .then(res => {
-          console.log(this.qty)
           alert(res.data.message)
           this.getCart()
           this.qty = 1
         })
         .catch(err => {
-          console.dir(err)
           alert(err.response.data.message)
         })
     },
@@ -86,7 +80,7 @@ export default {
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
           // console.log(res.data.data.carts.length)
-          this.$emitter.emit('push-product-num', this.cartData.carts.length)
+          emitter.emit('push-product-num', this.cartData.carts.length)
         })
         .catch(function (err) {
           alert(err.response.data.message)

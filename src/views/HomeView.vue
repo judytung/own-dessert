@@ -6,18 +6,18 @@
         <h2 class="mb-4 lh-sm">Products ></h2>
         <div class="col-lg-6 pos-relative mb-2">
           <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="h-15 h-lg-26 ">
+            <img src="https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="macaron-background" class="h-15 h-lg-26 ">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
               <h3 class="text-light">全部商品</h3>
             </div>
-             <router-link class="stretched-link z-index-3" to="/products"></router-link>
+            <router-link class="stretched-link z-index-3" to="/products"></router-link>
           </div>
         </div>
         <div class="col-lg-6">
           <ul class="row">
             <li class="col-md-6 mb-2">
               <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-                <img src="https://upload.cc/i1/2022/03/27/7pYBPz.png" alt="" class="h-15 h-lg-12.5">
+                <img src="https://upload.cc/i1/2022/03/27/7pYBPz.png" alt="madeleine" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">瑪德蓮</h3>
                 </div>
@@ -26,16 +26,16 @@
             </li>
             <li class="col-md-6 mb-2">
               <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-                <img src="https://upload.cc/i1/2022/03/27/afgn0W.png" alt="" class="h-15 h-lg-12.5">
+                <img src="https://upload.cc/i1/2022/03/27/afgn0W.png" alt="pound-cake" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">磅蛋糕</h3>
                 </div>
-                 <router-link class="stretched-link z-index-3" to="/products?category=pound-cake"></router-link>
+                <router-link class="stretched-link z-index-3" to="/products?category=pound-cake"></router-link>
               </div>
             </li>
             <li class="col-md-6">
               <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-                <img src="https://upload.cc/i1/2022/03/27/SgMBnr.png" alt="" class="h-15 h-lg-12.5">
+                <img src="https://upload.cc/i1/2022/03/27/SgMBnr.png" alt="pudding" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">其他系列</h3>
                 </div>
@@ -80,7 +80,6 @@
 
 <script>
 import BannerView from '@/components/BannerView.vue'
-import FooterView from '@/components/FooterView.vue'
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue'
 import { Pagination, Autoplay } from 'swiper'
@@ -88,7 +87,7 @@ import { Pagination, Autoplay } from 'swiper'
 import 'swiper/swiper.scss'
 import 'swiper/modules/navigation/navigation.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
-// import emitter from '@/libs/emitter'
+
 export default {
   data () {
     return {
@@ -110,7 +109,6 @@ export default {
   },
   components: {
     BannerView,
-    FooterView,
     Swiper,
     SwiperSlide
   },

@@ -17,7 +17,7 @@
             <select class="form-select rounded-0 w-33 me-2" v-model.number="qty">
               <option v-for="num in 30" :key="`${num}-${product.id}`">{{ num }}</option>
             </select>
-            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50" @click="addToCart(product.id)">加入購物車</button>
+            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50" @click="addToCart(product.id)" :disabled="isLoadingItem === product.id">加入購物車</button>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-// import emitter from '@/libs/emitter'
+import emitter from '@/libs/emitter'
 export default {
   props: ['product'],
   data () {
@@ -34,6 +34,7 @@ export default {
       cartData: {
         carts: []
       },
+      isLoadingItem: '',
       qty: 1
     }
   },
@@ -43,26 +44,26 @@ export default {
         product_id: id,
         qty: this.qty
       }
-      const productNow = this.cartData.carts.filter(p => {
-        console.log(p)
-        return p.product_id === id
+      const productNow = this.cartData.carts.filter(item => {
+        return item.product_id === id
       })
-      console.log(productNow[0])
-      console.log(this.qty)
       if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
         alert('最多只能購買30個喔！')
         data.qty = 30 - productNow[0].qty
+        if (productNow[0].qty === 30) {
+          return
+        }
       }
-      console.log(this.qty)
+      this.isLoadingItem = id
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.post(url, { data })
         .then(res => {
           alert(res.data.message)
           this.qty = 1
           this.getCart()
+          this.isLoadingItem = ''
         })
         .catch(err => {
-          console.dir(err)
           alert(err.response.data.message)
         })
     },
@@ -71,7 +72,7 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          this.$emitter.emit('push-num', this.cartData.carts.length)
+          emitter.emit('push-num', this.cartData.carts.length)
         })
         .catch(function (err) {
           alert(err.response.data.message)

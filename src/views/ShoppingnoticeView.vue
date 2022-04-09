@@ -21,7 +21,7 @@
           <i class="bi bi-exclamation-circle"></i>
           宅配需知
         </h3>
-         <ul class="list-style-square ms-4">
+        <ul class="list-style-square ms-4">
           <li class="mt-1">本公司均以黑貓冷凍宅配寄送，因疫情影響自110.5月起，週一、週六、周日皆不提供配送，這裡會於您指定前一天準時寄出，但宅配端皆有延遲到貨的風險(亦無法指定時段)，若有延遲將縮壓賞味期限，敬請考量此風險後再下單</li>
           <li class="mt-1">因疫情影響自110.5月起，宅配端公告無法指定偏好時段配送，實際配送時間以司機當日路線安排為主</li>
           <li class="mt-1">部分偏遠地區宅配恕無每日配送，若有疑慮可先致電黑貓客服詢問</li>
@@ -44,14 +44,4 @@
       </div>
     </div>
   </div>
-  <FooterView></FooterView>
 </template>
-
-<script>
-import FooterView from '@/components/FooterView.vue'
-export default {
-  components: {
-    FooterView
-  }
-}
-</script>

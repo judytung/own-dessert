@@ -100,7 +100,6 @@
                   />
                 </div>
               </div>
-
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label for="origin_price" class="form-label">原價</label>
@@ -126,7 +125,6 @@
                 </div>
               </div>
               <hr/>
-
               <div class="mb-3">
                 <label for="description" class="form-label">產品描述</label>
                 <textarea

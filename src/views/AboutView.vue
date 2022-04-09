@@ -9,14 +9,4 @@
       </div>
     </div>
   </div>
-  <FooterView></FooterView>
 </template>
-
-<script>
-import FooterView from '@/components/FooterView.vue'
-export default {
-  components: {
-    FooterView
-  }
-}
-</script>
