@@ -32,6 +32,7 @@ import { Pagination, Autoplay } from 'swiper'
 import 'swiper/swiper.scss'
 import 'swiper/modules/navigation/navigation.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
+
 export default {
   data () {
     return {

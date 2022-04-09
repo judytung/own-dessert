@@ -40,14 +40,15 @@
     :is-new="isNew"
     ></CouponModal>
     <RemoveModal ref="removeModal" :item="tempCoupon" @del-item="removeCoupon"></RemoveModal>
-    <pagination :pages="pagination" @emit-pages="getCoupons"></pagination>
+    <Pagination :pages="pagination" @emit-pages="getCoupons"></Pagination>
   </div>
 </template>
 
 <script>
 import CouponModal from '@/components/CouponModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
-import pagination from '@/components/paginationView.vue'
+import Pagination from '@/components/PaginationView.vue'
+
 export default {
   data () {
     return {
@@ -65,7 +66,7 @@ export default {
   components: {
     CouponModal,
     RemoveModal,
-    pagination
+    Pagination
   },
   methods: {
     getCoupons (page = 1) {

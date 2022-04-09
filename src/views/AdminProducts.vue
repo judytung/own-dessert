@@ -78,14 +78,15 @@
       </tbody>
     </table>
     <!--分頁元件-->
-    <pagination :pages="pagination" @emit-pages="getProducts"></pagination>
+    <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
   </div>
 </template>
 
 <script>
-import pagination from '@/components/paginationView.vue'
+import Pagination from '@/components/PaginationView.vue'
 import AdminModal from '@/components/AdminModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
+
 export default {
   data () {
     return {
@@ -97,7 +98,7 @@ export default {
     }
   },
   components: {
-    pagination,
+    Pagination,
     AdminModal,
     RemoveModal
   },

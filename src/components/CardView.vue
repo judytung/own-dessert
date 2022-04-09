@@ -27,6 +27,7 @@
 
 <script>
 import emitter from '@/libs/emitter'
+
 export default {
   props: ['product'],
   data () {
