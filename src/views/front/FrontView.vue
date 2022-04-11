@@ -1,7 +1,7 @@
 <template>
-  <NavBar></NavBar>
-  <RouterView></RouterView>
-  <FooterView></FooterView>
+  <NavBar />
+  <RouterView />
+  <FooterView />
 </template>
 
 <script>

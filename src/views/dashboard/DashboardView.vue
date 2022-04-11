@@ -1,5 +1,5 @@
 <template>
-  <AdminNavbar></AdminNavbar>
+  <AdminNavbar />
 </template>
 
 <script>

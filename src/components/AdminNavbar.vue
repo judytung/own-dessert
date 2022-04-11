@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/admin">後台</router-link>
+      <RouterLink class="navbar-brand" to="/admin">後台</RouterLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,18 +16,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/">回到前台</router-link>
+            <RouterLink class="nav-link" to="/">回到前台</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/admin/products"
-              >產品列表</router-link
-            >
+            <RouterLink class="nav-link" to="/admin/products"
+              >產品列表</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/admin/orders">訂單</router-link>
+            <RouterLink class="nav-link" to="/admin/orders">訂單</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/admin/coupons">優惠券</router-link>
+            <RouterLink class="nav-link" to="/admin/coupons">優惠券</RouterLink>
           </li>
         </ul>
         <a
@@ -39,7 +38,7 @@
       </div>
     </div>
   </nav>
-  <router-view v-if="checkSuccess"></router-view>
+  <RouterView v-if="checkSuccess"></RouterView>
 </template>
 
 <script>

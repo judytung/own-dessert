@@ -57,12 +57,10 @@ export default {
       const productNow = this.cartData.carts.filter(item => {
         return item.product_id === id
       })
-      console.log(productNow[0])
       if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
         alert('最多只能購買30個喔！')
         data.qty = 30 - productNow[0].qty
       }
-      console.log(data)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.post(url, { data })
         .then(res => {
@@ -78,8 +76,7 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
         .then(res => {
-          this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
-          // console.log(res.data.data.carts.length)
+          this.cartData = res.data.data
           emitter.emit('push-product-num', this.cartData.carts.length)
         })
         .catch(function (err) {

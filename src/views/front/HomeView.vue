@@ -10,7 +10,7 @@
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
               <h3 class="text-light">全部商品</h3>
             </div>
-            <router-link class="stretched-link z-index-3" to="/products"></router-link>
+            <RouterLink class="stretched-link z-index-3" to="/products"></RouterLink>
           </div>
         </div>
         <div class="col-lg-6">
@@ -21,7 +21,7 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">瑪德蓮</h3>
                 </div>
-                 <router-link class="stretched-link z-index-3" to="/products?category=madeleine"></router-link>
+                 <RouterLink class="stretched-link z-index-3" to="/products?category=madeleine"></RouterLink>
               </div>
             </li>
             <li class="col-md-6 mb-2">
@@ -30,7 +30,7 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">磅蛋糕</h3>
                 </div>
-                <router-link class="stretched-link z-index-3" to="/products?category=pound-cake"></router-link>
+                <RouterLink class="stretched-link z-index-3" to="/products?category=pound-cake"></RouterLink>
               </div>
             </li>
             <li class="col-md-6">
@@ -39,7 +39,7 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">其他系列</h3>
                 </div>
-                <router-link class="stretched-link z-index-3" to="/products?category=others"></router-link>
+                <RouterLink class="stretched-link z-index-3" to="/products?category=others"></RouterLink>
               </div>
             </li>
             <li class="col-md-6 d-none d-md-block">
@@ -61,20 +61,18 @@
          loop
          :autoplay="{ delay: 3000 }"
          class="h-18.75 pt-2">
-        <SwiperSlide v-for="img in APIData" :key="img.id">
-          <div class="pos-relative">
-            <div class="card hvr-bob">
-              <img :src="img.imageUrl" :alt="img.title" class="h-12.5">
-              <h3 class="fs-6 fw-normal text-center mt-1">{{ img.title }}</h3>
-              <a class="stretched-link" @click="routerPush(img.id)"></a>
+          <SwiperSlide v-for="img in APIData" :key="img.id">
+            <div class="pos-relative">
+              <div class="card hvr-bob">
+                <img :src="img.imageUrl" :alt="img.title" class="h-12.5">
+                <h3 class="fs-6 fw-normal text-center mt-1">{{ img.title }}</h3>
+                <a class="stretched-link" @click="routerPush(img.id)"></a>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-
+          </SwiperSlide>
         </Swiper>
       </section>
     </div>
-    <FooterView></FooterView>
   </main>
 </template>
 

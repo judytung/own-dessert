@@ -4,32 +4,32 @@
       <div class="d-none d-lg-block">
         <ul class="d-flex">
           <li class="px-4">
-            <router-link class="nav-hover" to="/products">甜點</router-link>
+            <RouterLink  class="nav-hover" to="/products">甜點</RouterLink>
           </li>
           <li class="px-4">
-            <router-link class="nav-hover" to="/about">關於我們</router-link>
+            <RouterLink class="nav-hover" to="/about">關於我們</RouterLink>
           </li>
           <li class="px-4">
-            <router-link class="nav-hover" to="/contact">聯絡我們</router-link>
+            <RouterLink class="nav-hover" to="/contact">聯絡我們</RouterLink>
           </li>
         </ul>
       </div>
       <div>
         <h1>
-          <router-link class="logo navbar-brand d-inline-block" to="/"
-            >Own Dessert</router-link
+          <RouterLink class="logo navbar-brand d-inline-block" to="/"
+            >Own Dessert</RouterLink
           >
         </h1>
       </div>
       <div class="d-none d-lg-block">
         <ul class="d-flex align-items-end">
           <li class="px-4">
-            <router-link class="nav-hover" to="/shoppingnotice"
-              >購物說明</router-link
+            <RouterLink class="nav-hover" to="/shoppingnotice"
+              >購物說明</RouterLink
             >
           </li>
           <li class="px-4">
-            <router-link
+            <RouterLink
               class="pos-relative border-0 hvr-bob"
               to="/cart"
             >
@@ -45,12 +45,12 @@
                 "
                 >{{ cartNum }}</span
               >
-            </router-link>
+            </RouterLink>
           </li>
           <li class="px-4">
-            <router-link to="/admin/products">
+            <RouterLink to="/admin/products">
               <i class="bi bi-person-fill fs-3 nav-hover"></i>
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -58,7 +58,7 @@
         <div class="d-flex">
           <ul class="d-flex">
             <li class="px-2">
-              <router-link
+              <RouterLink
                 class="pos-relative border-0 hvr-bob"
                 to="/cart"
               >
@@ -74,12 +74,12 @@
                   "
                   >{{ cartNum }}</span
                 >
-              </router-link>
+              </RouterLink>
             </li>
             <li class="px-2">
-              <router-link to="/admin/products">
+              <RouterLink to="/admin/products">
                 <i class="bi bi-person-fill fs-3 nav-hover"></i>
-              </router-link>
+              </RouterLink>
             </li>
           </ul>
           <a
@@ -114,23 +114,23 @@
     >
       <ul class="row text-center m-s justify-content-between g-1 pb-5">
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
-          <router-link class="border border-dark py-2 hover-bg-white" to="/products"
-            >甜點</router-link
+          <RouterLink class="border border-dark py-2 hover-bg-white" to="/products"
+            >甜點</RouterLink
           >
         </li>
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
-          <router-link class="border border-dark py-2 hover-bg-white" to="/about"
-            >關於我們</router-link
+          <RouterLink class="border border-dark py-2 hover-bg-white" to="/about"
+            >關於我們</RouterLink
           >
         </li>
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
-          <router-link class="border border-dark py-2 hover-bg-white" to="/contact"
-            >聯絡我們</router-link
+          <RouterLink class="border border-dark py-2 hover-bg-white" to="/contact"
+            >聯絡我們</RouterLink
           >
         </li>
         <li class="col-6 p-s border border-dark border-2 w-49 nav-bg-hover">
-          <router-link class="border border-dark py-2 hover-bg-white" to="/shoppingnotice"
-            >購物說明</router-link
+          <RouterLink class="border border-dark py-2 hover-bg-white" to="/shoppingnotice"
+            >購物說明</RouterLink
           >
         </li>
       </ul>

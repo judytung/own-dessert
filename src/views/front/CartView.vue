@@ -41,7 +41,7 @@
             </template>
             <div v-else class="d-flex justify-content-center mt-2">
               <p class="text-danger">購物車是空的</p>
-              <router-link to="/products" type="button" class="btn btn-outline-dark hvr-sweep-to-right">快來選購</router-link>
+              <RouterLink to="/products" type="button" class="btn btn-outline-dark hvr-sweep-to-right">快來選購</RouterLink>
             </div>
           </tbody>
         </table>
@@ -140,7 +140,7 @@ import { localize, loadLocaleFromURL } from '@vee-validate/i18n'
 defineRule('required', required)
 defineRule('email', email)
 loadLocaleFromURL('https://unpkg.com/@vee-validate/i18n@4.1.0/dist/locale/zh_TW.json')
-configure({ // 用來做一些設定
+configure({
   generateMessage: localize('zh_TW')
 })
 
@@ -222,7 +222,7 @@ export default {
         qty: item.qty
       }
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`
-      this.$http.put(url, { data }) // 這邊要將資料帶出去
+      this.$http.put(url, { data })
         .then(res => {
           alert(res.data.message)
           this.getCart()
