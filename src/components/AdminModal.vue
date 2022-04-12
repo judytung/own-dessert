@@ -212,12 +212,6 @@ export default {
     }
   },
   methods: {
-    // openModal () {
-    //   this.modal.show()
-    // },
-    // closeModal () {
-    //   this.modal.hide()
-    // },
     uploadImage () {
       // 把上傳的檔案取出來
       const uploadImage = this.$refs.uploadImage.files[0]
@@ -238,9 +232,6 @@ export default {
         })
     }
   },
-  // mounted () {
-  //   this.modal = new Modal(this.$refs.adminModal)
-  // }
   mixins: [modalMixin]
 }
 </script>

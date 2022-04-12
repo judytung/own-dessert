@@ -5,7 +5,7 @@
     :space-between="50"
     :modules="modules"
     loop
-    :autoplay="{ delay: 3000 }"
+    :autoplay="{ delay: 5000 }"
     :pagination="{ clickable: true }"
     >
       <swiper-slide>

@@ -62,6 +62,10 @@ const routes = [
       {
         path: 'coupons',
         component: () => import('../views/dashboard/AdminCoupons.vue')
+      },
+      {
+        path: 'pics',
+        component: () => import('../views/dashboard/PicLib.vue')
       }
     ]
   },

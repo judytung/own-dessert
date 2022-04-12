@@ -83,7 +83,7 @@
         </table>
       </div>
     </div>
-    <div class="row mt-4 justify-content-center bg-secondary pt-4 px-1 px-md-2">
+    <div class="row mt-4 justify-content-center bg-secondary pt-4 px-1 px-md-2" v-if="cartData.carts?.length !== 0">
       <div class="col-lg-8">
         <h3 class="fs-4">購買人訊息</h3>
         <VForm ref="form" class=" mt-2 mb-4" v-slot="{ errors }" @submit="sendOrder">

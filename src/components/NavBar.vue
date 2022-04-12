@@ -16,7 +16,7 @@
       </div>
       <div>
         <h1>
-          <RouterLink class="logo navbar-brand d-inline-block" to="/"
+          <RouterLink class="logo navbar-brand d-inline-block me-0" to="/"
             >Own Dessert</RouterLink
           >
         </h1>

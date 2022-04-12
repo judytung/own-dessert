@@ -1,7 +1,10 @@
 <template>
   <main>
     <BannerView></BannerView>
-    <div class="container px-lg-4">
+    <div class="container px-lg-4 pos-relative">
+      <a href="#" class="ani-arrow">
+        <i class="bi bi-caret-down-fill fs-1"></i>
+      </a>
       <section class="pt-9 row">
         <h2 class="mb-4 lh-sm">Products ></h2>
         <div class="col-lg-6 pos-relative mb-2">
@@ -52,7 +55,7 @@
         <p class="fs-4 fs-md-2 pos-absolute start-md-33 start-16">讓甜點變成你的日常</p>
         <p class="fs-4 fs-md-2 pos-absolute top-45 top-md-50 start-md-50 start-33">是我們的初衷 ── </p>
       </section>
-      <section class="row mt-2 pb-4 mt-md-4">
+      <section class="row mt-2 pb-8 mt-md-4">
         <h2 class="mb-4 lh-sm">最新商品 ></h2>
         <Swiper
         :breakpoints="swiperOptions.breakpoints"
@@ -73,6 +76,15 @@
         </Swiper>
       </section>
     </div>
+    <section class="sub-banner pt-5 pt-md-8">
+      <div class="bg-secondary opacity-75 my-0 mx-5 h-17 pt-4">
+        <h3 class="fs-3 text-center">訂閱我們，收到最新通知！</h3>
+        <div class="px-5 px-md-8 mt-3 opacity-100">
+          <input type="email" class="form-control" placeholder="填入電子郵件" id="emailAddress">
+          <button type="button" class="btn btn-accent w-100 mt-3">馬上訂閱</button>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
