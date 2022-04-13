@@ -3,7 +3,7 @@
     <div class="row g-0">
       <div class="col-lg-6 d-inline-block">
         <img
-          src="https://upload.cc/i1/2022/03/23/tXEN1L.png"
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649843727209.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=nr7bF5ri%2B4ROFf5%2FYFMB%2BlWzrf2vrMC6qxnhGgP%2BhiCm78D22hLcRXXIKhyP1SuMXJikxROxRjqmE%2FB7Sb81lmK84F3GklGToyuIXsuW9wOA62%2FktSBfUQ4C9HHLuugdqGvidLrmOXdfS8Oj2HqAbKIwZv2XajE6YUvdxeeBfqOEpRTLRlVV5THYbTo%2BVKs9ugXORJVbPC9WSRGfU7naTv7gFMypGO3xEFWtq0mO7v3RWe6PfvPvUroxWlnJzgziu5eB9x6QwTmCsKwLNIgv9t%2Bb%2FsHO8e5HX9eG0UoCnkoVfOnrcGUt%2BDN9qlr5ZcSKsNwJL5Qp33qODNzD%2F3Xz2w%3D%3D"
           alt="a slice of pound cake"
           class="h-lg-25 h-18.75 opacity-lg-100 opacity-65 w-100"
         />

@@ -31,7 +31,7 @@
           <li v-for="item in recData" :key="item.id" class="col-6 col-md-3 mb-4 mb-md-0">
             <div class="pos-relative">
               <div class="card hvr-bob">
-                <img :src="item.imageUrl" :alt="item.title" class="h-12.5">
+                <img :src="item.imageUrl" :alt="item.title" class="h-15">
                 <h3 class="fs-6 fw-normal text-center mt-1">{{ item.title }}</h3>
                 <a class="stretched-link" @click="routerPush(item.id)"></a>
               </div>
