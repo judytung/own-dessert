@@ -11,10 +11,13 @@
   }
   &:hover {
     &::after {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-        transition-delay: .15s;
-        transition-duration: .3s;
+      content: '查看更多';
+      color: #fff;
+      font-size: 20px;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      transition-delay: .15s;
+      transition-duration: .3s;
     }
   }
 }

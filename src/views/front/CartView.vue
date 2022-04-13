@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row pb-8">
       <div class="col-md-7 mt-md-9 mt-5">
         <table class="table align-middle">
           <thead>
@@ -66,7 +66,7 @@
               <th>優惠券</th>
               <td class="input-group">
                 <input type="text" class="form-control" id="getCode" v-model="couponCode">
-                <span  type="button" class="input-group-text" aria-describedby="getCode" @click="sendCoupon()">驗證</span>
+                <span  type="button" class="input-group-text" aria-describedby="getCode" @click="sendCoupon()">使用優惠碼</span>
               </td>
             </tr>
             <tr>
@@ -83,7 +83,7 @@
         </table>
       </div>
     </div>
-    <div class="row mt-4 justify-content-center bg-secondary pt-4 px-1 px-md-2" v-if="cartData.carts?.length !== 0">
+    <div class="row mt-8 justify-content-center bg-secondary pt-4 px-1 px-md-2" v-if="cartData.carts?.length !== 0">
       <div class="col-lg-8">
         <h3 class="fs-4">購買人訊息</h3>
         <VForm ref="form" class=" mt-2 mb-4" v-slot="{ errors }" @submit="sendOrder">
