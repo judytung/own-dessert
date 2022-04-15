@@ -14,6 +14,9 @@
         <div class="mt-2 mt-md-4 ">
           {{ product.description}}
         </div>
+        <div class="mt-4">
+          <p>成分：{{ product.composition }}</p>
+        </div>
         <div class="button-group d-flex justify-content-md-between  mt-6">
           <select class="form-select rounded-0 w-33 me-2" v-model.number="qty">
             <option v-for="num in 30" :key="`${num}-${product.id}`">{{ num }}</option>

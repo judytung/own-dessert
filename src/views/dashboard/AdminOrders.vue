@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="container py-4">
+    <div>此頁訂單數量：<span>{{orders.length}}</span></div>
     <table class="table mt-3">
       <thead>
         <tr>
