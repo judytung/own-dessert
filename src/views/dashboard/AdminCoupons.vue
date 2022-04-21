@@ -28,8 +28,8 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-sm btn-outline-accent" @click="openCouponModal('edit',item)">編輯</button>
-              <button class="btn btn-sm btn-outline-danger" @click="openCouponModal('remove', item)">刪除</button>
+              <button type="button" class="btn btn-sm btn-outline-accent" @click="openCouponModal('edit',item)">編輯</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" @click="openCouponModal('remove', item)">刪除</button>
             </div>
           </td>
         </tr>
@@ -40,9 +40,9 @@
     ref="couponModal"
     @update-coupon="updateCoupon"
     :is-new="isNew"
-    ></CouponModal>
-    <RemoveModal ref="removeModal" :item="tempCoupon" @del-item="removeCoupon"></RemoveModal>
-    <Pagination :pages="pagination" @emit-pages="getCoupons"></Pagination>
+    />
+    <RemoveModal ref="removeModal" :item="tempCoupon" @del-item="removeCoupon" />
+    <Pagination :pages="pagination" @emit-pages="getCoupons" />
   </div>
 </template>
 

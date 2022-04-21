@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <router-view :key="$route.fullPath"></router-view>
+  <RouterView :key="$route.fullPath" />
   <FooterView />
 </template>
 

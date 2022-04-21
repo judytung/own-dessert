@@ -2,10 +2,10 @@
   <main>
     <BannerView></BannerView>
     <div class="container px-lg-4 pos-relative">
-      <a href="#" class="ani-arrow">
+      <a href="#productView" class="ani-arrow">
         <i class="bi bi-caret-down-fill fs-1"></i>
       </a>
-      <section class="pt-9 row">
+      <section class="pt-9 row" id="productView">
         <h2 class="mb-4 lh-sm">Products ></h2>
         <div class="col-lg-6 pos-relative mb-2">
           <div class="card card-img-text-hover-2 card__img__hover__scale overflow-hidden">
@@ -13,7 +13,7 @@
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
               <h3 class="text-light">全部商品</h3>
             </div>
-            <RouterLink class="stretched-link z-index-3" to="/products"></RouterLink>
+            <RouterLink class="stretched-link z-index-3" to="/products"/>
           </div>
         </div>
         <div class="col-lg-6">
@@ -24,7 +24,7 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">瑪德蓮</h3>
                 </div>
-                 <RouterLink class="stretched-link z-index-3" to="/products?category=madeleine"></RouterLink>
+                 <RouterLink class="stretched-link z-index-3" to="/products?category=madeleine" />
               </div>
             </li>
             <li class="col-md-6 mb-2">
@@ -33,7 +33,7 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">磅蛋糕</h3>
                 </div>
-                <RouterLink class="stretched-link z-index-3" to="/products?category=pound-cake"></RouterLink>
+                <RouterLink class="stretched-link z-index-3" to="/products?category=pound-cake" />
               </div>
             </li>
             <li class="col-md-6">
@@ -42,11 +42,11 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">其他系列</h3>
                 </div>
-                <RouterLink class="stretched-link z-index-3" to="/products?category=others"></RouterLink>
+                <RouterLink class="stretched-link z-index-3" to="/products?category=others" />
               </div>
             </li>
             <li class="col-md-6 d-none d-md-block">
-              <img src="https://images.unsplash.com/photo-1543283832-16b392ce8edb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-15 h-lg-12.5 rounded-2">
+              <img src="https://images.unsplash.com/photo-1543283832-16b392ce8edb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="dessert" class="h-15 h-lg-12.5 rounded-2">
             </li>
           </ul>
         </div>

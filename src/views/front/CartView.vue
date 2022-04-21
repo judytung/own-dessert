@@ -21,16 +21,16 @@
                 </td>
                 <td>
                   <div class="input-group">
-                          <select class="form-select border-secondary py-xs"
-                          v-model="item.qty"
-                          @change="updateCart(item)"
-                          >
-                            <option
-                            :value="num"
-                            v-for="num in 30"
-                            :key="`${num}-${item.id}`"
-                            >{{ num }}</option>
-                          </select>
+                    <select class="form-select border-secondary py-xs"
+                    v-model="item.qty"
+                    @change="updateCart(item)"
+                    >
+                      <option
+                      :value="num"
+                      v-for="num in 30"
+                      :key="`${num}-${item.id}`"
+                      >{{ num }}</option>
+                    </select>
                     <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
                   </div>
                 </td>
@@ -66,12 +66,22 @@
               <th>優惠券</th>
               <td class="input-group">
                 <input type="text" class="form-control" id="getCode" v-model="couponCode">
-                <button  type="button" class="input-group-text" aria-describedby="getCode" @click="sendCoupon()" :disabled="isLoadingItem === true || couponCode === ''">使用優惠碼</button>
+                <button
+                  type="button"
+                  class="input-group-text"
+                  aria-describedby="getCode"
+                  @click="sendCoupon"
+                  :disabled="isLoadingItem === true || couponCode === ''">
+                  使用優惠碼
+                </button>
               </td>
             </tr>
             <tr>
               <th class="w-33">折扣金額</th>
-              <td class="text-end" v-if="Boolean(cartData.total - Math.round(total.final_total))">{{  cartData.total -  Math.round(total.final_total) }}</td>
+              <td class="text-end"
+                v-if="Boolean(cartData.total - Math.round(total.final_total))">
+                {{  cartData.total -  Math.round(total.final_total) }}
+              </td>
               <td class="text-end" v-else-if="cartData.carts?.length === 0 || true">{{ 0 }}</td>
             </tr>
             <tr>
@@ -106,14 +116,18 @@
             </div>
             <div class="mb-3 col-md-6">
               <label for="tel" class="form-label">收件人電話</label>
-              <VField id="tel" name="電話" type="tel" class="form-control" :class="{ 'is-invalid': errors['電話'] }" :rules="isPhone" v-model="form.user.tel"
-                        placeholder="請輸入電話" ></VField>
+              <VField id="tel" name="電話" type="tel" class="form-control"
+                :class="{ 'is-invalid': errors['電話'] }"
+                :rules="isPhone" v-model="form.user.tel"
+                placeholder="請輸入電話" ></VField>
               <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
             </div>
             <div class="mb-3 col-md-6">
               <label for="address" class="form-label">收件人地址</label>
-              <VField id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }" v-model="form.user.address"
-                        placeholder="請輸入地址" rules="required" ></VField>
+              <VField id="address" name="地址" type="text" class="form-control"
+                :class="{ 'is-invalid': errors['地址'] }"
+                v-model="form.user.address"
+                placeholder="請輸入地址" rules="required" ></VField>
               <ErrorMessage name="地址" class="invalid-feedback"></ErrorMessage>
             </div>
             <div class="mb-3">

@@ -2,7 +2,7 @@
   <PicModal
   ref="picModal"
   @update-pic="updatePic"
-  ></PicModal>
+  />
   <div class="container">
     <div class="mt-3 text-end">
       <button type="button" class="btn btn-accent" @click="openPicModal()">新增圖片</button>

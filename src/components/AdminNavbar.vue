@@ -54,7 +54,6 @@ export default {
   methods: {
     checkLogin () {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1')
-      //  axios.defaults.headers.common['Authorization'] = token;
       if (token) {
         this.$http.defaults.headers.common.Authorization = `${token}`
         const url = `${process.env.VUE_APP_API}/api/user/check`

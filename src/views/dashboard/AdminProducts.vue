@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Loading :active="isLoading" :z-index="1060"></Loading>
+    <Loading :active="isLoading" :z-index="1060"/>
     <!--AdminModal-->
     <AdminModal
     ref="AdminModal"
@@ -8,7 +8,7 @@
     @update-product="updateProduct"
     :is-new="isNew"
     :pagination="pagination.current_page"
-    ></AdminModal>
+    />
     <!---->
     <!--RemoveModal-->
     <RemoveModal
@@ -16,7 +16,7 @@
     :item="tempProduct"
     @del-item="removeProduct"
     :pagination="pagination.current_page"
-    ></RemoveModal>
+    />
     <!---->
     <div class="mt-3 text-end">
       <button type="button" class="btn btn-accent" @click="openModal('isNew')">新增產品</button>
@@ -78,7 +78,7 @@
       </tbody>
     </table>
     <!--分頁元件-->
-    <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+    <Pagination :pages="pagination" @emit-pages="getProducts" />
   </div>
 </template>
 

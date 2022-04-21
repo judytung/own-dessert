@@ -45,7 +45,7 @@
   <div class="container mt-1">
     <ul class="row">
       <li class="col-md-4 px-lg-11 p-md-2" v-for="product in products" :key="product.id">
-        <CardView :product="product" ref="card"></CardView>
+        <CardView :product="product" ref="card" />
       </li>
     </ul>
   </div>

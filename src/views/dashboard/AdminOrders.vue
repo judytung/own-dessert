@@ -64,13 +64,13 @@
         </template>
       </tbody>
     </table>
-    <OrderModal :order="tempOrder" ref="orderModal" @update-paid="updatePaid"></OrderModal>
+    <OrderModal :order="tempOrder" ref="orderModal" @update-paid="updatePaid" />
     <RemoveModal
     :item="tempOrder"
     ref="removemodal"
     @del-item="removeOrder"
-    ></RemoveModal>
-    <Pagination :pages="pagination" @emit-pages="getOrders"></Pagination>
+    />
+    <Pagination :pages="pagination" @emit-pages="getOrders" />
   </div>
 </template>
 
