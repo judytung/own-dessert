@@ -15,7 +15,7 @@
             </div>
             <div class="mt-9 float-end">
               <router-link class="btn btn-outline-secondary d-inline-block me-1" to="/">返回前台</router-link>
-              <button type="button" class="btn btn-secondary" @click="logIn">登入</button>
+              <button type="submit" class="btn btn-secondary">登入</button>
             </div>
           </form>
         </div>
