@@ -36,6 +36,10 @@ export default {
   },
   methods: {
     logIn () {
+      if (this.user.username === '' || this.user.password === '') {
+        alert('請輸入正確的帳號密碼！')
+        return
+      }
       const url = `${process.env.VUE_APP_API}/admin/signin/`
       this.$http.post(url, this.user)
         .then((res) => {

@@ -66,7 +66,7 @@
               <th>優惠券</th>
               <td class="input-group">
                 <input type="text" class="form-control" id="getCode" v-model="couponCode">
-                <span  type="button" class="input-group-text" aria-describedby="getCode" @click="sendCoupon()">使用優惠碼</span>
+                <button  type="button" class="input-group-text" aria-describedby="getCode" @click="sendCoupon()" :disabled="isLoadingItem === true || couponCode === ''">使用優惠碼</button>
               </td>
             </tr>
             <tr>
@@ -161,7 +161,7 @@ export default {
         },
         textarea: ''
       },
-      isLoadingItem: '',
+      isLoadingItem: false,
       couponCode: ''
     }
   },
@@ -232,10 +232,10 @@ export default {
         })
     },
     delCarts () {
+      this.isLoadingItem = true
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/carts`
       this.$http.delete(url)
         .then(res => {
-          this.isLoadingItem = true
           alert(res.data.message)
           this.getCart()
           this.isLoadingItem = ''
@@ -249,11 +249,13 @@ export default {
       const data = {
         code: this.couponCode
       }
+      this.isLoadingItem = true
       this.$http.post(url, { data })
         .then(res => {
           this.total = res.data.data
           alert(res.data.message)
           this.getCart()
+          this.isLoadingItem = false
         })
         .catch(err => {
           alert(err.response.data.message)
