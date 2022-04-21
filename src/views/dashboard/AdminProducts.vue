@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import Pagination from '@/components/PaginationView.vue'
+import Pagination from '@/components/PaginationComponent.vue'
 import AdminModal from '@/components/AdminModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
 

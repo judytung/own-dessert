@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import Pagination from '@/components/PaginationView.vue'
+import Pagination from '@/components/PaginationComponent.vue'
 import OrderModal from '@/components/OrderModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
 

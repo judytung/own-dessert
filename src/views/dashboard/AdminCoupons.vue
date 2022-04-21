@@ -49,7 +49,7 @@
 <script>
 import CouponModal from '@/components/CouponModal.vue'
 import RemoveModal from '@/components/RemoveModal.vue'
-import Pagination from '@/components/PaginationView.vue'
+import Pagination from '@/components/PaginationComponent.vue'
 
 export default {
   data () {
