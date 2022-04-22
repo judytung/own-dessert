@@ -1,4 +1,7 @@
 <template>
+  <!--清空購物車-->
+  <DelCartModal @del-cart="delCarts" ref="delCart"/>
+  <!---->
   <div class="container">
     <div class="row pb-8">
       <div class="col-md-7 mt-md-9 mt-5">
@@ -47,7 +50,7 @@
         </table>
         <button type="button" class="btn btn-sm btn-outline-dark rounded-0 mt-2  border-top border-dark"
         v-if="cartData.carts?.length !== 0"
-        @click="delCarts"
+        @click="openDelCartModal"
         :disabled="isLoadingItem === true">清空購物車</button>
       </div>
       <div class="col-md-5 mt-md-9 mt-5">
@@ -147,6 +150,7 @@
 
 <script>
 import emitter from '@/libs/emitter'
+import DelCartModal from '@/components/DelCartModal.vue'
 import { defineRule, Form, Field, ErrorMessage, configure } from 'vee-validate'
 import { required, email } from '@vee-validate/rules'
 import { localize, loadLocaleFromURL } from '@vee-validate/i18n'
@@ -182,7 +186,8 @@ export default {
   components: {
     VForm: Form,
     VField: Field,
-    ErrorMessage: ErrorMessage
+    ErrorMessage: ErrorMessage,
+    DelCartModal
   },
   methods: {
     getCart () {
@@ -250,14 +255,19 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/carts`
       this.$http.delete(url)
         .then(res => {
-          alert(res.data.message)
           this.getCart()
           this.isLoadingItem = ''
           this.couponCode = ''
+          const delCartModal = this.$refs.delCart
+          delCartModal.hideModal()
         })
         .catch(err => {
           alert(err.response.data.message)
         })
+    },
+    openDelCartModal () {
+      const delCartModal = this.$refs.delCart
+      delCartModal.showModal()
     },
     sendCoupon () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`
