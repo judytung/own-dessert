@@ -1,10 +1,10 @@
 <template>
-  <section class="shopping-banner mt-5  d-flex align-items-center opacity-75">
-    <div class="border border-light w-100 mx-4 mx-md-8 p-s">
-      <h2 class="text-light text-center border border-light border-3 fw-light">購物說明</h2>
+  <section class="shopping-banner mt-5 d-flex align-items-center">
+    <div class="bg-light w-100 mx-4 mx-md-13 p-s">
+      <h2 class="text-dark text-center bg-light fw-normal border border-dark">購物說明</h2>
     </div>
   </section>
-  <div class="container mt-6">
+  <div class="container mt-6 pb-6 pb-md-8">
     <div class="row">
       <div class="col-md-6  mt-2 mt-md-0 px-3">
         <h3 class="fw-light fs-4 fs-md-3">

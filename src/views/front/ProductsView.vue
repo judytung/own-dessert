@@ -1,29 +1,34 @@
 <template>
-  <div class="mt-5 pos-relative">
-    <div class="row g-0">
-      <div class="col-lg-6 d-inline-block">
-        <img
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649843727209.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=nr7bF5ri%2B4ROFf5%2FYFMB%2BlWzrf2vrMC6qxnhGgP%2BhiCm78D22hLcRXXIKhyP1SuMXJikxROxRjqmE%2FB7Sb81lmK84F3GklGToyuIXsuW9wOA62%2FktSBfUQ4C9HHLuugdqGvidLrmOXdfS8Oj2HqAbKIwZv2XajE6YUvdxeeBfqOEpRTLRlVV5THYbTo%2BVKs9ugXORJVbPC9WSRGfU7naTv7gFMypGO3xEFWtq0mO7v3RWe6PfvPvUroxWlnJzgziu5eB9x6QwTmCsKwLNIgv9t%2Bb%2FsHO8e5HX9eG0UoCnkoVfOnrcGUt%2BDN9qlr5ZcSKsNwJL5Qp33qODNzD%2F3Xz2w%3D%3D"
-          alt="a slice of pound cake"
-          class="h-lg-25 h-18.75 opacity-lg-100 opacity-65 w-100"
-        />
-      </div>
-      <div class="col-lg-4 offset-lg-1 pos-absolute top-45 start-lg-50">
-        <div class="border border-light border-lg-dark mx-2 mx-md-4 p-s">
-          <h2
-            class="
-              fs-m
-              border border-light border-lg-dark border-3
-              text-center text-light text-lg-dark fw-light
-            "
-          >
-            甜點
-          </h2>
-        </div>
-      </div>
+  <div class="mt-2 pos-relative">
+    <div class="d-block d-md-none">
+      <img src="https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80" alt="lemon">
+    </div>
+    <div class="d-none d-md-block">
+      <ul class="row g-0">
+        <li class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1587486937303-32eaa2134b78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80" alt="lemon" class="h-10 h-lg-17 float-end">
+        </li>
+        <li class="col-md-2">
+        </li>
+        <li class="col-md-3">
+          <img src="https://images.unsplash.com/photo-1587486937407-34f64d78e270?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="chocolate" class="h-10 h-lg-17 ">
+        </li>
+        <li class="col-md-3">
+        </li>
+        <li class="col-md-4">
+        </li>
+        <li class="col-md-3">
+          <img src="https://images.unsplash.com/photo-1587049016823-69ef9d68bd44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="coffee bean" class="h-10 h-lg-17 ">
+        </li>
+        <li class="col-md-1">
+        </li>
+        <li class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="egg" class="h-10 h-lg-17">
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="container mt-md-7 mt-3">
+  <div class="container mt-md-4 mt-3">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb fs-5">
         <li class="breadcrumb-item" active-calss="active" aria-current="page">
