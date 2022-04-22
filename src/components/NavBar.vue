@@ -35,6 +35,7 @@
             >
               <i class="bi bi-cart2 fs-3"></i>
               <span
+                v-if="cartNum > 0"
                 class="
                   badge
                   rounded-pill
@@ -64,6 +65,7 @@
               >
                 <i class="bi bi-cart2 fs-3"></i>
                 <span
+                  v-if="cartNum > 0"
                   class="
                     badge
                     rounded-pill

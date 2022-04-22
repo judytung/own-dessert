@@ -253,6 +253,7 @@ export default {
           alert(res.data.message)
           this.getCart()
           this.isLoadingItem = ''
+          this.couponCode = ''
         })
         .catch(err => {
           alert(err.response.data.message)

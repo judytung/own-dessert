@@ -2,7 +2,7 @@
   <main>
     <BannerView></BannerView>
     <div class="container px-lg-4 pos-relative">
-      <a href="#productView" class="ani-arrow">
+      <a href="#productView" class="ani-arrow p-0">
         <i class="bi bi-caret-down-fill fs-1"></i>
       </a>
       <section class="pt-9 row" id="productView">
@@ -76,8 +76,8 @@
         </Swiper>
       </section>
     </div>
-    <section class="sub-banner pt-5 pt-md-8">
-      <div class="bg-secondary opacity-75 my-0 mx-5 h-17 pt-4">
+    <section class="sub-banner pt-5 pt-md-8 row">
+      <div class="bg-secondary opacity-75  h-17 pt-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
         <h3 class="fs-3 text-center">訂閱我們，收到最新通知！</h3>
         <div class="px-5 px-md-8 mt-3 opacity-100">
           <input type="email" class="form-control" placeholder="填入電子郵件" id="emailAddress">

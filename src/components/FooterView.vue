@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="mt-13 mb-md-8 mb-5">
+  <div class="container footer translate-middle start-50">
+    <div class="mt-13 pb-4 pb-md-6">
       <footer class="pos-relative ">
         <h2 class="footer-title pos-absolute end-lg-43 end-md-38 end-32">Own Dessert</h2>
         <div class="footer-body row justify-content-md-between ">
