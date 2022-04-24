@@ -14,9 +14,7 @@
             <p class="w-33">{{product.price}} / {{product.unit}}</p>
           </div>
           <div class="button-group d-flex justify-content-between mt-md-2">
-            <select class="form-select rounded-0 w-33 me-2" v-model.number="qty">
-              <option v-for="num in 30" :key="`${num}-${product.id}`">{{ num }}</option>
-            </select>
+            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-30" @click="getProduct(product.id)">查看更多</button>
             <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50" @click="addToCart(product.id)" :disabled="isLoadingItem === product.id">加入購物車</button>
           </div>
         </div>
@@ -40,20 +38,10 @@ export default {
     }
   },
   methods: {
-    addToCart (id) {
+    addToCart (id, qty = 1) {
       const data = {
         product_id: id,
-        qty: this.qty
-      }
-      const productNow = this.cartData.carts.filter(item => {
-        return item.product_id === id
-      })
-      if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
-        alert('最多只能購買30個喔！')
-        data.qty = 30 - productNow[0].qty
-        if (productNow[0].qty === 30) {
-          return
-        }
+        qty: qty
       }
       this.isLoadingItem = id
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`

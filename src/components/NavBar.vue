@@ -172,6 +172,9 @@ export default {
     emitter.on('push-product-num', (num) => {
       this.cartNum = num
     })
+    emitter.on('clear-cart', (num) => {
+      this.cartNum = num
+    })
     this.getCart()
   }
 }

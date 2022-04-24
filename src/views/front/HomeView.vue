@@ -76,12 +76,14 @@
         </Swiper>
       </section>
     </div>
-    <section class="sub-banner pt-5 pt-md-8 row">
-      <div class="bg-secondary opacity-75  h-17 pt-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-        <h3 class="fs-3 text-center">訂閱我們，收到最新通知！</h3>
-        <div class="px-5 px-md-8 mt-3 opacity-100">
-          <input type="email" class="form-control" placeholder="填入電子郵件" id="emailAddress">
-          <button type="button" class="btn btn-accent w-100 mt-3">馬上訂閱</button>
+    <section class="pb-8">
+      <div class="sub-banner pt-5 pt-md-8 row">
+        <div class="bg-secondary opacity-75  h-17 pt-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+          <h3 class="fs-3 text-center">訂閱我們，收到最新通知！</h3>
+          <div class="px-5 px-md-8 mt-3 opacity-100">
+            <input type="email" class="form-control" placeholder="填入電子郵件" id="emailAddress">
+            <button type="button" class="btn btn-accent w-100 mt-3">馬上訂閱</button>
+          </div>
         </div>
       </div>
     </section>

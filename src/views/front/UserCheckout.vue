@@ -51,7 +51,7 @@
             </tbody>
           </table>
           <div class="text-end mt-2" v-if="order.is_paid === false">
-            <button class="btn btn-accent" type="button">確認付款去</button>
+            <button class="btn btn-accent" type="button" @click="payOrder">確認付款去</button>
           </div>
           <div v-if="order.is_paid" class="mt-4 text-end">
             <router-link to="/" class="btn btn-sm btn-outline-dark rounded-0 me-2  me-lg-4 p-lg-1" type="button">返回首頁</router-link>
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import emitter from '@/libs/emitter'
+
 export default {
   data () {
     return {
@@ -88,9 +90,20 @@ export default {
       this.$http.post(url).then(() => {
         this.getOrder()
         this.$router.push('/payfinished')
+        this.getCart()
       }).catch((err) => {
         alert(err.response.data.message)
       })
+    },
+    getCart () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
+      this.$http.get(url)
+        .then(res => {
+          emitter.emit('clear-cart', {})
+        })
+        .catch(function (err) {
+          alert(err.response.data.message)
+        })
     }
   },
   mounted () {

@@ -2,7 +2,7 @@
   <!--清空購物車-->
   <DelCartModal @del-cart="delCarts" ref="delCart"/>
   <!---->
-  <div class="container">
+  <div class="container pb-8">
     <div class="row pb-8">
       <div class="col-md-7 mt-md-9 mt-5">
         <table class="table align-middle">
@@ -102,7 +102,7 @@
         <VForm ref="form" class=" mt-2 mb-4" v-slot="{ errors }" @submit="sendOrder">
           <div class="row">
             <div class="mb-3 col-md-6">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">* Email</label>
               <VField id="email" name="email" type="email" class="form-control"
                         :class="{ 'is-invalid': errors['email'] }"
                         rules="email|required"
@@ -112,13 +112,13 @@
               <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="name" class="form-label">收件人姓名</label>
+              <label for="name" class="form-label">* 收件人姓名</label>
               <VField id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }" v-model="form.user.name"
                         placeholder="請輸入姓名" rules="required"></VField>
               <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="tel" class="form-label">收件人電話</label>
+              <label for="tel" class="form-label">* 收件人電話</label>
               <VField id="tel" name="電話" type="tel" class="form-control"
                 :class="{ 'is-invalid': errors['電話'] }"
                 :rules="isPhone" v-model="form.user.tel"
@@ -126,7 +126,7 @@
               <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
             </div>
             <div class="mb-3 col-md-6">
-              <label for="address" class="form-label">收件人地址</label>
+              <label for="address" class="form-label">* 收件人地址</label>
               <VField id="address" name="地址" type="text" class="form-control"
                 :class="{ 'is-invalid': errors['地址'] }"
                 v-model="form.user.address"
