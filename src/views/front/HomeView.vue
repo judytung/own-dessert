@@ -8,7 +8,7 @@
       <section class="pt-9 row" id="productView">
         <h2 class="mb-4 lh-sm">Products ></h2>
         <div class="col-lg-6 pos-relative mb-2">
-          <div class="card card-img-text-hover-2 card__img__hover__scale overflow-hidden">
+          <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
             <img src="https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="macaron-background" class="h-15 h-lg-26 ">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
               <h3 class="text-light">全部商品</h3>
@@ -19,7 +19,7 @@
         <div class="col-lg-6">
           <ul class="row">
             <li class="col-md-6 mb-2">
-              <div class="card card-img-text-hover-2 card__img__hover__scale overflow-hidden">
+              <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
                 <img src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649844650822.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=BQeTam6icetzqdF1HmlyBi0f%2F6VP459KWDarVrL9yJ1JTdTVjmbqEIpoxiqX12jmO0knaAPm47vVGroL%2BQcH%2Fgpqeddy4i6LjuqeT2E49GSTGC83JWjpCTy9NcptzS%2FZpRTzpLm18Px%2BTdnkit3uQ9EuhraT7ML3qMAh%2BQrP2hlnzvBKgNq7bBTQ%2FKm0eFH1e%2B5Ud1ixEustbGkzr6Zoj43B4DUgrsM5fOFCKmTQzwXl9luRB44N69TxAbWXWQZ4VhpSTy6XM1dwgJ1TJRKKEvR3%2BvQXsbTulQC%2FruSmNkdYMf%2BvIzYSqiA0yhdAJYgbC7BTHYtXHHMJqe%2F6UknRVg%3D%3D" alt="madeleine" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">瑪德蓮</h3>
@@ -28,7 +28,7 @@
               </div>
             </li>
             <li class="col-md-6 mb-2">
-              <div class="card card-img-text-hover-2 card__img__hover__scale overflow-hidden">
+              <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
                 <img src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649844959338.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=oCZp2waWpsaXHkOloEX%2FRgfC9IMm5F%2Ba%2BqIY8Gs5CUaK2oMyjrcxQetwJEcydP%2BFzmtcQGSsxfZtEKANoGg2QCVaYsXNPXiB%2BOY2amRhQKH2XfB7MHBXbAIhqnirZ5KM%2BrosBWEhi02W3kp5hhWKUruCQrC6yXdSDfveD3a2PRZql7BslQMhjRT6GypVZGinw1PKSdnjLaI8hqW677Pn6%2FpDVxiu5uvLe4TNt9oClcgtCjnHMeO7ixCPwLRpp6WvbCjgascuz4Jgg2OrPWurL%2BCShyWfGxDb3IHNfvCkKzFRgAsoziJhmrXrqzxmbBlPZ2A0WHrrBr4envamd2GLZg%3D%3D" alt="pound-cake" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">磅蛋糕</h3>
@@ -37,7 +37,7 @@
               </div>
             </li>
             <li class="col-md-6">
-              <div class="card card-img-text-hover-2 card__img__hover__scale overflow-hidden">
+              <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
                 <img src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649845114747.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dIK7LxNk2uyMs7D9mrg9xMRwJxLoNnA6VYO6ukwPXdxlZwdl74AGOskZ7Ls%2BwELP87HA0ZMpLgB8oWwOxrOweorh4eCUitDfTQSdS6UDrQmH4clIyhksu3kjIXLYtG02Q%2BpD11FtaL%2FzeJcyrJ5Mci%2BOPvpEZEuuTct%2B9%2BiiwPompZ6OlrjO%2B7VfrMmt62WeGweDkDzIIGRAoXJZYIDBf2vL39d9SrFYZsg9cV0vrvmPrbgZM8YjTnSQT%2FwoFNdAunQAQyR5V2%2BPdcb1bIUPQxxbAk31UGrm8KTojxaOfbce3Opy5BfZG9Iht0%2FRf77u%2Fvc1gkASzQlLGH6IFNDZaA%3D%3D" alt="pudding" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">其他系列</h3>
@@ -77,12 +77,16 @@
       </section>
     </div>
     <section class="pb-8">
-      <div class="sub-banner pt-5 pt-md-8 row">
-        <div class="bg-secondary opacity-75  h-17 pt-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-          <h3 class="fs-3 text-center">訂閱我們，收到最新通知！</h3>
-          <div class="px-5 px-md-8 mt-3 opacity-100">
-            <input type="email" class="form-control" placeholder="填入電子郵件" id="emailAddress">
-            <button type="button" class="btn btn-accent w-100 mt-3">馬上訂閱</button>
+      <div class="pb-8 sub-banner">
+        <div class="container pt-5 pt-md-8">
+          <div class="row">
+            <div class="bg-secondary opacity-75  h-17 pt-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+            <h3 class="fs-3 text-center">訂閱我們，收到最新通知！</h3>
+            <div class="px-5 px-md-8 mt-3 opacity-100">
+              <input type="email" class="form-control" placeholder="填入電子郵件" id="emailAddress">
+              <button type="button" class="btn btn-accent w-100 mt-3">馬上訂閱</button>
+            </div>
+          </div>
           </div>
         </div>
       </div>

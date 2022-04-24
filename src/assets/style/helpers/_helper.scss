@@ -42,3 +42,29 @@
   0% {transform: translate(-50%)}
   100% {transform: translate(-50%,20%)}
 }
+
+.step-1 {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.step-border-1::after {
+  content: '';
+  background-color: $secondary;
+  height: 4px;
+  width: 100px;
+  position: absolute;
+  top: 30%;
+  left: 61%;
+}
+
+.step-border-2::after {
+  content: '';
+  background-color: $accent;
+  height: 4px;
+  width: 100px;
+  position: absolute;
+  top: 30%;
+  left: 61%;
+}

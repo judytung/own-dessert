@@ -1,9 +1,9 @@
 <template>
   <div class="container footer translate-middle start-50">
     <div class="mt-13 pb-4 pb-md-6">
-      <footer class="pos-relative ">
+      <footer class="pos-relative">
         <h2 class="footer-title pos-absolute end-lg-43 end-md-38 end-32">Own Dessert</h2>
-        <div class="footer-body row justify-content-md-between ">
+        <div class="footer-body row justify-content-md-between">
           <ul class="col-6 footer-item d-md-flex justify-content-center">
             <li class="px-ms">
               <router-link to="/products" class="nav-hover">商品列表</router-link>

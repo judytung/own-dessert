@@ -2,13 +2,27 @@
   <!--清空購物車-->
   <DelCartModal @del-cart="delCarts" ref="delCart"/>
   <!---->
+  <div class="d-flex justify-content-center mt-4">
+    <div class="step-border-1 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
+      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 1 </div>
+      <p class="mt-1">購買明細</p>
+    </div>
+    <div class="step-border-1 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
+      <div class="bg-secondary text-accent step-1 text-center border-2 border-secondary border"> 2 </div>
+      <p class="mt-1">確認訂單</p>
+    </div>
+    <div class=" px-3 px-md-4 py-2 d-flex flex-column align-items-center">
+      <div class="bg-secondary text-accent step-1 text-center border-2 border-secondary border"> 3 </div>
+      <p class="mt-1">付款完成</p>
+    </div>
+  </div>
   <div class="container pb-8">
     <div class="row pb-8">
-      <div class="col-md-7 mt-md-9 mt-5">
+      <div class="col-md-7 mt-md-9 mt-3">
         <table class="table align-middle">
           <thead>
             <tr>
-              <th>購物車</th>
+              <th class="w-20">購物車</th>
             </tr>
           </thead>
           <tbody>
@@ -37,7 +51,7 @@
                     <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
                   </div>
                 </td>
-                <td class="text-end">
+                <td class="text-end w-20">
                   {{ item.total }} 元
                 </td>
               </tr>

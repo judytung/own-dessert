@@ -224,9 +224,7 @@ export default {
   },
   methods: {
     uploadImage () {
-      // 把上傳的檔案取出來
       const uploadImage = this.$refs.uploadImage.files[0]
-      // formData 格式，JS 用來產生表單格式
       const formData = new FormData()
       formData.append('image-upload', uploadImage)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/upload`
@@ -238,8 +236,7 @@ export default {
           }
         })
         .catch(err => {
-          console.dir(err)
-          // alert(err.response.data.message)
+          alert(err.response.data.message)
         })
     }
   },

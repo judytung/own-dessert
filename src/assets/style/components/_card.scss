@@ -22,29 +22,6 @@
   }
 }
 
-.card-img-text-hover-2 {
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    opacity: 0;
-    transition-duration: .3s;
-    z-index: 1;
-  }
-  &:hover {
-    &::after {
-      content: '';
-      color: #fff;
-      font-size: 20px;
-      transform: translate(-50%, -50%);
-      opacity: 1;
-      transition-delay: .15s;
-      transition-duration: .3s;
-    }
-  }
-}
 
 .card__img__hover__scale {
   img {
