@@ -2,20 +2,7 @@
   <!--清空購物車-->
   <DelCartModal @del-cart="delCarts" ref="delCart"/>
   <!---->
-  <div class="d-flex justify-content-center mt-4">
-    <div class="step-border-1 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
-      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 1 </div>
-      <p class="mt-1">購買明細</p>
-    </div>
-    <div class="step-border-1 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
-      <div class="bg-secondary text-accent step-1 text-center border-2 border-secondary border"> 2 </div>
-      <p class="mt-1">確認訂單</p>
-    </div>
-    <div class=" px-3 px-md-4 py-2 d-flex flex-column align-items-center">
-      <div class="bg-secondary text-accent step-1 text-center border-2 border-secondary border"> 3 </div>
-      <p class="mt-1">付款完成</p>
-    </div>
-  </div>
+  <CartStep v-if="cartData.carts?.length !== 0" :step="stepNum"/>
   <div class="container pb-8">
     <div class="row pb-8">
       <div class="col-md-7 mt-md-9 mt-3">
@@ -165,6 +152,7 @@
 <script>
 import emitter from '@/libs/emitter'
 import DelCartModal from '@/components/DelCartModal.vue'
+import CartStep from '@/components/CartStep.vue'
 import { defineRule, Form, Field, ErrorMessage, configure } from 'vee-validate'
 import { required, email } from '@vee-validate/rules'
 import { localize, loadLocaleFromURL } from '@vee-validate/i18n'
@@ -194,14 +182,16 @@ export default {
         textarea: ''
       },
       isLoadingItem: false,
-      couponCode: ''
+      couponCode: '',
+      stepNum: 0
     }
   },
   components: {
     VForm: Form,
     VField: Field,
     ErrorMessage: ErrorMessage,
-    DelCartModal
+    DelCartModal,
+    CartStep
   },
   methods: {
     getCart () {
@@ -211,6 +201,7 @@ export default {
           this.cartData = res.data.data
           this.cartLength = res.data.data.carts.length
           emitter.emit('push-cart-num', this.cartLength)
+          this.stepNum = 1
         })
         .catch(function (err) {
           alert(err.response.data.message)

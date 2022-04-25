@@ -43,13 +43,19 @@
   100% {transform: translate(-50%,20%)}
 }
 
-.step-1 {
+.step {
   border-radius: 50%;
   width: 30px;
   height: 30px;
+  background-color: $secondary;
+  color: $accent;
+  &.active {
+    background-color: $accent;
+    color: $light;
+  }
 }
 
-.step-border-1::after {
+.step-border-light::after {
   content: '';
   background-color: $secondary;
   height: 4px;
@@ -59,7 +65,7 @@
   left: 61%;
 }
 
-.step-border-2::after {
+.step-border-dark::after {
   content: '';
   background-color: $accent;
   height: 4px;
@@ -68,3 +74,6 @@
   top: 30%;
   left: 61%;
 }
+
+
+

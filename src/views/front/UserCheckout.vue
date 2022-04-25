@@ -1,18 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center mt-4">
-    <div class="step-border-2 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
-      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 1 </div>
-      <p class="mt-1">購買明細</p>
-    </div>
-    <div class="step-border-1 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
-      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 2 </div>
-      <p class="mt-1">確認訂單</p>
-    </div>
-    <div class="px-3 px-md-4 py-2 d-flex flex-column align-items-center">
-      <div class="bg-secondary text-accent step-1 text-center border-2 border-secondary border"> 3 </div>
-      <p class="mt-1">付款完成</p>
-    </div>
-  </div>
+  <CartStep :step="stepNum"/>
   <div class="container pt-8 pb-8 pb-lg-11">
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
@@ -79,6 +66,7 @@
 
 <script>
 import emitter from '@/libs/emitter'
+import CartStep from '@/components/CartStep.vue'
 
 export default {
   data () {
@@ -86,8 +74,12 @@ export default {
       orderId: '',
       order: {
         user: {}
-      }
+      },
+      stepNum: 0
     }
+  },
+  components: {
+    CartStep
   },
   methods: {
     getOrder () {
@@ -95,6 +87,7 @@ export default {
       this.$http.get(url)
         .then((res) => {
           this.order = res.data.order
+          this.stepNum = 2
         }).catch((err) => {
           alert(err.response.data.message)
         })

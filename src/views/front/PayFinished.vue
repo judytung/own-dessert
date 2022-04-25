@@ -1,18 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center mt-4">
-    <div class="step-border-2 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
-      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 1 </div>
-      <p class="mt-1">購買明細</p>
-    </div>
-    <div class="step-border-2 px-3 px-md-4 py-2 pos-relative d-flex flex-column align-items-center">
-      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 2 </div>
-      <p class="mt-1">確認訂單</p>
-    </div>
-    <div class="px-3 px-md-4 py-2 d-flex flex-column align-items-center">
-      <div class="bg-accent text-light step-1 text-center border-2 border-secondary border"> 3 </div>
-      <p class="mt-1">付款完成</p>
-    </div>
-  </div>
+  <CartStep :step="stepNum"/>
   <div class="container">
     <div class="row justify-content-center pt-5 pb-8">
       <div class="col-8 text-center">
@@ -29,3 +16,21 @@
     </div>
   </div>
 </template>
+
+<script>
+import CartStep from '@/components/CartStep.vue'
+
+export default {
+  data () {
+    return {
+      stepNum: 0
+    }
+  },
+  components: {
+    CartStep
+  },
+  mounted () {
+    this.stepNum = 3
+  }
+}
+</script>
