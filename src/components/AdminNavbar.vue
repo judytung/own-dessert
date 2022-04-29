@@ -41,44 +41,16 @@
       </div>
     </div>
   </nav>
-  <RouterView v-if="checkSuccess"></RouterView>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      checkSuccess: false
-    }
-  },
   methods: {
-    checkLogin () {
-      const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1')
-      if (token) {
-        this.$http.defaults.headers.common.Authorization = `${token}`
-        const url = `${process.env.VUE_APP_API}/api/user/check`
-        this.$http
-          .post(url, { api_token: this.token })
-          .then(() => {
-            this.checkSuccess = true
-          })
-          .catch((err) => {
-            alert(err.response.data.message)
-            this.$router.push('/login')
-          })
-      } else {
-        alert('尚未登入')
-        this.$router.push('/login')
-      }
-    },
     signOut () {
       document.cookie = 'hexToken= ; expires=;'
       alert('已登出')
       this.$router.push('/login')
     }
-  },
-  mounted () {
-    this.checkLogin()
   }
 }
 </script>

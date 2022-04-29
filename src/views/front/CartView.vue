@@ -195,9 +195,11 @@ export default {
   },
   methods: {
     getCart () {
+      this.$emit('loadingStatus', true)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
         .then(res => {
+          this.$emit('loadingStatus', false)
           this.cartData = res.data.data
           this.cartLength = res.data.data.carts.length
           emitter.emit('push-cart-num', this.cartLength)

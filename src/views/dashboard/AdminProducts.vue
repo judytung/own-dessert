@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <Loading :active="isLoading" :z-index="1060"/>
     <!--AdminModal-->
     <AdminModal
     ref="AdminModal"
@@ -104,9 +103,11 @@ export default {
   },
   methods: {
     getProducts (page = 1) {
+      this.$emit('loadingStatus', true)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`
       this.$http.get(url)
         .then((res) => {
+          this.$emit('loadingStatus', false)
           this.products = res.data.products
           this.pagination = res.data.pagination
         })

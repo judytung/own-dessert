@@ -72,9 +72,11 @@ export default {
   },
   methods: {
     getCoupons (page = 1) {
+      this.$emit('loadingStatus', true)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupons/?page=${page}`
       this.$http.get(url)
         .then(res => {
+          this.$emit('loadingStatus', false)
           this.coupons = res.data.coupons
           this.pagination = res.data.pagination
         }).catch(err => {

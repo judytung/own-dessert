@@ -66,9 +66,11 @@ export default {
   },
   methods: {
     getProduct () {
+      this.$emit('loadingStatus', true)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${this.id}`
       this.$http.get(url)
         .then((res) => {
+          this.$emit('loadingStatus', false)
           if (res.data.success) {
             this.product = res.data.product
           }

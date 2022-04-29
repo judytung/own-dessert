@@ -95,9 +95,11 @@ export default {
   },
   methods: {
     getOrders (page = 1) {
+      this.$emit('loadingStatus', true)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/orders/?page=${page}`
       this.$http.get(url)
         .then(res => {
+          this.$emit('loadingStatus', false)
           this.orders = res.data.orders
           console.log(this.orders)
           this.pagination = res.data.pagination

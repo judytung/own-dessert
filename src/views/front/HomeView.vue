@@ -130,9 +130,11 @@ export default {
   },
   methods: {
     getProducts () {
+      this.$emit('loadingStatus', true)
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
       this.$http.get(url)
         .then(res => {
+          this.$emit('loadingStatus', false)
           this.APIData = res.data.products.slice(0, 4)
         })
         .catch((err) => {

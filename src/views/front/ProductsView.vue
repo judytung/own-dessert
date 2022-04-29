@@ -70,12 +70,14 @@ export default {
   },
   methods: {
     getProducts (category) {
+      this.$emit('loadingStatus', true)
       let url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
       if (category || this.$route.query.category) {
         url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products?category=${category || this.$route.query.category}`
       }
       this.$http.get(url)
         .then(res => {
+          this.$emit('loadingStatus', false)
           this.products = res.data.products
         })
         .catch((err) => {
