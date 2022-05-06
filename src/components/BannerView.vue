@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-2 mt-md-5">
+  <div class="mt-2 mt-md-3">
     <Swiper
     :slides-per-view="1"
     :space-between="50"
