@@ -44,10 +44,19 @@ export default {
         qty: qty
       }
       this.isLoadingItem = id
+      const productNow = this.cartData.carts.filter(item => {
+        return item.product_id === id
+      })
+      if (productNow.length > 0 && productNow[0].qty >= 30) {
+        alert('最多只能購買 30 個喔！')
+        this.isLoadingItem = ''
+        return
+      }
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.post(url, { data })
         .then(res => {
           alert(res.data.message)
+          console.log(productNow)
           this.qty = 1
           this.getCart()
           this.isLoadingItem = ''

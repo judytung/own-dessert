@@ -21,7 +21,9 @@
           <select class="form-select rounded-0 w-33 me-2" v-model.number="qty">
             <option v-for="num in 30" :key="`${num}-${product.id}`">{{ num }}</option>
           </select>
-          <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50" @click="addToCart(product.id)">加入購物車</button>
+          <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50"
+          @click="addToCart(product.id)"
+          :disabled="isLoadingItem === product.id">加入購物車</button>
         </div>
         <p class="mt-4 text-accent">
           <i class="bi bi-exclamation-octagon"></i>
@@ -61,7 +63,8 @@ export default {
       },
       id: '',
       product: {},
-      qty: 1
+      qty: 1,
+      isLoadingItem: ''
     }
   },
   methods: {
@@ -81,11 +84,16 @@ export default {
         product_id: id,
         qty: this.qty
       }
+      this.isLoadingItem = id
       const productNow = this.cartData.carts.filter(item => {
         return item.product_id === id
       })
       if (productNow.length > 0 && productNow[0].qty + this.qty > 30) {
         alert('最多只能購買30個喔！')
+        if (productNow[0].qty >= 30) {
+          this.isLoadingItem = ''
+          return
+        }
         data.qty = 30 - productNow[0].qty
       }
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
@@ -94,6 +102,7 @@ export default {
           alert(res.data.message)
           this.getCart()
           this.qty = 1
+          this.isLoadingItem = ''
         })
         .catch(err => {
           alert(err.response.data.message)
@@ -118,7 +127,6 @@ export default {
             return Math.round(Math.random()) - 0.5
           })
           this.recData = arr.slice(0, 4)
-          console.log(this.recData)
         })
         .catch((err) => {
           alert(err.response.data.message)

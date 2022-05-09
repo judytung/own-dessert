@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-2 mt-md-3">
+  <div class="mt-1 mt-md-2">
     <Swiper
     :slides-per-view="1"
     :space-between="50"
@@ -16,12 +16,6 @@
       </swiper-slide>
       <swiper-slide>
         <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="berry pie"  class="h-31.25 h-md-36.25 img-fluid w-100">
-        <div class="pos-absolute start-50 translate-middle bottom-16">
-          <router-link type="button" class="btn btn-dark px-4 py-2 hvr-pulse" to="/products">前往購買</router-link>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://images.unsplash.com/photo-1612201142855-7873bc1661b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="macaron" class="h-31.25 h-md-36.25 img-fluid w-100">
         <div class="pos-absolute start-50 translate-middle bottom-16">
           <router-link type="button" class="btn btn-dark px-4 py-2 hvr-pulse" to="/products">前往購買</router-link>
         </div>
