@@ -28,9 +28,6 @@
           <li class="nav-item">
             <RouterLink class="nav-link" to="/admin/coupons">優惠券</RouterLink>
           </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/admin/pics">圖片庫</RouterLink>
-          </li>
         </ul>
         <a
           href="#"

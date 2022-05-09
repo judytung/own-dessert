@@ -78,6 +78,9 @@ export default {
             this.product = res.data.product
           }
         })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
     },
     addToCart (id) {
       const data = {

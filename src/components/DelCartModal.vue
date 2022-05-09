@@ -19,7 +19,7 @@
             <strong class="text-accent">是否刪除全部商品</strong> (刪除後將無法恢復)。
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               取消
             </button>
             <button type="button" class="btn btn-danger" @click="$emit('del-cart')">

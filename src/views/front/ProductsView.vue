@@ -32,16 +32,16 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb fs-5">
         <li class="breadcrumb-item" active-calss="active" aria-current="page">
-          <router-link to="/products" @click="getProducts">全部商品</router-link>
+          <router-link to="/products" @click="getProducts" class="mt-xs">全部商品</router-link>
         </li>
         <li class="breadcrumb-item">
-          <a type="button" class="ps-2 pe-1" @click="getProducts('madeleine')">瑪德蓮</a>
+          <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('madeleine')">瑪德蓮</button>
         </li>
         <li class="breadcrumb-item">
-          <a type="button" class="ps-2 pe-1" @click="getProducts('pound-cake')">磅蛋糕</a>
+          <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('pound-cake')">磅蛋糕</button>
         </li>
         <li class="breadcrumb-item">
-          <a type="button" class="ps-2 pe-1" @click="getProducts('others')">其他</a>
+          <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('others')">其他</button>
         </li>
       </ol>
     </nav>

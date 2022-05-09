@@ -1,6 +1,6 @@
 <template>
   <main>
-    <BannerView></BannerView>
+    <BannerView />
     <div class="container px-lg-4 pos-relative">
       <a href="#productView" class="ani-arrow p-0">
         <i class="bi bi-caret-down-fill fs-1"></i>
@@ -9,7 +9,7 @@
         <h2 class="mb-4 lh-sm">Products ></h2>
         <div class="col-lg-6 pos-relative mb-2">
           <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1490914327627-9fe8d52f4d90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="macaron-background" class="h-15 h-lg-26 ">
+            <img src="https://images.unsplash.com/photo-1592343617997-3cf7621f1552?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="macaron-background" class="h-15 h-lg-26 ">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
               <h3 class="text-light">全部商品</h3>
             </div>
@@ -20,7 +20,7 @@
           <ul class="row">
             <li class="col-md-6 mb-2">
               <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-                <img src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649844650822.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=BQeTam6icetzqdF1HmlyBi0f%2F6VP459KWDarVrL9yJ1JTdTVjmbqEIpoxiqX12jmO0knaAPm47vVGroL%2BQcH%2Fgpqeddy4i6LjuqeT2E49GSTGC83JWjpCTy9NcptzS%2FZpRTzpLm18Px%2BTdnkit3uQ9EuhraT7ML3qMAh%2BQrP2hlnzvBKgNq7bBTQ%2FKm0eFH1e%2B5Ud1ixEustbGkzr6Zoj43B4DUgrsM5fOFCKmTQzwXl9luRB44N69TxAbWXWQZ4VhpSTy6XM1dwgJ1TJRKKEvR3%2BvQXsbTulQC%2FruSmNkdYMf%2BvIzYSqiA0yhdAJYgbC7BTHYtXHHMJqe%2F6UknRVg%3D%3D" alt="madeleine" class="h-15 h-lg-12.5">
+                <img src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1652077922082.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=pdarJuQC%2FGv2cKXTMoyIDYfqDKCVu93o6skVqEQbyObn3SumO4q%2FcMnLzJ3%2F5uYJBw%2BEvSSVZZMpkqnuwc6LNMOxajQJUEJzOPtXIglYJP6kdhvcTrKS061wY4OdPyT8j0QVKmfArHWuEvAYA0cJ0l27rjKPodU91dz7ybhrlo8iKtPeqfdvMQbXWMMx%2FsmlGjPEF9imAvY88Q5yPsSpRKoUQcS73nXH7dhB1iwvIvvztOnjCR7fVI2XjK5d0AlQDkFOFKhoqKI%2FDBF9uQjBbrHTEQDt7lps1pyxMAmXohj6BoZjDX%2FxAXDKrrvLtrb44%2F28BXeHpeLYCDZ%2FLKZImg%3D%3D" alt="madeleine" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">瑪德蓮</h3>
                 </div>
@@ -29,7 +29,7 @@
             </li>
             <li class="col-md-6 mb-2">
               <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
-                <img src="https://storage.googleapis.com/vue-course-api.appspot.com/judyhexschoolforvue/1649844959338.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=oCZp2waWpsaXHkOloEX%2FRgfC9IMm5F%2Ba%2BqIY8Gs5CUaK2oMyjrcxQetwJEcydP%2BFzmtcQGSsxfZtEKANoGg2QCVaYsXNPXiB%2BOY2amRhQKH2XfB7MHBXbAIhqnirZ5KM%2BrosBWEhi02W3kp5hhWKUruCQrC6yXdSDfveD3a2PRZql7BslQMhjRT6GypVZGinw1PKSdnjLaI8hqW677Pn6%2FpDVxiu5uvLe4TNt9oClcgtCjnHMeO7ixCPwLRpp6WvbCjgascuz4Jgg2OrPWurL%2BCShyWfGxDb3IHNfvCkKzFRgAsoziJhmrXrqzxmbBlPZ2A0WHrrBr4envamd2GLZg%3D%3D" alt="pound-cake" class="h-15 h-lg-12.5">
+                <img src="https://images.unsplash.com/photo-1605466237773-118a8006696e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80" alt="pound-cake" class="h-15 h-lg-12.5">
                 <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center z-index-2">
                   <h3 class="text-light">磅蛋糕</h3>
                 </div>
@@ -58,12 +58,12 @@
       <section class="row mt-2 pb-8 mt-md-4">
         <h2 class="mb-4 lh-sm">最新商品 ></h2>
         <Swiper
-        :breakpoints="swiperOptions.breakpoints"
-         :space-between="10"
-         :modules="modules"
-         loop
-         :autoplay="{ delay: 3000 }"
-         class="h-18.75 pt-2">
+          :breakpoints="swiperOptions.breakpoints"
+          :space-between="10"
+          :modules="modules"
+          loop
+          :autoplay="{ delay: 3000 }"
+          class="h-18.75 pt-2">
           <SwiperSlide v-for="img in APIData" :key="img.id">
             <div class="pos-relative">
               <div class="card hvr-bob">

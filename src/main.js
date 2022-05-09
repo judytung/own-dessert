@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import 'bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
 import VueLoading from './components/LoadingComponent.vue'
 import App from './App.vue'
 import router from './router'
@@ -13,6 +15,7 @@ app.config.globalProperties.$filters = {
   date,
   currency
 }
+
 app.use(router)
 app.use(VueAxios, axios) // 順序不能顛倒
 app.component('Loading', VueLoading)

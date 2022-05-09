@@ -105,11 +105,11 @@
             <div class="mb-3 col-md-6">
               <label for="email" class="form-label">* Email</label>
               <VField id="email" name="email" type="email" class="form-control"
-                        :class="{ 'is-invalid': errors['email'] }"
-                        rules="email|required"
-                        placeholder="請輸入 Email"
-                        v-model="form.user.email"
-                      ></VField>
+                :class="{ 'is-invalid': errors['email'] }"
+                rules="email|required"
+                placeholder="請輸入 Email"
+                v-model="form.user.email"
+                ></VField>
               <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
             </div>
             <div class="mb-3 col-md-6">
@@ -205,7 +205,7 @@ export default {
           emitter.emit('push-cart-num', this.cartLength)
           this.stepNum = 1
         })
-        .catch(function (err) {
+        .catch((err) => {
           alert(err.response.data.message)
         })
     },

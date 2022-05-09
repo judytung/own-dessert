@@ -50,7 +50,7 @@
           </li>
           <li class="px-4">
             <RouterLink to="/admin/products">
-              <i class="bi bi-person-fill fs-3 nav-hover"></i>
+              <i class="bi bi-person-fill fs-3 nav-hover d-flex align-items-center"></i>
             </RouterLink>
           </li>
         </ul>
