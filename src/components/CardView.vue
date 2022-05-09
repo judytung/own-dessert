@@ -90,9 +90,6 @@ export default {
     getProduct (id) {
       this.$router.push(`/product/${id}`)
     }
-  },
-  mounted () {
-    this.getCart()
   }
 }
 </script>
