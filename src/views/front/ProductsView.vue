@@ -32,7 +32,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb fs-5">
         <li class="breadcrumb-item" active-calss="active" aria-current="page">
-          <router-link to="/products" @click="getProducts" class="mt-xs">全部商品</router-link>
+          <RouterLink to="/products" @click="getProducts" class="mt-xs">全部商品</RouterLink>
         </li>
         <li class="breadcrumb-item">
           <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('madeleine')">瑪德蓮</button>
@@ -46,7 +46,7 @@
       </ol>
     </nav>
   </div>
-  <router-view></router-view>
+  <RouterView />
   <div class="container mt-1">
     <ul class="row">
       <li class="col-md-4 px-lg-11 p-md-2" v-for="product in products" :key="product.id">

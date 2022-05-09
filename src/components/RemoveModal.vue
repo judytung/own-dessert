@@ -1,16 +1,16 @@
 <template>
   <div
-  id="removeAdminModal"
-  ref="modal"
-  class="modal fade"
-  tabindex="-1"
-  aria-labelledby="removeAdminModalLabel"
-  aria-hidden="true"
+    id="removeAdminModal"
+    ref="modal"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="removeAdminModalLabel"
+    aria-hidden="true"
   >
     <div class="modal-dialog">
         <div class="modal-content border-0">
           <div class="modal-header bg-danger text-white">
-            <h5 id="removeProductModalLabel" class="modal-title">
+            <h5 id="removeAdminModalLabel" class="modal-title">
               <span>刪除產品</span>
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

@@ -2,19 +2,19 @@
   <div class="container">
     <!--AdminModal-->
     <AdminModal
-    ref="AdminModal"
-    :product="tempProduct"
-    @update-product="updateProduct"
-    :is-new="isNew"
-    :pagination="pagination.current_page"
+      ref="AdminModal"
+      :product="tempProduct"
+      @update-product="updateProduct"
+      :is-new="isNew"
+      :pagination="pagination.current_page"
     />
     <!---->
     <!--RemoveModal-->
     <RemoveModal
-    ref="removemodal"
-    :item="tempProduct"
-    @del-item="removeProduct"
-    :pagination="pagination.current_page"
+      ref="removemodal"
+      :item="tempProduct"
+      @del-item="removeProduct"
+      :pagination="pagination.current_page"
     />
     <!---->
     <div class="mt-3 text-end">
@@ -46,9 +46,7 @@
       <tbody>
         <tr v-for="item in products" :key="item.id">
           <td>
-            <div :style="{ backgroundImage: `url(${item.imageUrl})` }" class="h-6.25 background-size-cover background-position-center">
-
-            </div>
+            <div :style="{ backgroundImage: `url(${item.imageUrl})` }" class="h-6.25 background-size-cover background-position-center"></div>
           </td>
           <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
@@ -65,7 +63,7 @@
           </td>
           <td>
             <div class="btn-group">
-              <button type="button" class="btn btn-accent btn-sm" @click="openModal('edit', item)"> <!--需帶入當前點擊的欄位 item-->
+              <button type="button" class="btn btn-accent btn-sm" @click="openModal('edit', item)">
                   編輯
               </button>
               <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('remove', item)">
@@ -93,7 +91,7 @@ export default {
       tempProduct: {},
       isNew: false,
       isLoading: false,
-      pagination: {} // 先定義一個分頁物件
+      pagination: {}
     }
   },
   components: {

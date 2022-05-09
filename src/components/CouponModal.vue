@@ -1,10 +1,16 @@
 <template>
-  <div class="modal fade" id="couponModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
+  <div
+    class="modal fade"
+    id="couponModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="CouponModalLabel"
+    aria-hidden="true"
+    ref="modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
+          <h5 class="modal-title" id="CouponModalLabel">
             <span v-if="isNew">新增優惠卷</span>
             <span v-else>編輯優惠卷</span>
           </h5>

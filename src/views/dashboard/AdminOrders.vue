@@ -33,9 +33,9 @@
             <td>
               <div class="form-check form-switch">
                 <input type="checkbox"
-                class="form-check-input"
-                :id="`switch${item.id}`"
-                v-model="item.is_paid">
+                  class="form-check-input"
+                  :id="`switch${item.id}`"
+                  v-model="item.is_paid">
                 <label class="form-check-label" :for="`switch${item.id}`">
                 <span v-if="item.is_paid">已付款</span>
                 <span v-else>未付款</span>
@@ -66,9 +66,9 @@
     </table>
     <OrderModal :order="tempOrder" ref="orderModal" @update-paid="updatePaid" />
     <RemoveModal
-    :item="tempOrder"
-    ref="removemodal"
-    @del-item="removeOrder"
+      :item="tempOrder"
+      ref="removemodal"
+      @del-item="removeOrder"
     />
     <Pagination :pages="pagination" @emit-pages="getOrders" />
   </div>
@@ -101,7 +101,6 @@ export default {
         .then(res => {
           this.$emit('loadingStatus', false)
           this.orders = res.data.orders
-          console.log(this.orders)
           this.pagination = res.data.pagination
         })
         .catch(err => {

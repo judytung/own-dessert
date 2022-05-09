@@ -6,11 +6,18 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li class="page-item" :class="{ active: page === pages.current_page }"
-      v-for="page in pages.total_pages" :key="page + 'page' ">
-          <a class="page-link" href="#" @click.prevent="$emit('emit-pages', page)">{{ page }}</a></li>
+      <li
+        class="page-item"
+        :class="{ active: page === pages.current_page }"
+        v-for="page in pages.total_pages" :key="page + 'page'">
+        <a class="page-link" href="#" @click.prevent="$emit('emit-pages', page)">{{ page }}</a>
+      </li>
       <li class="page-item" :class="{ disabled: !pages.has_next }">
-        <a class="page-link" href="#" aria-label="Next" @click.prevent="$emit('emit-pages', pages.current_page + 1)">
+        <a
+          class="page-link"
+          href="#"
+          aria-label="Next"
+          @click.prevent="$emit('emit-pages', pages.current_page + 1)">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
@@ -20,6 +27,6 @@
 
 <script>
 export default {
-  props: ['pages'] // 外層取得的 pagination 用 props 的 pages 接收
+  props: ['pages']
 }
 </script>

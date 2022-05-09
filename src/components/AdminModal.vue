@@ -1,12 +1,12 @@
 <template>
   <div
-      id="adminModal"
-      ref="modal"
-      class="modal fade"
-      tabindex="-1"
-      aria-labelledby="adminModalLabel"
-      aria-hidden="true"
-      >
+    id="adminModal"
+    ref="modal"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="adminModalLabel"
+    aria-hidden="true"
+    >
     <div class="modal-dialog modal-xl">
       <div class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
@@ -26,31 +26,38 @@
             <div class="col-sm-4">
               <div class="mb-3">
                 <label for="uploadImage" class="form-label">上傳檔案</label>
-                <input type="file" name="image-upload" class="from-control w-100" id="uploadImage" ref="uploadImage" @change="uploadImage">
+                <input type="file"
+                  name="image-upload"
+                  class="from-control w-100"
+                  id="uploadImage" ref="uploadImage"
+                  @change="uploadImage">
               </div>
               <div class="mb-3">
                 <label for="mainImage" class="form-label">或輸入圖片網址</label>
-                <input type="text" class="from-control w-100" id="mainImage" v-model="tempProduct.imageUrl"/>
+                <input type="text"
+                  class="from-control w-100"
+                  id="mainImage"
+                  v-model="tempProduct.imageUrl"/>
               </div>
               <img :src="tempProduct.imageUrl" :alt="tempProduct.description" class="img-fluid" />
               <!--多圖-->
               <div class="mb-3">
                 <h3>新增多個圖片</h3>
-                <!--首先要判斷是不是一個陣列-->
                 <div v-if="Array.isArray(tempProduct.imagesUrl)">
-                  <!--判斷陣列的方式-->
                   <template v-for="(img, key) in tempProduct.imagesUrl" :key="key + 456">
-                    <!--v-for 跟 v-if 不能放在一起-->
-                    <input type="text" class="form-control mt-2" id="imagesUrl" v-model="tempProduct.imagesUrl[key]"/>
+                    <input type="text"
+                      class="form-control mt-2"
+                      id="imagesUrl"
+                      v-model="tempProduct.imagesUrl[key]"/>
                     <img :src="tempProduct.imagesUrl[key]" alt="" class="img-fluid mt-2" />
-                    <!--這邊必須加入 key 值-->
                   </template>
-                  <!--這邊使用 v-if 判斷，首先當陣列裡面長度為 0 時，要出現新增按鈕，還有最後一格欄位是否有文字，有文字時才會再出現按鈕-->
-                  <!--|| 邏輯運算子的使用，當左邊為真值時就會直接回傳，否則就回傳右邊，所以當陣列長度不為 0 時，就會判斷最後一格欄位是否有文字-->
-                  <button v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]" @click="tempProduct.imagesUrl.push('')" type="button" class="btn btn-accent w-100 mt-2">
+                  <button
+                    v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]"
+                    @click="tempProduct.imagesUrl.push('')"
+                    type="button"
+                    class="btn btn-accent w-100 mt-2">
                     新增
                   </button>
-                  <!--點擊新增按鈕會觸發方法使用 push 新增到陣列裡，且為字串形式-->
                   <button
                     type="button"
                     class="btn btn-outline-danger w-100 mt-2"
@@ -58,10 +65,9 @@
                   >
                     刪除
                   </button>
-                  <!--pop 為刪除最後一個-->
                 </div>
                 <div>
-                  <button class="btn btn-outline-primary btn-sm d-block w-100">
+                  <button type="button" class="btn btn-outline-primary btn-sm d-block w-100">
                     新增圖片
                   </button>
                 </div>
@@ -231,7 +237,6 @@ export default {
       this.$http.post(url, formData)
         .then(res => {
           if (res.data.success) {
-            console.log(res)
             this.tempProduct.imageUrl = res.data.imageUrl
           }
         })

@@ -14,7 +14,7 @@
               <label for="password">password</label>
             </div>
             <div class="mt-9 float-end">
-              <router-link class="btn btn-outline-secondary d-inline-block me-1" to="/">返回前台</router-link>
+              <RouterLink class="btn btn-outline-secondary d-inline-block me-1" to="/">返回前台</RouterLink>
               <button type="submit" class="btn btn-secondary">登入</button>
             </div>
           </form>

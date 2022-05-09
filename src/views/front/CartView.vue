@@ -16,7 +16,10 @@
             <template v-if="cartData.carts?.length !== 0">
               <tr v-for="item in cartData.carts" :key="item.id">
                 <td>
-                  <button type="button" class="btn btn-outline-danger btn-sm" @click="removeCartItem(item.id)" :disabled="isLoadingItem === item.id">
+                  <button type="button"
+                    class="btn btn-outline-danger btn-sm"
+                    @click="removeCartItem(item.id)"
+                    :disabled="isLoadingItem === item.id">
                     x
                   </button>
                 </td>
@@ -26,13 +29,12 @@
                 <td>
                   <div class="input-group">
                     <select class="form-select border-secondary py-xs"
-                    v-model="item.qty"
-                    @change="updateCart(item)"
-                    >
+                      v-model="item.qty"
+                      @change="updateCart(item)">
                       <option
-                      :value="num"
-                      v-for="num in 30"
-                      :key="`${num}-${item.id}`"
+                        :value="num"
+                        v-for="num in 30"
+                        :key="`${num}-${item.id}`"
                       >{{ num }}</option>
                     </select>
                     <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
@@ -49,10 +51,10 @@
             </div>
           </tbody>
         </table>
-        <button type="button" class="btn btn-sm btn-outline-dark rounded-0 mt-2  border-top border-dark"
-        v-if="cartData.carts?.length !== 0"
-        @click="openDelCartModal"
-        :disabled="isLoadingItem === true">清空購物車</button>
+        <button type="button" class="btn btn-sm btn-outline-dark rounded-0 mt-2 border-top border-dark"
+          v-if="cartData.carts?.length !== 0"
+          @click="openDelCartModal"
+          :disabled="isLoadingItem === true">清空購物車</button>
       </div>
       <div class="col-md-5 mt-md-9 mt-5">
         <table class="table">
@@ -109,30 +111,35 @@
                 rules="email|required"
                 placeholder="請輸入 Email"
                 v-model="form.user.email"
-                ></VField>
-              <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
+                />
+              <ErrorMessage name="email" class="invalid-feedback"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="name" class="form-label">* 收件人姓名</label>
-              <VField id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }" v-model="form.user.name"
-                        placeholder="請輸入姓名" rules="required"></VField>
-              <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
+              <VField id="name" name="姓名" type="text" class="form-control"
+                :class="{ 'is-invalid': errors['姓名'] }"
+                v-model="form.user.name"
+                placeholder="請輸入姓名"
+                rules="required"/>
+              <ErrorMessage name="姓名" class="invalid-feedback"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="tel" class="form-label">* 收件人電話</label>
               <VField id="tel" name="電話" type="tel" class="form-control"
                 :class="{ 'is-invalid': errors['電話'] }"
-                :rules="isPhone" v-model="form.user.tel"
-                placeholder="請輸入電話" ></VField>
-              <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
+                :rules="isPhone"
+                v-model="form.user.tel"
+                placeholder="請輸入電話" />
+              <ErrorMessage name="電話" class="invalid-feedback"/>
             </div>
             <div class="mb-3 col-md-6">
               <label for="address" class="form-label">* 收件人地址</label>
               <VField id="address" name="地址" type="text" class="form-control"
                 :class="{ 'is-invalid': errors['地址'] }"
                 v-model="form.user.address"
-                placeholder="請輸入地址" rules="required" ></VField>
-              <ErrorMessage name="地址" class="invalid-feedback"></ErrorMessage>
+                placeholder="請輸入地址"
+                rules="required" />
+              <ErrorMessage name="地址" class="invalid-feedback"/>
             </div>
             <div class="mb-3">
               <label for="message" class="form-label">留言</label>
@@ -153,6 +160,7 @@
 import emitter from '@/libs/emitter'
 import DelCartModal from '@/components/DelCartModal.vue'
 import CartStep from '@/components/CartStep.vue'
+
 import { defineRule, Form, Field, ErrorMessage, configure } from 'vee-validate'
 import { required, email } from '@vee-validate/rules'
 import { localize, loadLocaleFromURL } from '@vee-validate/i18n'
@@ -242,7 +250,6 @@ export default {
       }
     },
     updateCart (item) {
-      // 根據 api 資料格式建構
       const data = {
         product_id: item.product_id,
         qty: item.qty

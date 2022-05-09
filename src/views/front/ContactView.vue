@@ -25,7 +25,12 @@
           <ul class="list-style-square fs-6 ms-2 mt-2">
             <li>客服人員服務時間為早上 10:00 - 晚上 6:00</li>
             <li>選擇面交服務者請主動聯繫服務人員</li>
-            <li>購物相關問題請參閱  <router-link to="/shoppingnotice" class="d-inline-block text-decoration-underline link-hover-accent">購物說明</router-link> </li>
+            <li>購物相關問題請參閱
+              <RouterLink to="/shoppingnotice"
+                class="d-inline-block text-decoration-underline link-hover-accent">
+                購物說明
+              </RouterLink>
+            </li>
           </ul>
         </div>
       </div>

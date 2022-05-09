@@ -3,7 +3,10 @@
     <div class="row g-0">
       <div class="col-4 col-md-12 pos-relative">
         <div class="card-img-text-hover card__img__hover__scale overflow-hidden">
-          <img :src="product.imageUrl" class="img-fluid h-lg-17 h-md-13 h-9 ratio ratio-1x1" :alt="product.title">
+          <img
+            :src="product.imageUrl"
+            class="img-fluid h-lg-17 h-md-13 h-9 ratio ratio-1x1"
+            :alt="product.title">
           <a class="stretched-link z-index-4" type="button" @click="getProduct(product.id)"></a>
         </div>
       </div>
@@ -14,8 +17,17 @@
             <p class="w-33">{{product.price}} / {{product.unit}}</p>
           </div>
           <div class="button-group d-flex justify-content-between mt-md-2">
-            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-30" @click="getProduct(product.id)">查看更多</button>
-            <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50" @click="addToCart(product.id)" :disabled="isLoadingItem === product.id">加入購物車</button>
+            <button type="button"
+              class="btn btn-outline-dark rounded-0 w-lg-30"
+              @click="getProduct(product.id)">
+              查看更多
+            </button>
+            <button type="button"
+              class="btn btn-outline-dark rounded-0 w-lg-50"
+              @click="addToCart(product.id)"
+              :disabled="isLoadingItem === product.id">
+              加入購物車
+            </button>
           </div>
         </div>
       </div>
@@ -56,7 +68,6 @@ export default {
       this.$http.post(url, { data })
         .then(res => {
           alert(res.data.message)
-          console.log(productNow)
           this.qty = 1
           this.getCart()
           this.isLoadingItem = ''
@@ -69,7 +80,7 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
         .then(res => {
-          this.cartData = res.data.data // data 裡有兩層，要存到最後一個 data
+          this.cartData = res.data.data
           emitter.emit('push-num', this.cartData.carts.length)
         })
         .catch(function (err) {

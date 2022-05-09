@@ -36,10 +36,10 @@
       </tbody>
     </table>
     <CouponModal
-    :coupon="tempCoupon"
-    ref="couponModal"
-    @update-coupon="updateCoupon"
-    :is-new="isNew"
+      :coupon="tempCoupon"
+      ref="couponModal"
+      @update-coupon="updateCoupon"
+      :is-new="isNew"
     />
     <RemoveModal ref="removeModal" :item="tempCoupon" @del-item="removeCoupon" />
     <Pagination :pages="pagination" @emit-pages="getCoupons" />
