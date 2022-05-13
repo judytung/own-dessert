@@ -50,7 +50,11 @@
   <div class="container mt-1">
     <ul class="row">
       <li class="col-md-4 px-lg-11 p-md-2" v-for="product in products" :key="product.id">
-        <CardView :product="product" ref="card" />
+        <CardView
+        :product="product"
+        :isFavorite="favoriteData"
+        @favoriteItem="toggleFavorite"
+        ref="card" />
       </li>
     </ul>
   </div>
@@ -65,7 +69,9 @@ export default {
   },
   data () {
     return {
-      products: []
+      products: [],
+      favoriteData: JSON.parse(localStorage.getItem('favorite')) || [],
+      isFavorite: ''
     }
   },
   methods: {
@@ -83,6 +89,22 @@ export default {
         .catch((err) => {
           alert(err.response.data.message)
         })
+    },
+    toggleFavorite (id) {
+      const favoriteIndex = this.favoriteData.findIndex(item => item === id)
+      if (favoriteIndex === -1) {
+        this.favoriteData.push(id)
+      } else {
+        this.favoriteData.splice(favoriteIndex, 1)
+      }
+    }
+  },
+  watch: {
+    favoriteData: {
+      handler () {
+        localStorage.setItem('favorite', JSON.stringify(this.favoriteData))
+      },
+      deep: true
     }
   },
   mounted () {

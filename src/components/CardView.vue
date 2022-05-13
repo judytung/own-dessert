@@ -12,7 +12,7 @@
       </div>
       <div class="col-8 col-md-12">
         <div class="card-body p-md-0  h-100 d-flex flex-column justify-content-between">
-          <div class="d-lg-flex mt-2 mt-md-1 align-items-center">
+          <div class="d-lg-flex  mt-md-1 align-items-center">
             <h3 class="card-title fs-4 fw-normal me-2 fw-light">{{ product.title }}</h3>
             <p class="w-33">{{product.price}} / {{product.unit}}</p>
           </div>
@@ -38,9 +38,11 @@
             <button
               type="button"
               class="btn border-0"
-              @click="saveFavorite()"
+              @click="$emit('favoriteItem',product.id)"
               >
-              <i class="bi bi-heart fs-3"></i>
+              <i class="bi bi-heart-fill fs-3"
+                 v-if="isFavorite.includes(product.id)"></i>
+              <i class="bi bi-heart fs-3" v-else></i>
             </button>
             <button type="button"
               class="btn btn-outline-dark rounded-0 w-lg-30 py-s px-m"
@@ -58,7 +60,7 @@
 import emitter from '@/libs/emitter'
 
 export default {
-  props: ['product'],
+  props: ['product', 'isFavorite'],
   data () {
     return {
       cartData: {
@@ -68,6 +70,7 @@ export default {
       qty: 1
     }
   },
+  emits: ['favoriteItem'],
   methods: {
     addToCart (id, qty = 1) {
       const data = {
