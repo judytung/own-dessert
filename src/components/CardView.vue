@@ -16,8 +16,8 @@
             <h3 class="card-title fs-4 fw-normal me-2 fw-light">{{ product.title }}</h3>
             <p class="w-33">{{product.price}} / {{product.unit}}</p>
           </div>
-          <div class="button-group d-flex justify-content-between mt-md-2">
-            <button type="button"
+          <div class="button-group d-flex justify-content-between mt-md-1">
+            <!-- <button type="button"
               class="btn btn-outline-dark rounded-0 w-lg-30"
               @click="getProduct(product.id)">
               查看更多
@@ -27,6 +27,25 @@
               @click="addToCart(product.id)"
               :disabled="isLoadingItem === product.id">
               加入購物車
+            </button> -->
+            <button
+              type="button"
+              class="btn border-0"
+              @click="addToCart(product.id)"
+            >
+              <i class="bi bi-cart2 fs-3"></i>
+            </button>
+            <button
+              type="button"
+              class="btn border-0"
+              @click="saveFavorite()"
+              >
+              <i class="bi bi-heart fs-3"></i>
+            </button>
+            <button type="button"
+              class="btn btn-outline-dark rounded-0 w-lg-30 py-s px-m"
+              @click="getProduct(product.id)">
+              查看更多
             </button>
           </div>
         </div>
