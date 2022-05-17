@@ -17,17 +17,6 @@
             <p class="w-33">{{product.price}} / {{product.unit}}</p>
           </div>
           <div class="button-group d-flex justify-content-between mt-md-1">
-            <!-- <button type="button"
-              class="btn btn-outline-dark rounded-0 w-lg-30"
-              @click="getProduct(product.id)">
-              查看更多
-            </button>
-            <button type="button"
-              class="btn btn-outline-dark rounded-0 w-lg-50"
-              @click="addToCart(product.id)"
-              :disabled="isLoadingItem === product.id">
-              加入購物車
-            </button> -->
             <button
               type="button"
               class="btn border-0"

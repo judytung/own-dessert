@@ -7,14 +7,14 @@
     </div>
     <table class="table mt-3">
       <thead>
-      <tr>
-        <th>名稱</th>
-        <th>折扣百分比</th>
-        <th>優惠碼</th>
-        <th>到期日</th>
-        <th>是否啟用</th>
-        <th>編輯</th>
-      </tr>
+        <tr>
+          <th>名稱</th>
+          <th>折扣百分比</th>
+          <th>優惠碼</th>
+          <th>到期日</th>
+          <th>是否啟用</th>
+          <th>編輯</th>
+        </tr>
       </thead>
       <tbody>
         <tr v-for="(item, key) in coupons" :key="key">

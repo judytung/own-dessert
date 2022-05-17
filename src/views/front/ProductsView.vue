@@ -62,6 +62,7 @@
 
 <script>
 import CardView from '@/components/CardView.vue'
+import emitter from '@/libs/emitter'
 
 export default {
   components: {
@@ -103,6 +104,7 @@ export default {
     favoriteData: {
       handler () {
         localStorage.setItem('favorite', JSON.stringify(this.favoriteData))
+        emitter.emit('favoriteData', this.favoriteData)
       },
       deep: true
     }

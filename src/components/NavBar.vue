@@ -49,11 +49,66 @@
             </RouterLink>
           </li>
           <li class="px-4">
-            <RouterLink to="/admin/products">
-              <i class="bi bi-person-fill fs-3 nav-hover d-flex align-items-center"></i>
-            </RouterLink>
+            <a class="hvr-bob pos-relative">
+              <i class="bi bi-heart-fill fs-3"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">
+              </i>
+              <span
+                v-if="favoriteData.length > 0"
+                class="
+                  badge
+                  rounded-pill
+                  bg-accent
+                  pos-absolute
+                  start-50
+                  opacity-90">
+                {{ favoriteData.length }}
+              </span>
+            </a>
           </li>
         </ul>
+      </div>
+      <div class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+        ref="offcanvas">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">我的收藏</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <table class="table align-middle" v-if="favoriteData.length > 0">
+            <thead>
+              <tr>
+                <th>商品</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in filterFavorite" :key="item.id">
+                <td>
+                  <div :style="{ backgroundImage: `url(${item.imageUrl})` }" class="h-6.25 background-size-cover background-position-center"></div>
+                </td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.price }}元 / {{ item.unit }}</td>
+                <td>
+                  <button type="button"
+                    class="btn btn-outline-danger btn-sm"
+                    @click="delFavorite(item.id)"
+                    :disabled="isLoadingItem === item.id">
+                    x
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div v-else class="text-center">
+            <p class="mb-4">目前沒有收藏商品</p>
+            <button to="/products" type="button" class="btn btn-accent p-2" @click="toProducts">快看看有沒有喜歡的</button>
+          </div>
+        </div>
       </div>
       <div class="d-md-block d-lg-none">
         <div class="d-flex">
@@ -79,9 +134,24 @@
               </RouterLink>
             </li>
             <li class="px-2">
-              <RouterLink to="/admin/products">
-                <i class="bi bi-person-fill fs-3 nav-hover"></i>
-              </RouterLink>
+              <a class="pos-relative">
+                <i class="bi bi-heart-fill fs-3"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight">
+                </i>
+                <span
+                  v-if="favoriteData.length > 0"
+                  class="
+                    badge
+                    rounded-pill
+                    bg-accent
+                    pos-absolute
+                    start-50
+                    opacity-90">
+                  {{ favoriteData.length }}
+                </span>
+              </a>
             </li>
           </ul>
           <a
@@ -147,7 +217,10 @@ export default {
   data () {
     return {
       cartNum: 0,
-      isShow: false
+      favNum: 0,
+      isShow: false,
+      products: [],
+      favoriteData: []
     }
   },
   methods: {
@@ -160,6 +233,39 @@ export default {
         .catch(function (err) {
           alert(err.response.data.message)
         })
+    },
+    getProducts () {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products`
+      this.$http.get(url)
+        .then(res => {
+          this.products = res.data.products
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
+    },
+    getFavorite () {
+      this.favoriteData = JSON.parse(localStorage.getItem('favorite')) || '[]'
+    },
+    toProducts () {
+      this.$router.push('/products')
+    },
+    delFavorite (id) {
+      const favoriteIndex = this.favoriteData.findIndex(item => item === id)
+      this.favoriteData.splice(favoriteIndex, 1)
+    }
+  },
+  computed: {
+    filterFavorite () {
+      return this.products.filter((item) => this.favoriteData.includes(item.id))
+    }
+  },
+  watch: {
+    favoriteData: {
+      handler () {
+        localStorage.setItem('favorite', JSON.stringify(this.favoriteData))
+      },
+      deep: true
     }
   },
   mounted () {
@@ -175,7 +281,12 @@ export default {
     emitter.on('clear-cart', (num) => {
       this.cartNum = num
     })
+    emitter.on('favoriteData', (data) => {
+      this.favoriteData = data
+    })
     this.getCart()
+    this.getProducts()
+    this.getFavorite()
   }
 }
 

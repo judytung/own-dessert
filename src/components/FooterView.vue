@@ -23,8 +23,11 @@
               <a href="#" class="btn btn-outline-dark rounded-0" type="button">Facebook</a>
             </li>
           </ul>
-          <div class="col-6 footer-item d-md-flex justify-content-center">
+          <div class="col-6 footer-item d-md-flex justify-content-center align-items-center">
             <p class="fs-5 mt-2 mt-md-0">Copyright © 2022</p>
+            <RouterLink to="/admin/products">
+              <i class="bi bi-person-fill fs-3 nav-hover ms-3"></i>
+            </RouterLink>
           </div>
         </div>
       </footer>
