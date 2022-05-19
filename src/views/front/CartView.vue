@@ -86,14 +86,14 @@
               <th class="w-33">折扣金額</th>
               <td class="text-end"
                 v-if="Boolean(cartData.total - Math.round(total.final_total))">
-                {{  cartData.total -  Math.round(total.final_total) }}
+                {{  cartData.total -  Math.round(cartData.final_total) }}
               </td>
               <td class="text-end" v-else-if="cartData.carts?.length === 0 || true">{{ 0 }}</td>
             </tr>
             <tr>
               <th>總計</th>
               <td class="text-end" v-if="cartData.total === cartData.final_total || couponCode === ''">{{ cartData.total }}元</td>
-              <td class="text-end" v-else>{{ Math.round(total.final_total)}}元</td>
+              <td class="text-end" v-else>{{ Math.round(cartData.final_total)}}元</td>
             </tr>
           </tbody>
         </table>
@@ -212,6 +212,11 @@ export default {
           this.cartLength = res.data.data.carts.length
           emitter.emit('push-cart-num', this.cartLength)
           this.stepNum = 1
+          if (this.cartData.carts.length === 0) {
+            this.cartData.total = 0
+            this.cartData.final_total = 0
+            this.couponCode = ''
+          }
         })
         .catch((err) => {
           alert(err.response.data.message)
@@ -223,11 +228,6 @@ export default {
       this.$http.delete(url)
         .then(res => {
           alert(res.data.message)
-          if (this.cartData.carts.length === 0) {
-            this.cartData.total = ''
-            this.total.final_total = ''
-            this.couponCode = ''
-          }
           this.getCart()
           this.isLoadingItem = ''
         })
@@ -272,6 +272,8 @@ export default {
           this.getCart()
           this.isLoadingItem = ''
           this.couponCode = ''
+          this.cartData.total = ''
+          this.cartData.final_total = ''
           const delCartModal = this.$refs.delCart
           delCartModal.hideModal()
         })

@@ -21,6 +21,15 @@
           <select class="form-select rounded-0 w-33 me-2" v-model.number="qty">
             <option v-for="num in 30" :key="`${num}-${product.id}`">{{ num }}</option>
           </select>
+          <button
+              type="button"
+              class="btn border-0"
+              @click="toggleFavorite(product.id)"
+              >
+              <i class="bi bi-heart-fill fs-3"
+                v-if="favoriteData.includes(product.id)"></i>
+              <i class="bi bi-heart fs-3" v-else></i>
+            </button>
           <button type="button" class="btn btn-outline-dark rounded-0 w-lg-50"
           @click="addToCart(product.id)"
           :disabled="isLoadingItem === product.id">加入購物車</button>
@@ -64,7 +73,8 @@ export default {
       id: '',
       product: {},
       qty: 1,
-      isLoadingItem: ''
+      isLoadingItem: '',
+      favoriteData: JSON.parse(localStorage.getItem('favorite')) || []
     }
   },
   methods: {
@@ -137,6 +147,23 @@ export default {
     },
     routerPush (id) {
       this.$router.push(`/product/${id}`)
+    },
+    toggleFavorite (id) {
+      const favoriteIndex = this.favoriteData.findIndex(item => item === id)
+      if (favoriteIndex === -1) {
+        this.favoriteData.push(id)
+      } else {
+        this.favoriteData.splice(favoriteIndex, 1)
+      }
+    }
+  },
+  watch: {
+    favoriteData: {
+      handler () {
+        localStorage.setItem('favorite', JSON.stringify(this.favoriteData))
+        emitter.emit('favoriteProduct', this.favoriteData)
+      },
+      deep: true
     }
   },
   mounted () {

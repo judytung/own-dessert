@@ -74,7 +74,8 @@
         tabindex="-1"
         id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel"
-        ref="offcanvas">
+        ref="offcanvas"
+        >
         <div class="offcanvas-header">
           <h5 id="offcanvasRightLabel">我的收藏</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -106,7 +107,7 @@
           </table>
           <div v-else class="text-center">
             <p class="mb-4">目前沒有收藏商品</p>
-            <button to="/products" type="button" class="btn btn-accent p-2" @click="toProducts">快看看有沒有喜歡的</button>
+            <button to="/products" type="button" class="btn btn-accent p-2" @click="toProducts" data-bs-dismiss="offcanvas">快看看有沒有喜歡的</button>
           </div>
         </div>
       </div>
@@ -220,7 +221,8 @@ export default {
       favNum: 0,
       isShow: false,
       products: [],
-      favoriteData: []
+      favoriteData: [],
+      isVisible: false
     }
   },
   methods: {
@@ -249,6 +251,7 @@ export default {
     },
     toProducts () {
       this.$router.push('/products')
+      this.isVisible = !this.isVisible
     },
     delFavorite (id) {
       const favoriteIndex = this.favoriteData.findIndex(item => item === id)
@@ -282,6 +285,9 @@ export default {
       this.cartNum = num
     })
     emitter.on('favoriteData', (data) => {
+      this.favoriteData = data
+    })
+    emitter.on('favoriteProduct', (data) => {
       this.favoriteData = data
     })
     this.getCart()
