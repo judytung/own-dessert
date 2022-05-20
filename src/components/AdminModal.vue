@@ -241,7 +241,7 @@ export default {
           }
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     }
   },
