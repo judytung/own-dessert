@@ -219,7 +219,7 @@ export default {
           }
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     removeCartItem (id) {
@@ -227,12 +227,12 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${id}`
       this.$http.delete(url)
         .then(res => {
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.getCart()
           this.isLoadingItem = ''
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
       if (this.couponCode === true) {
         const couponUrl = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`
@@ -245,7 +245,7 @@ export default {
             this.getCart()
           })
           .catch(err => {
-            alert(err.response.data.message)
+            this.$httpMessageState(err.response, '錯誤訊息')
           })
       }
     },
@@ -257,18 +257,18 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`
       this.$http.put(url, { data })
         .then(res => {
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.getCart()
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     delCarts () {
       this.isLoadingItem = true
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/carts`
       this.$http.delete(url)
-        .then(res => {
+        .then(() => {
           this.getCart()
           this.isLoadingItem = ''
           this.couponCode = ''
@@ -278,7 +278,7 @@ export default {
           delCartModal.hideModal()
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     openDelCartModal () {
@@ -294,12 +294,12 @@ export default {
       this.$http.post(url, { data })
         .then(res => {
           this.total = res.data.data
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.getCart()
           this.isLoadingItem = false
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     isPhone (value) {
@@ -311,12 +311,12 @@ export default {
       const order = this.form
       this.$http.post(url, { data: order })
         .then(res => {
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.$router.push(`/checkout/${res.data.orderId}`)
           this.$refs.form.resetForm()
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     }
   },

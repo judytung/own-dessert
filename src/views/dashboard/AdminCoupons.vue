@@ -80,7 +80,7 @@ export default {
           this.coupons = res.data.coupons
           this.pagination = res.data.pagination
         }).catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     openCouponModal (status, item) {
@@ -107,7 +107,7 @@ export default {
           this.getCoupons()
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     updateCoupon (item) {
@@ -121,7 +121,7 @@ export default {
       }
       this.$http[http](url, { data })
         .then(res => {
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.getCoupons(this.pagination)
           this.$refs.couponModal.hideModal()
         })

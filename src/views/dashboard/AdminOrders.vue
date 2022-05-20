@@ -104,7 +104,7 @@ export default {
           this.pagination = res.data.pagination
         })
         .catch(err => {
-          alert(err.response.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     openOrderModal (status, item) {
@@ -127,12 +127,12 @@ export default {
       this.$http.put(url, { data: paid })
         .then(res => {
           const orderModal = this.$refs.orderModal
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.getOrders()
           orderModal.hideModal()
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     removeOrder () {
@@ -144,7 +144,7 @@ export default {
           this.getOrders()
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     }
   },

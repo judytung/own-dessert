@@ -88,7 +88,7 @@ export default {
           this.products = res.data.products
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     toggleFavorite (id) {

@@ -138,7 +138,7 @@ export default {
           this.APIData = res.data.products.slice(0, 4)
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     routerPush (id) {

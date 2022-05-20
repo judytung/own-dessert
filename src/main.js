@@ -10,11 +10,14 @@ import App from './App.vue'
 import router from './router'
 import { date, currency } from './methods/filters'
 
+import $httpMessageState from './methods/pushMessageState.js'
+
 const app = createApp(App)
 app.config.globalProperties.$filters = {
   date,
   currency
 }
+app.config.globalProperties.$httpMessageState = $httpMessageState
 
 app.use(router)
 app.use(VueAxios, axios) // 順序不能顛倒

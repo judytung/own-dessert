@@ -45,10 +45,11 @@ export default {
         .then((res) => {
           const { token, expired } = res.data
           document.cookie = `hexToken=${token}; expires=${new Date(expired)}`
+          this.$httpMessageState(res, '登入')
           this.$router.push('/admin/products')
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
           this.user.password = ''
         })
     }

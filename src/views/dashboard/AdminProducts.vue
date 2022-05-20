@@ -110,7 +110,7 @@ export default {
           this.pagination = res.data.pagination
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     openModal (status, item) {
@@ -145,7 +145,7 @@ export default {
       const modalcomponent = this.$refs.AdminModal
       this.$http[http](url, { data: this.tempProduct })
         .then(res => {
-          alert(res.data.message)
+          this.$httpMessageState(res, res.data.message)
           this.getProducts()
           modalcomponent.hideModal()
         })
@@ -159,7 +159,7 @@ export default {
           this.getProducts(this.pagination)
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     }
   },

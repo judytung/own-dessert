@@ -78,13 +78,13 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.post(url, { data })
         .then(res => {
-          alert(res.data.message)
+          this.$httpMessageState(res, '加入購物車')
           this.qty = 1
           this.getCart()
           this.isLoadingItem = ''
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     getCart () {
@@ -95,7 +95,7 @@ export default {
           emitter.emit('push-num', this.cartData.carts.length)
         })
         .catch(function (err) {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     getProduct (id) {

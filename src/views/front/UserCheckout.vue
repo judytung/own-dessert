@@ -89,7 +89,7 @@ export default {
           this.order = res.data.order
           this.stepNum = 2
         }).catch((err) => {
-          alert(err.response.data.message)
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     },
     payOrder () {
@@ -99,17 +99,17 @@ export default {
         this.$router.push('/payfinished')
         this.getCart()
       }).catch((err) => {
-        alert(err.response.data.message)
+        this.$httpMessageState(err.response, '錯誤訊息')
       })
     },
     getCart () {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`
       this.$http.get(url)
-        .then(res => {
+        .then(() => {
           emitter.emit('clear-cart', {})
         })
-        .catch(function (err) {
-          alert(err.response.data.message)
+        .catch((err) => {
+          this.$httpMessageState(err.response, '錯誤訊息')
         })
     }
   },
