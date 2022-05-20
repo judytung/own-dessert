@@ -395,6 +395,7 @@ $spacers: (
   10: $spacer * 5,    //80
   11: $spacer * 5.5,  //88
   13: $spacer * 6.5,  //104
+  18: $spacer * 9,  //144
 ) !default;
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 // scss-docs-end spacer-variables-maps

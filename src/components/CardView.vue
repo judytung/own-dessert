@@ -22,7 +22,7 @@
               class="btn border-0"
               @click="addToCart(product.id)"
             >
-              <i class="bi bi-cart2 fs-3"></i>
+              <i class="bi bi-cart2 fs-3 hvr-bob"></i>
             </button>
             <button
               type="button"

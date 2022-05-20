@@ -47,9 +47,9 @@
     </nav>
   </div>
   <RouterView />
-  <div class="container mt-1">
-    <ul class="row">
-      <li class="col-md-4 px-lg-11 p-md-2" v-for="product in products" :key="product.id">
+  <div class="container mt-1 overflow-hidden">
+    <ul class="row gx-lg-18 px-lg-7">
+      <li class="col-md-4" v-for="product in products" :key="product.id">
         <CardView
         :product="product"
         :isFavorite="favoriteData"
