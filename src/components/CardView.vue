@@ -22,16 +22,16 @@
               class="btn border-0"
               @click="addToCart(product.id)"
             >
-              <i class="bi bi-cart2 fs-3 hvr-bob"></i>
+              <i class="bi bi-cart2 fs-3 hvr-bob d-flex align-items-end"></i>
             </button>
             <button
               type="button"
               class="btn border-0"
               @click="$emit('favoriteItem',product.id)"
               >
-              <i class="bi bi-heart-fill fs-3"
+              <i class="bi bi-heart-fill fs-3 d-flex align-items-end"
                  v-if="isFavorite.includes(product.id)"></i>
-              <i class="bi bi-heart fs-3" v-else></i>
+              <i class="bi bi-heart fs-3 d-flex align-items-end" v-else></i>
             </button>
             <button type="button"
               class="btn btn-outline-dark rounded-0 w-lg-30 py-s px-m"

@@ -5,7 +5,7 @@
       <a href="#productView" class="ani-arrow p-0">
         <i class="bi bi-caret-down-fill fs-1"></i>
       </a>
-      <section class="pt-9 row" id="productView">
+      <section class="pt-9 text-center row" id="productView">
         <h2 class="mb-4 lh-sm">Products ></h2>
         <div class="col-lg-6 pos-relative mb-2">
           <div class="card card-img-text-hover card__img__hover__scale overflow-hidden">
@@ -55,7 +55,7 @@
         <p class="fs-4 fs-md-2 pos-absolute start-md-33 start-16">讓甜點變成你的日常</p>
         <p class="fs-4 fs-md-2 pos-absolute top-45 top-md-50 start-md-50 start-33">是我們的初衷 ── </p>
       </section>
-      <section class="row mt-2 pb-8 mt-md-4">
+      <section class=" mt-2 pb-8 mt-md-4">
         <h2 class="mb-4 lh-sm">最新商品 ></h2>
         <Swiper
           :breakpoints="swiperOptions.breakpoints"

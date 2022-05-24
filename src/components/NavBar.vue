@@ -1,7 +1,7 @@
 <template>
   <div class="container overflow-hidden">
     <header class="d-flex justify-content-between align-items-end pos-relative">
-      <div class="d-none d-lg-block">
+      <div class="nav-400p d-none d-lg-block">
         <ul class="d-flex">
           <li class="px-4">
             <RouterLink  class="nav-hover" to="/products">甜點</RouterLink>
@@ -21,7 +21,7 @@
           >
         </h1>
       </div>
-      <div class="d-none d-lg-block">
+      <div class="d-none d-lg-block nav-400p">
         <ul class="d-flex align-items-end">
           <li class="px-4">
             <RouterLink class="nav-hover" to="/shoppingnotice"
