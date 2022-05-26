@@ -1,53 +1,44 @@
 <template>
-  <div class="mt-2 pos-relative">
-    <div class="d-block d-md-none">
-      <img src="https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80" alt="lemon">
-    </div>
-    <div class="d-none d-md-block">
-      <ul class="row g-0">
-        <li class="col-md-4">
-          <img src="https://images.unsplash.com/photo-1587486937303-32eaa2134b78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80" alt="lemon" class="h-10 h-lg-17 float-end">
+  <div class="mt-4 mb-8 bg-accent">
+    <div class="container">
+      <ul class="d-flex justify-content-md-evenly text-center flex-wrap">
+        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left" active-calss="active" aria-current="page">
+            <RouterLink to="/products"
+              @click="getProducts()"
+              class="px-2 py-ms text-light">
+              <span class="productNav-icon-1 d-inline-block align-bottom"></span>
+              全部
+            </RouterLink>
         </li>
-        <li class="col-md-2">
+        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left">
+          <a type="button"
+            class="px-2 py-ms text-light rounded-0"
+            @click="getProducts('madeleine')">
+            <span class="productNav-icon-2 d-inline-block align-bottom"></span>
+            瑪德蓮
+          </a>
         </li>
-        <li class="col-md-3">
-          <img src="https://images.unsplash.com/photo-1587486937407-34f64d78e270?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="chocolate" class="h-10 h-lg-17 ">
+        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left">
+          <a type="button"
+            class="px-2 py-ms text-light rounded-0"
+            @click="getProducts('pound-cake')">
+            <span class="productNav-icon-3 d-inline-block align-bottom"></span>
+            磅蛋糕
+          </a>
         </li>
-        <li class="col-md-3">
-        </li>
-        <li class="col-md-4">
-        </li>
-        <li class="col-md-3">
-          <img src="https://images.unsplash.com/photo-1587049016823-69ef9d68bd44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="coffee bean" class="h-10 h-lg-17 ">
-        </li>
-        <li class="col-md-1">
-        </li>
-        <li class="col-md-4">
-          <img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="egg" class="h-10 h-lg-17">
+        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left">
+          <a type="button"
+            class="px-2 py-ms text-light rounded-0"
+            @click="getProducts('others')">
+            <span class="productNav-icon-4 d-inline-block align-bottom"></span>
+            其他
+          </a>
         </li>
       </ul>
     </div>
   </div>
-  <div class="container mt-md-4 mt-3">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb fs-5">
-        <li class="breadcrumb-item" active-calss="active" aria-current="page">
-          <RouterLink to="/products" @click="getProducts" class="mt-xs">全部商品</RouterLink>
-        </li>
-        <li class="breadcrumb-item">
-          <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('madeleine')">瑪德蓮</button>
-        </li>
-        <li class="breadcrumb-item">
-          <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('pound-cake')">磅蛋糕</button>
-        </li>
-        <li class="breadcrumb-item">
-          <button type="button" class="px-1 btn py-0 fs-5" @click="getProducts('others')">其他</button>
-        </li>
-      </ol>
-    </nav>
-  </div>
   <RouterView />
-  <div class="container mt-1 overflow-hidden">
+  <div class="container mt-1 pb-4 pb-md-8 overflow-hidden">
     <ul class="row gx-lg-18 px-lg-7">
       <li class="col-md-4" v-for="product in products" :key="product.id">
         <CardView

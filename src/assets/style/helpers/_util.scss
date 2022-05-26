@@ -164,5 +164,13 @@ $utilities:map-merge(
         100: 1,
       )
     ),
+    "writing-mode": (
+      property: writing-mode,
+      responsive: true,
+      class: wm,
+      values: (
+        vrl: vertical-rl
+      )
+    )
   )
 )

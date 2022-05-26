@@ -4,7 +4,7 @@
       <footer class="pos-relative">
         <h2 class="footer-title pos-absolute end-lg-43 end-md-38 end-32">Own Dessert</h2>
         <div class="footer-body row justify-content-md-between">
-          <ul class="col-6 footer-item d-md-flex justify-content-center">
+          <ul class="col-6 footer-item d-md-flex justify-content-center align-items-center">
             <li class="px-ms">
               <RouterLink to="/products" class="nav-hover">商品列表</RouterLink>
             </li>

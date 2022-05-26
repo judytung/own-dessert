@@ -19,6 +19,11 @@
   color:$gray-600 ;
 }
 
+.hvr-underline-from-left:before {
+  background: #CE9E79;
+  bottom: -4px;
+}
+
 .hvr-sweep-to-right {
   transition-duration: 1s;
     &:before {
