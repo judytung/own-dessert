@@ -2,15 +2,15 @@
   <div class="container overflow-hidden">
     <header class="d-flex justify-content-between align-items-end pos-relative">
       <div class="nav-400p d-none d-lg-block">
-        <ul class="d-flex">
+        <ul class="d-flex justify-content-evenly">
           <li class="px-4">
-            <RouterLink  class="nav-hover" to="/products">甜點</RouterLink>
+            <router-link class="nav-hover" to="/products">甜點</router-link>
           </li>
           <li class="px-4">
-            <RouterLink class="nav-hover" to="/about">關於我們</RouterLink>
+            <router-link class="nav-hover" to="/about">關於我們</router-link>
           </li>
           <li class="px-4">
-            <RouterLink class="nav-hover" to="/contact">聯絡我們</RouterLink>
+            <router-link class="nav-hover" to="/contact">聯絡我們</router-link>
           </li>
         </ul>
       </div>
@@ -22,10 +22,10 @@
         </h1>
       </div>
       <div class="d-none d-lg-block nav-400p">
-        <ul class="d-flex align-items-end">
+        <ul class="d-flex align-items-end justify-content-evenly">
           <li class="px-4">
-            <RouterLink class="nav-hover" to="/shoppingnotice"
-              >購物說明</RouterLink
+            <router-link class="nav-hover" to="/shoppingnotice"
+              >購物說明</router-link
             >
           </li>
           <li class="px-4">
