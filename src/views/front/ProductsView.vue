@@ -15,7 +15,7 @@
             </RouterLink>
         </li>
         <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
-          <a type="button"
+          <a
             class="nav-link px-2 py-2 text-light rounded-0"
             @click="getProducts('madeleine')"
             data-bs-toggle="pill"
@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
-          <a type="button"
+          <a
             class="nav-link px-2 py-2 text-light rounded-0"
             @click="getProducts('pound-cake')"
             data-bs-toggle="pill"
@@ -41,7 +41,7 @@
           </a>
         </li>
         <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
-          <a type="button"
+          <a
             class="nav-link px-2 py-2 text-light rounded-0"
             @click="getProducts('others')"
             data-bs-toggle="pill"
