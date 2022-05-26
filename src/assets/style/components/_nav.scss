@@ -1,8 +1,15 @@
 .logo {
+  @include media-breakpoint-up(lg) {
+    @include  text-hide {
+      width: 118px;
+      height: 125px;
+      background-image: url('../src/assets/images/logo.png');
+    }
+  }
   @include  text-hide {
-    width: 118px;
-    height: 125px;
-    background-image: url('../src/assets/images/logo.png');
+    background-image: url('../src/assets/images/logo-s.png');
+    width: 128px;
+    height: 40px;
   }
 }
 

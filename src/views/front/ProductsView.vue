@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-1 mt-md-4 mb-8 bg-accent">
+  <div class="mt-2 mt-md-4 mb-8 bg-accent">
       <ul class="nav nav-pills d-flex justify-content-md-evenly text-center flex-wrap" role="tablist">
         <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
             <RouterLink to="/products"
