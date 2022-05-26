@@ -161,7 +161,7 @@
             role="button"
             aria-expanded="false"
             aria-controls="collapseExample"
-            class="d-block"
+            class="d-flex align-items-end px-2"
             @click="isShow = true"
           >
             <i class="bi bi-list fs-4"></i>

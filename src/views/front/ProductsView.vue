@@ -14,7 +14,7 @@
               全部
             </RouterLink>
         </li>
-        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left cursor-pointer" role="presentation">
           <a
             class="nav-link px-2 py-2 text-light rounded-0"
             @click="getProducts('madeleine')"
@@ -27,7 +27,7 @@
             瑪德蓮
           </a>
         </li>
-        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left cursor-pointer" role="presentation">
           <a
             class="nav-link px-2 py-2 text-light rounded-0"
             @click="getProducts('pound-cake')"
@@ -40,7 +40,7 @@
             磅蛋糕
           </a>
         </li>
-        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left cursor-pointer" role="presentation">
           <a
             class="nav-link px-2 py-2 text-light rounded-0"
             @click="getProducts('others')"
