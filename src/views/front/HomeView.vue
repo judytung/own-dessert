@@ -65,7 +65,7 @@
           :autoplay="{ delay: 3000 }"
           class="h-18.75 pt-2">
           <SwiperSlide v-for="img in APIData" :key="img.id">
-            <div class="pos-relative">
+            <div class="pos-relative cursor-pointer">
               <div class="card hvr-bob">
                 <img :src="img.imageUrl" :alt="img.title" class="h-12.5">
                 <h3 class="fs-6 fw-normal text-center mt-1">{{ img.title }}</h3>

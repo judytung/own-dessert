@@ -49,7 +49,7 @@
             </RouterLink>
           </li>
           <li class="px-4">
-            <a class="hvr-bob pos-relative">
+            <a class="hvr-bob pos-relative cursor-pointer">
               <i class="bi bi-heart-fill fs-3"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasRight"

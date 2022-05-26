@@ -1,42 +1,60 @@
 <template>
-  <div class="mt-4 mb-8 bg-accent">
-    <div class="container">
-      <ul class="d-flex justify-content-md-evenly text-center flex-wrap">
-        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left" active-calss="active" aria-current="page">
+  <div class="mt-1 mt-md-4 mb-8 bg-accent">
+      <ul class="nav nav-pills d-flex justify-content-md-evenly text-center flex-wrap" role="tablist">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
             <RouterLink to="/products"
               @click="getProducts()"
-              class="px-2 py-ms text-light">
+              class="nav-link px-2 py-2 text-light active"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true">
               <span class="productNav-icon-1 d-inline-block align-bottom"></span>
               全部
             </RouterLink>
         </li>
-        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
           <a type="button"
-            class="px-2 py-ms text-light rounded-0"
-            @click="getProducts('madeleine')">
+            class="nav-link px-2 py-2 text-light rounded-0"
+            @click="getProducts('madeleine')"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-home"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true">
             <span class="productNav-icon-2 d-inline-block align-bottom"></span>
             瑪德蓮
           </a>
         </li>
-        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
           <a type="button"
-            class="px-2 py-ms text-light rounded-0"
-            @click="getProducts('pound-cake')">
+            class="nav-link px-2 py-2 text-light rounded-0"
+            @click="getProducts('pound-cake')"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-home"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true">
             <span class="productNav-icon-3 d-inline-block align-bottom"></span>
             磅蛋糕
           </a>
         </li>
-        <li class="px-0 py-1 w-50 w-md-16 hvr-underline-from-left">
+        <li class="nav-item px-0 w-50 w-md-16 hvr-underline-from-left" role="presentation">
           <a type="button"
-            class="px-2 py-ms text-light rounded-0"
-            @click="getProducts('others')">
+            class="nav-link px-2 py-2 text-light rounded-0"
+            @click="getProducts('others')"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-home"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true">
             <span class="productNav-icon-4 d-inline-block align-bottom"></span>
             其他
           </a>
         </li>
       </ul>
     </div>
-  </div>
   <RouterView />
   <div class="container mt-1 pb-4 pb-md-8 overflow-hidden">
     <ul class="row gx-lg-18 px-lg-7">

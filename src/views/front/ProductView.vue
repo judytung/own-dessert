@@ -42,7 +42,7 @@
       <div class="mt-10">
         <h3>你可能會喜歡 ></h3>
         <ul class="row mt-4 g-1 g-lg-3">
-          <li v-for="item in recData" :key="item.id" class="col-6 col-md-3 mb-4 mb-md-0">
+          <li v-for="item in recData" :key="item.id" class="col-6 col-md-3 mb-4 mb-md-0 cursor-pointer">
             <div class="pos-relative">
               <div class="card hvr-bob">
                 <img :src="item.imageUrl" :alt="item.title" class="h-15">

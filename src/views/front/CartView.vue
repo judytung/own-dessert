@@ -74,7 +74,7 @@
                 <input type="text" class="form-control" id="getCode" v-model="couponCode">
                 <button
                   type="button"
-                  class="input-group-text"
+                  class="input-group-text cursor-pointer"
                   aria-describedby="getCode"
                   @click="sendCoupon"
                   :disabled="isLoadingItem === true || couponCode === ''">

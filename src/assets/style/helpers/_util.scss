@@ -171,6 +171,12 @@ $utilities:map-merge(
       values: (
         vrl: vertical-rl
       )
+    ),
+    "cursor": (
+      property: cursor,
+      values: (
+        pointer: pointer
+      )
     )
   )
 )
