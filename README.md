@@ -1,24 +1,11 @@
-# project
+<h1>own-dessert 甜點</h1>
 
-## Project setup
-```
-npm install
-```
+* 使用 Vue CLI 開發的專案
+* BootStrap 5 開發 RWD 模式
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+***
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<h2>頁面介紹</h2>
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* 首頁
+![首頁圖片](https://upload.cc/i1/2022/05/29/EpcJNd.png)
